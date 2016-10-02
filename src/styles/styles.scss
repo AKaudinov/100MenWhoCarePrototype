@@ -1,0 +1,77 @@
+$coYellow: #FFD700;
+$coRed: #BF0A30;
+$coBlue: #002868;
+$coWhite: #FFFFFF;
+
+#app {
+  font: 15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  min-width: 350px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.logo {
+  max-height: 30px;
+}
+
+.navbar {
+  background-color:#002868;
+    a {
+      color: $coWhite;
+    }
+  a.active{
+    color:$coYellow;
+  }
+  a:hover{
+    color:$coYellow;
+  }
+  margin-top: 2px;
+  margin-bottom: 5px;
+  button {
+    border: none;
+    outline: 0;
+    color:#FFD700;
+  }
+}
+
+@media(max-width: 767px) {
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+  #navContent {
+    clear: both;
+  }
+}
+
+@mixin btn-transition($seconds) {
+  -webkit-transition: $seconds ease;
+  -moz-transition: $seconds ease;
+  -o-transition: $seconds ease;
+  transition: $seconds ease;
+}
+
+.btn {
+  border: none;
+  @include btn-transition(0.5s);
+}
+
+#toAbout:hover {
+  background-color: #a4a757;
+}
+
+#toHome:hover {
+  background-color: #88abcf;
+}
+
+#carousel-home {
+  .carousel-indicators{
+    top: 0;
+  }
+}
+
+.carousel-item{
+  img{
+    margin: 0 auto;
+  }
+}
+
