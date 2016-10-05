@@ -112,8 +112,24 @@ html, body{
 }
 //video section styles end
 
-//navbar header responsiveness
+
+//footer styles
+.horizontal-footer-break{
+  margin-top: 50px;
+}
+
+.watermark{
+  font-style: oblique;
+  font-size: 12px;
+  text-align: center;
+}
+//footer styles end
+
+
+
+
 @media(max-width: 767px) {
+  //navbar header responsiveness
   .navbar-nav .nav-item + .nav-item {
     margin-left: 0;
     padding-left:0;
@@ -121,8 +137,17 @@ html, body{
   #navContent {
     clear: both;
   }
+  //navbar header responsiveness
+
+  //footer responsiveness
+  .horizontal-footer-break{
+    margin-top: 20px;
+  }
+  //footer responsiveness end
 }
-//navbar header responsiveness
+
+
+
 
 @media screen and(max-width: 480px){
   //jumbotron responsiveness

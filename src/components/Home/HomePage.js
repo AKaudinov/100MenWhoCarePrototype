@@ -5,11 +5,12 @@ class HomePage extends React.Component {
     render() {
         return (
             <div>
+
                 <div id="carousel-home" className="carousel slide" data-ride="carousel">
                     <ol className="carousel-indicators">
-                        <li data-target="#carousel-home" data-slide-to="0" className="active"></li>
-                        <li data-target="#carousel-home" data-slide-to="1"></li>
-                        <li data-target="#carousel-home" data-slide-to="2"></li>
+                        <li data-target="#carousel-home" data-slide-to="0" className="active"/>
+                        <li data-target="#carousel-home" data-slide-to="1"/>
+                        <li data-target="#carousel-home" data-slide-to="2"/>
                     </ol>
                     <div className="carousel-inner" role="listbox">
 
@@ -38,15 +39,16 @@ class HomePage extends React.Component {
                         </div>
 
                         <a className="left carousel-control" href="#carousel-home" role="button" data-slide="prev">
-                            <span className="icon-prev" aria-hidden="true"></span>
+                            <span className="icon-prev" aria-hidden="true"/>
                             <span className="sr-only">Previous</span>
                         </a>
                         <a className="right carousel-control" href="#carousel-home" role="button" data-slide="next">
-                            <span className="icon-next" aria-hidden="true"></span>
+                            <span className="icon-next" aria-hidden="true"/>
                             <span className="sr-only">Next</span>
                         </a>
                     </div>
                 </div>
+
                 <div className="jumbotron home-info">
                     <div className="container">
                         <div className="row">
@@ -67,11 +69,12 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                 </div>
+
                 <div className="card-section card-group">
                     <div className="card">
                         <div className="yt-video1">
                             <iframe className="card-img-top" src="//www.youtube.com/embed/FG0fTKAqZ5g"
-                                    frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    frameBorder="0" allowFullScreen/>
                         </div>
                         <div className="card-block">
                             <h5 className="card-title">Space vision</h5>
@@ -84,7 +87,7 @@ class HomePage extends React.Component {
                     <div className="card">
                         <div className="yt-video2">
                             <iframe className="card-img-top" src="//www.youtube.com/embed/kBwBsaA8VdI"
-                                    frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    frameBorder="0" allowFullScreen/>
                         </div>
                         <div className="card-block">
                             <h5 className="card-title">Abrams tank</h5>
@@ -94,12 +97,12 @@ class HomePage extends React.Component {
                             </p>
                         </div>
                     </div>
+
                     <div className="card">
                         <div className="yt-video3">
                             <div className="yt-video3">
                                 <iframe className="card-img-top" src="//www.youtube.com/embed/xh49qn2cQNU"
-                                        frameborder="0" webkitallowfullscreen mozallowfullscreen
-                                        allowfullscreen></iframe>
+                                        frameBorder="0" allowFullScreen/>
                             </div>
                             <div className="card-block">
                                 <h5 className="card-title">F22 display</h5>
