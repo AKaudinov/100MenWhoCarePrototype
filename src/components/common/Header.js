@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
+import '../../styles/header.scss';
 
 const Header = () => {
     return (

@@ -1,0 +1,7 @@
+//buttons
+@mixin btn-transition($seconds) {
+  -webkit-transition: $seconds ease;
+  -moz-transition: $seconds ease;
+  -o-transition: $seconds ease;
+  transition: $seconds ease;
+}

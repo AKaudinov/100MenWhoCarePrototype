@@ -1,0 +1,20 @@
+//footer styles
+.horizontal-footer-break{
+  margin-top: 50px;
+}
+
+.watermark{
+  font-style: oblique;
+  font-size: 12px;
+  text-align: center;
+}
+//footer styles end
+
+
+@media(max-width: 767px) {
+  //footer responsiveness
+  .horizontal-footer-break{
+    margin-top: 20px;
+  }
+}
+//footer responsiveness end

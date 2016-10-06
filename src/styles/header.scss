@@ -1,0 +1,46 @@
+@import 'baseColors';
+
+//logo style
+.logo {
+  max-height: 30px;
+}
+//logo style end
+
+
+//navbar header styles
+.header {
+  a {
+    color: $coWhite;
+  }
+  .navbar-nav {
+    a.active {
+      color: $coYellow;
+    }
+    a:hover {
+      color: $coBlue;
+      background-color: $coYellow;
+    }
+    margin-top: 2px;
+    margin-bottom: 5px;
+  }
+  button {
+    border: none;
+    outline: 0;
+    color: #FFD700;
+  }
+}
+//navbar header styles end
+
+
+
+@media(max-width: 767px) {
+  //navbar header responsiveness
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+    padding-left:0;
+  }
+  #navContent {
+    clear: both;
+  }
+  //navbar header responsiveness
+}

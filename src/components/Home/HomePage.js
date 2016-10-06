@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import '../../styles/homepage.scss';
 
 class HomePage extends React.Component {
     render() {
@@ -49,7 +50,7 @@ class HomePage extends React.Component {
                     </div>
                 </div>
 
-                <div className="jumbotron home-info">
+                <div className="jumbotron home-info-jumbo">
                     <div className="container">
                         <div className="row">
                             <div className="jumbo-1 col-xs-12 col-md-4">
@@ -118,15 +119,4 @@ class HomePage extends React.Component {
         );
     }
 }
-
-//<div className="col-md-4 col-sm-4 col-xs-3 offset-lg-1 offset-md-1">
-
-//<div className="container-fluid">
-//    <div className="jumbotron">
-//        <h1>This is The home page</h1>
-//        <p>First Home page for testing</p>
-//        <Link to="about" className="btn btn-info btn-lg" id="toAbout">About</Link>
-//    </div>
-//</div>
-
 export default HomePage;

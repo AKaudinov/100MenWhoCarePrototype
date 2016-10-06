@@ -1,5 +1,6 @@
 import React from 'react';
 import {IndexLink} from 'react-router';
+import '../../styles/about.scss';
 
 class AboutPage extends React.Component {
     render() {
