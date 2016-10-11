@@ -38,7 +38,7 @@ export default {
             {
                 test: /\.scss$/,
                 include: path.resolve('src/styles'),
-                loader: extractSass.extract(['css','sass'])
+                loader: extractSass.extract(['css','postcss-loader','sass'])
             },
             {
                 test:/\.(woff|woff2|ttf|eot|ico|)?(\?v=\d+\.\d+\.\d+)?$/,

@@ -12,33 +12,37 @@ const Header = () => {
                 <button className="navbar-toggler hidden-md-up pull-xs-right" type="button" data-toggle="collapse"
                         data-target="#navContent"
                         aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i className="fa fa-bars"></i>
+                    <i className="fa fa-bars"/>
                 </button>
 
                 <div className="collapse navbar-toggleable-sm pull-md-right" id="navContent">
                     <ul className="nav navbar-nav">
                         <li className="nav-item">
-                            <IndexLink to="/" activeClassName="active" className="btn">
-                                <i className="fa fa-home"></i> Home</IndexLink>
+                            <div/>
+                                <IndexLink to="/" activeClassName="active" className="nav-link">
+                                    <i className="fa fa-home"/> Home</IndexLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="/about" activeClassName="active" className="btn">
-                                <i className="fa fa-info-circle"></i> About</Link>
+                            <div/>
+                            <Link to="/about" activeClassName="active" className="nav-link">
+                                <i className="fa fa-info-circle"/> About</Link>
                         </li>
                         <li className="nav-item">
-                            <a href="#" className="btn">
-                                <i className="fa fa-envelope"></i> Contact</a>
+                            <div/>
+                            <a href="#" className="nav-link">
+                                <i className="fa fa-envelope"/> Contact</a>
                         </li>
                         <li className="nav-item">
-                            <a href="#" className="btn">
-                                <i className="fa fa-calendar"></i> Events</a>
+                            <div/>
+                            <a href="#" className="nav-link">
+                                <i className="fa fa-calendar"/> Events</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
     );
-};
+    };
 
 
-export default Header;
+    export default Header;

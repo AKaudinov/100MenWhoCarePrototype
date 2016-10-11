@@ -50,21 +50,23 @@ class HomePage extends React.Component {
                     </div>
                 </div>
 
-                <div className="jumbotron home-info-jumbo">
-                    <div className="container">
-                        <div className="row">
-                            <div className="jumbo-1 col-xs-12 col-md-4">
-                                <h4>Home page example</h4>
-                                <p>Something here to say</p>
-                                <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
-                                    <Link to="about" className="btn btn-warning" id="toAbout">Learn more</Link>
+                <div className="home-info-jumbo">
+                    <div className="jumbotron">
+                        <div className="container">
+                            <div className="row">
+                                <div className="jumbo-1 col-xs-12 col-md-4">
+                                    <h4>Home page example</h4>
+                                    <p>Something here to say</p>
+                                    <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
+                                        <Link to="about" className="btn btn-warning" id="toAbout">Learn more</Link>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="jumbo-2 offset-md-4 offset-md-3 col-md-4 col-xs-12">
-                                <h4>Some other information</h4>
-                                <p>Something more to say here</p>
-                                <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
-                                    <a className="btn btn-warning" href="#">Some Info</a>
+                                <div className="jumbo-2 offset-md-4 offset-md-3 col-md-4 col-xs-12">
+                                    <h4>Some other information</h4>
+                                    <p>Something more to say here</p>
+                                    <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
+                                        <a className="btn btn-warning" href="#">Some Info</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
