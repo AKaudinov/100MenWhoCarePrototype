@@ -29,8 +29,8 @@ const Header = () => {
                         </li>
                         <li className="nav-item">
                             <div/>
-                            <a href="#" className="nav-link">
-                                <i className="fa fa-envelope"/> Contact</a>
+                            <Link to="/contact" activeClassName="active" className="nav-link">
+                                <i className="fa fa-envelope"/> Contact</Link>
                         </li>
                         <li className="nav-item">
                             <div/>
@@ -42,7 +42,7 @@ const Header = () => {
             </nav>
         </div>
     );
-    };
+};
 
 
     export default Header;
