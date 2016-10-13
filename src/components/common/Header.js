@@ -19,13 +19,19 @@ const Header = () => {
                     <ul className="nav navbar-nav">
                         <li className="nav-item">
                             <div/>
-                                <IndexLink to="/" activeClassName="active" className="nav-link">
-                                    <i className="fa fa-home"/> Home</IndexLink>
+                            <IndexLink to="/" activeClassName="active" className="nav-link">
+                                <i className="fa fa-home"/> Home</IndexLink>
                         </li>
                         <li className="nav-item">
                             <div/>
                             <Link to="/about" activeClassName="active" className="nav-link">
                                 <i className="fa fa-info-circle"/> About</Link>
+                        </li>
+                        <li className="nav-item">
+                            <div/>
+                            <a className="nav-link" href="#">
+                                <i className="fa fa-picture-o"/> Gallery
+                            </a>
                         </li>
                         <li className="nav-item">
                             <div/>
@@ -45,4 +51,4 @@ const Header = () => {
 };
 
 
-    export default Header;
+export default Header;

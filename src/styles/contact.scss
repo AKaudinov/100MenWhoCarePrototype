@@ -1,0 +1,31 @@
+@import 'mixins', 'baseColors';
+
+.Contact {
+  .jumbotron {
+    background-color: $coYellow;
+  }
+}
+
+.input-fields {
+  label {
+    color: $coRed;
+    font: italic bold 15px arial, sans-serif;
+  }
+  button {
+    @include btn-transition(0.5s);
+    text-align: center;
+    background-color: #2d4746;
+    color: $coWhite;
+  }
+  button:hover {
+    background-color: $coBlue;
+  }
+}
+
+@media screen and(max-width: 543px) {
+  .input-fields {
+    button {
+      width: 100%;
+    }
+  }
+}
