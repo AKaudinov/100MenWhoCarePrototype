@@ -1,8 +1,14 @@
 @import 'mixins', 'baseColors';
 
 .Contact {
+  .contact-header{
+    color: $coRed;
+  }
   .jumbotron {
     background-color: $coYellow;
+    .contact-user-info{
+      width:500px;
+    }
   }
 }
 
@@ -16,9 +22,20 @@
     text-align: center;
     background-color: #2d4746;
     color: $coWhite;
+    width:200px;
   }
   button:hover {
     background-color: $coBlue;
+  }
+}
+
+@media screen and(max-width: 992px) {
+  .Contact {
+    .jumbotron {
+      .contact-user-info{
+        width:auto;
+      }
+    }
   }
 }
 

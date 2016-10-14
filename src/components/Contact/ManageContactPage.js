@@ -10,10 +10,12 @@ export class ManageContactpage extends React.Component {
         super(props, context);
 
         this.state = {
-            name: '',
-            email: '',
-            subject: '',
-            message: '',
+            contact:{
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            },
             errors: {}
         };
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
@@ -22,18 +24,21 @@ export class ManageContactpage extends React.Component {
     updateContactInfoState(event) {
         const field = event.target.name;
         const fieldValue = event.target.value;
-        const stateSetter = this.state;
-        stateSetter[field] = fieldValue;
-        return this.setState(stateSetter);
+        let contactSetter = this.state.contact;
+        contactSetter[field] = fieldValue;
+        return this.setState({msgInfo: contactSetter});
+        //const stateSetter = this.state;
+        //stateSetter[field] = fieldValue;
     }
 
     render() {
         return (
             <ContactForm
-                name={this.state.name}
-                email={this.state.email}
-                subject={this.state.subject}
-                message={this.state.message}
+                contact={this.state.contact}
+                //name={this.state.name}
+                //email={this.state.email}
+                //subject={this.state.subject}
+                //message={this.state.message}
                 onChange={this.updateContactInfoState}
                 errors={this.state.errors}
                 />

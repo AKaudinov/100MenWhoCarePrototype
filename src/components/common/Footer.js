@@ -8,7 +8,10 @@ const Footer = () => {
                 <hr/>
             </div>
             <div className="watermark col-xs-12">
-                <p className="text-muted d-block">100 Men Who Care</p>
+                <p className="text-muted company-name">100 Who Care Colorado</p>
+                        <a className="btn facebook-link" href="https://www.facebook.com/100WhoCareAlliance/">
+                            <i className="fa fa-facebook-official"/>
+                        </a>
                 <p className="text-muted d-block"><i className="fa fa-copyright"/>2016</p>
             </div>
         </div>

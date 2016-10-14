@@ -1,20 +1,32 @@
 //footer styles
-.horizontal-footer-break{
+.horizontal-footer-break {
   margin-top: 50px;
 }
 
-.watermark{
+.watermark {
   font-style: oblique;
   font-size: 12px;
   text-align: center;
+  .company-name{
+    margin-bottom: 0;
+  }
 }
-//footer styles end
 
+.facebook-link {
+  color: darkgray;
+}
+
+.facebook-link:hover {
+  color: gray;
+}
+
+//footer styles end
 
 @media(max-width: 767px) {
   //footer responsiveness
-  .horizontal-footer-break{
+  .horizontal-footer-break {
     margin-top: 20px;
   }
 }
+
 //footer responsiveness end
