@@ -6,9 +6,21 @@ import ContactForm from './ContactForm';
 import toastr from 'toastr';
 
 
+let handlers = function (dispatch) {
+    let onClick = function (contactForm) {
+        dispatch(contactActions.submitContactForm(contactForm));
+    };
+
+    return {
+        onClick
+    };
+};
+
 export class ManageContactpage extends React.Component {
     constructor(props, context) {
         super(props, context);
+
+        this.handlers = handlers(this.props.dispatch);
 
         this.state = {
             contact: {
@@ -36,19 +48,30 @@ export class ManageContactpage extends React.Component {
 
     submitContact(event) {
         event.preventDefault();
-
+        debugger;
         this.setState({sending: true});
-        this.props.submitContactForm(this.state.contact)
-            .then(()=> {
-                toastr.options = {
-                    positionClass: 'toast-bottom-center',
-                    preventDuplicates: false,
-                    progressBar: true
-                };
-                toastr.success('Message Sent');
+        //this.handlers.onClick(this.state.contact);
+        this.props.dispatch(contactActions.submitContactForm(this.state.contact))
+            .then(() => {
+                toastr.info('Message Sent');
+                this.setState({sending: false});
             }).catch(error => {
-            toastr.error(error);
+           toastr.error(error);
+            this.setState({sending: false});
         });
+
+
+        //this.props.submitContactForm(this.state.contact)
+        //    .then(()=> {
+        //        toastr.options = {
+        //            positionClass: 'toast-bottom-center',
+        //            preventDuplicates: false,
+        //            progressBar: true
+        //        };
+        //        toastr.success('Message Sent');
+        //    }).catch(error => {
+        //    toastr.error(error);
+        //});
         this.setState({sending: false});
     }
 
@@ -58,7 +81,7 @@ export class ManageContactpage extends React.Component {
             <ContactForm
                 contact={this.state.contact}
                 onChange={this.updateContactInfoState}
-                onSubmit={this.submitContact}
+                onSend={this.submitContact}
                 sending={this.state.sending}
                 errors={this.state.errors}
             />
@@ -71,12 +94,4 @@ ManageContactpage.propTypes = {
     submitContactForm: PropTypes.func.isRequired
 };
 
-
-function mapDispatchToProps(dispatch) {
-    return {
-        submitContactForm: contact => dispatch(contactActions.submitContactForm(contact))
-    };
-}
-
-export default connect(null, mapDispatchToProps)(ManageContactpage);
-//export default ManageContactpage;
+export default connect()(ManageContactpage);

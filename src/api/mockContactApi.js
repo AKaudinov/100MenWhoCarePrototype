@@ -9,7 +9,7 @@ class ContactApi {
         return new Promise((resolve, reject) =>{
             setTimeout(() => {
                 contactForm  = contactInfo;
-                resolve("success");
+                resolve('success');
             }, delay);
         });
     }
