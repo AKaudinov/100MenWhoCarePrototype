@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
 import '../../styles/contact.scss';
 
-const ContactForm = ({contact, onChange, errors}) => {
+const ContactForm = ({contact, onChange, onSubmit, sending, errors}) => {
     return (
         <div className="Contact">
             <div className="jumbotron">
@@ -52,7 +52,9 @@ const ContactForm = ({contact, onChange, errors}) => {
                                     {errors.message && <div className="alert alert-danger">{errors.message}</div>}
                                 </div>
                                 <div className="contact-submit">
-                                    <button className="btn btn-lg">Send</button>
+                                    <button className="btn btn-lg" onSubmit={onSubmit}>
+                                        {sending ? <i className="fa fa-circle-o-notch"/> : "Send"}
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -65,11 +67,9 @@ const ContactForm = ({contact, onChange, errors}) => {
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
-    //name: PropTypes.string.isRequired,
-    //email: PropTypes.string.isRequired,
-    //subject: PropTypes.string.isRequired,
-    //message: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    sending: PropTypes.bool.isRequired,
     errors: PropTypes.object
 };
 
