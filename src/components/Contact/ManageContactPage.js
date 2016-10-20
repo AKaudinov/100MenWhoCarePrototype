@@ -32,8 +32,11 @@ export class ManageContactpage extends React.Component {
             sending: false,
             errors: {}
         };
+
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
         this.submitContact = this.submitContact.bind(this);
+        this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
+        this.onFailedSubmit = this.onFailedSubmit.bind(this);
     }
 
     updateContactInfoState(event) {
@@ -46,19 +49,48 @@ export class ManageContactpage extends React.Component {
         //stateSetter[field] = fieldValue;
     }
 
+    onSuccessfulSubmit(){
+        toastr.options = {
+            positionClass: 'toast-top-center',
+            preventDuplicates: false,
+            progressBar: true
+        };
+        toastr.success('Message Sent!');
+        return this.setState({
+            contact: {
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            },
+            sending: false});
+    }
+
+    onFailedSubmit(){
+        toastr.options = {
+            positionClass: 'toast-top-center',
+            preventDuplicates: false,
+            progressBar: true
+        };
+        toastr.error('Submission error');
+        return this.setState({sending: false});
+    }
+
     submitContact(event) {
+        this.setState({sending: true});
         event.preventDefault();
         debugger;
-        this.setState({sending: true});
         //this.handlers.onClick(this.state.contact);
         this.props.dispatch(contactActions.submitContactForm(this.state.contact))
-            .then(() => {
-                toastr.info('Message Sent');
-                this.setState({sending: false});
-            }).catch(error => {
-           toastr.error(error);
-            this.setState({sending: false});
-        });
+        .then(this.onSuccessfulSubmit, this.onFailedSubmit);
+
+        //    .then(() => {
+        //        toastr.info('Message Sent');
+        //        this.setState({sending: false});
+        //    }).catch(error => {
+        //   toastr.error(error);
+        //    this.setState({sending: false});
+        //});
 
 
         //this.props.submitContactForm(this.state.contact)
@@ -72,7 +104,6 @@ export class ManageContactpage extends React.Component {
         //    }).catch(error => {
         //    toastr.error(error);
         //});
-        this.setState({sending: false});
     }
 
 
@@ -90,8 +121,7 @@ export class ManageContactpage extends React.Component {
 }
 
 ManageContactpage.propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    submitContactForm: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
 };
 
 export default connect()(ManageContactpage);

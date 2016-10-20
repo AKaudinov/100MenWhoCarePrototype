@@ -9,7 +9,7 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                 <div className="container">
                     <div className="contact-description text-xs-center">
                         <h1 className="contact-header">Contact us</h1>
-                        <p>Please email us any questions, suggestions, or ideas</p>
+                        <p>Please email us any questions, suggestions, or ideas - placeholder</p>
                     </div>
                     <form>
                         <div className="row">
@@ -53,7 +53,7 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                                 </div>
                                 <div className="contact-submit">
                                     <button className="btn btn-lg" onClick={onSend} disabled={sending ? true : false}>
-                                        {sending ? <i className="fa fa-circle-o-notch fa-spin"/> : "Send"}
+                                        {sending ? <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span>: 'Send'}
                                     </button>
                                 </div>
                             </div>
