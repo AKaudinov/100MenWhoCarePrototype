@@ -20,15 +20,38 @@
       background-color: $coYellow;
       position: absolute;
       height: 0px;
-      width: 78px;
       display: block;
-      margin-left: -5px;
       webkit-transition: height 0.5s;
       -moz-transition: height 0.5s;
       -ms-transition: height 0.5s;
       -o-transition: height 0.5s;
       transition: height 0.5s;
       z-index: 1;
+    }
+    .menu-home{
+      @extend div;
+      width: 68px;
+      margin-left: -4px;
+    }
+    .menu-about{
+      @extend div;
+      width: 68px;
+      margin-left: -5px;
+    }
+    .menu-gallery{
+      @extend div;
+      width: 78px;
+      margin-left: -5px;
+    }
+    .menu-contact{
+      @extend div;
+      width: 82px;
+      margin-left: -5px;
+    }
+    .menu-events{
+      @extend div;
+      width: 74px;
+      margin-left: -5px;
     }
     .nav-item:hover{
       div{
@@ -44,15 +67,26 @@
     margin-top: 2px;
     margin-bottom: 5px;
   }
-  button{
+  .navbar-toggler{
     border: none;
     outline: 0;
-    color: #FFD700;
+    color: $coYellow;
+    position: relative;
+    cursor: pointer;
+  }
+  .navbar-toggler:focus{
+    border: 1px solid $coYellow;
   }
 }
 //navbar header styles end
 
-
+@media screen and(min-width: 768px){
+  .header {
+    .headerMenu{
+      float: right;
+    }
+  }
+}
 
 @media(max-width: 767px) {
   //navbar header responsiveness
