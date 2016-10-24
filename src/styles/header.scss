@@ -88,8 +88,9 @@
   }
 }
 
+//navbar header responsiveness
 @media(max-width: 767px) {
-  //navbar header responsiveness
+
   .navbar-nav .nav-item + .nav-item {
     margin-left: 0;
     padding-left:0;
@@ -110,5 +111,5 @@
     }
 
   }
-  //navbar header responsiveness
 }
+//navbar header responsiveness

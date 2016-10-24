@@ -1,26 +1,25 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import * as contactActions from '../../actions/contactActions';
 import ContactForm from './ContactForm';
 import toastr from 'toastr';
 
 
-let handlers = function (dispatch) {
-    let onClick = function (contactForm) {
-        dispatch(contactActions.submitContactForm(contactForm));
-    };
-
-    return {
-        onClick
-    };
-};
+//let handlers = function (dispatch) {
+//    let onClick = function (contactForm, onSuccess, onFail) {
+//        dispatch(contactActions.submitContactForm(contactForm)).then(onSuccess, onFail);
+//    };
+//
+//    return {
+//        onClick
+//    };
+//};
 
 export class ManageContactpage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.handlers = handlers(this.props.dispatch);
+        //this.handlers = handlers(this.props.dispatch);
 
         this.state = {
             contact: {
@@ -45,8 +44,6 @@ export class ManageContactpage extends React.Component {
         let contactSetter = this.state.contact;
         contactSetter[field] = fieldValue;
         return this.setState({msgInfo: contactSetter});
-        //const stateSetter = this.state;
-        //stateSetter[field] = fieldValue;
     }
 
     onSuccessfulSubmit(){
@@ -79,31 +76,12 @@ export class ManageContactpage extends React.Component {
     submitContact(event) {
         this.setState({sending: true});
         event.preventDefault();
-        debugger;
+
         //this.handlers.onClick(this.state.contact);
+
         this.props.dispatch(contactActions.submitContactForm(this.state.contact))
         .then(this.onSuccessfulSubmit, this.onFailedSubmit);
 
-        //    .then(() => {
-        //        toastr.info('Message Sent');
-        //        this.setState({sending: false});
-        //    }).catch(error => {
-        //   toastr.error(error);
-        //    this.setState({sending: false});
-        //});
-
-
-        //this.props.submitContactForm(this.state.contact)
-        //    .then(()=> {
-        //        toastr.options = {
-        //            positionClass: 'toast-bottom-center',
-        //            preventDuplicates: false,
-        //            progressBar: true
-        //        };
-        //        toastr.success('Message Sent');
-        //    }).catch(error => {
-        //    toastr.error(error);
-        //});
     }
 
 
