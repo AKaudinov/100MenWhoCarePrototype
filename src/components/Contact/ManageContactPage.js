@@ -5,21 +5,9 @@ import ContactForm from './ContactForm';
 import toastr from 'toastr';
 
 
-//let handlers = function (dispatch) {
-//    let onClick = function (contactForm, onSuccess, onFail) {
-//        dispatch(contactActions.submitContactForm(contactForm)).then(onSuccess, onFail);
-//    };
-//
-//    return {
-//        onClick
-//    };
-//};
-
 export class ManageContactpage extends React.Component {
     constructor(props, context) {
         super(props, context);
-
-        //this.handlers = handlers(this.props.dispatch);
 
         this.state = {
             contact: {
@@ -76,8 +64,6 @@ export class ManageContactpage extends React.Component {
     submitContact(event) {
         this.setState({sending: true});
         event.preventDefault();
-
-        //this.handlers.onClick(this.state.contact);
 
         this.props.dispatch(contactActions.submitContactForm(this.state.contact))
         .then(this.onSuccessfulSubmit, this.onFailedSubmit);
