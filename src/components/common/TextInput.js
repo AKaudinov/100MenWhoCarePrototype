@@ -2,8 +2,10 @@ import React, {PropTypes} from 'react';
 
 const TextInput = ({name, label, type, onChange, placeHolder, value, error}) => {
     let wrapperClass = 'form-group';
+    let controlWrapperClass = 'form-control';
     if (error && error.length > 0) {
-        wrapperClass += " " + 'has-error';
+        wrapperClass += " " + 'has-danger';
+        controlWrapperClass += " " + 'form-control-danger';
     }
 
     return (
@@ -12,7 +14,7 @@ const TextInput = ({name, label, type, onChange, placeHolder, value, error}) => 
                 <input
                     type={type}
                     name={name}
-                    className="form-control"
+                    className={controlWrapperClass}
                     placeholder={placeHolder}
                     value={value}
                     onChange={onChange}

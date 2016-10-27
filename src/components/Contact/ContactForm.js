@@ -53,7 +53,8 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                                 </div>
                                 <div className="contact-submit">
                                     <button className="btn btn-lg" onClick={onSend} disabled={sending ? true : false}>
-                                        {sending ? <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span>: 'Send'}
+                                        {sending ?
+                                            <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
                                     </button>
                                 </div>
                             </div>

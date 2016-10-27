@@ -24,6 +24,7 @@ export class ManageContactpage extends React.Component {
         this.submitContact = this.submitContact.bind(this);
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
         this.onFailedSubmit = this.onFailedSubmit.bind(this);
+        this.isFormValid = this.isFormValid.bind(this);
     }
 
     updateContactInfoState(event) {
@@ -62,12 +63,35 @@ export class ManageContactpage extends React.Component {
     }
 
     submitContact(event) {
-        this.setState({sending: true});
         event.preventDefault();
+        if(this.isFormValid()) {
+            this.setState({sending: true});
 
-        this.props.dispatch(contactActions.submitContactForm(this.state.contact))
-        .then(this.onSuccessfulSubmit, this.onFailedSubmit);
 
+            this.props.dispatch(contactActions.submitContactForm(this.state.contact))
+                .then(this.onSuccessfulSubmit, this.onFailedSubmit);
+        }
+
+    }
+
+    isFormValid(){
+        debugger;
+        let contactObj = this.state.contact;
+        let errorSetter = this.state.errors;
+        let valid = true;
+        Object.keys(contactObj).map(key => {
+           if(contactObj[key] == '') {
+               valid = false;
+               return errorSetter[key] = `${key} cannot be blank`;
+           }else{
+               return errorSetter[key] = '';
+           }
+        });
+        if(valid !== true){
+            this.setState({errors: errorSetter});
+            return false;
+        }
+        return valid;
     }
 
 

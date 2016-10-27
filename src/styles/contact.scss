@@ -1,16 +1,17 @@
 @import 'mixins', 'baseColors';
 
 .Contact {
-  .contact-header{
+  .contact-header {
     color: $coRed;
   }
   .jumbotron {
     background-color: gainsboro;
-    .contact-user-info{
-      width:500px;
+    .contact-user-info {
+      width: 500px;
     }
   }
 }
+
 
 .input-fields {
   label {
@@ -22,7 +23,7 @@
     text-align: center;
     background-color: #2d4746;
     color: $coWhite;
-    width:200px;
+    width: 200px;
   }
   button:hover {
     background-color: darkblue;
@@ -32,8 +33,8 @@
 @media screen and(max-width: 992px) {
   .Contact {
     .jumbotron {
-      .contact-user-info{
-        width:auto;
+      .contact-user-info {
+        width: auto;
       }
     }
   }
