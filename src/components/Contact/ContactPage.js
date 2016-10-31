@@ -21,6 +21,7 @@ export class ManageContactpage extends React.Component {
         };
 
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
+        this.checkErrors = this.checkErrors.bind(this);
         this.submitContact = this.submitContact.bind(this);
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
         this.onFailedSubmit = this.onFailedSubmit.bind(this);
@@ -30,9 +31,20 @@ export class ManageContactpage extends React.Component {
     updateContactInfoState(event) {
         const field = event.target.name;
         const fieldValue = event.target.value;
+
+        this.checkErrors(field, fieldValue);
+
         let contactSetter = this.state.contact;
         contactSetter[field] = fieldValue;
         return this.setState({msgInfo: contactSetter});
+    }
+
+    checkErrors(fieldName, fieldValue){
+        let stateErrorsCleaner = this.state.errors;
+        if(fieldValue.length > 0){
+            stateErrorsCleaner[fieldName] = '';
+            return this.setState({errors: stateErrorsCleaner});
+        }
     }
 
     onSuccessfulSubmit(){
@@ -75,7 +87,6 @@ export class ManageContactpage extends React.Component {
     }
 
     isFormValid(){
-        debugger;
         let contactObj = this.state.contact;
         let errorSetter = this.state.errors;
         let valid = true;
@@ -83,9 +94,11 @@ export class ManageContactpage extends React.Component {
            if(contactObj[key] == '') {
                valid = false;
                return errorSetter[key] = `${key} cannot be blank`;
-           }else{
-               return errorSetter[key] = '';
            }
+           //else{ //most likely no longer needed, as errors are being cleared as the user is inputting the values.
+            // Will remove if confirmed
+           //    return errorSetter[key] = '';
+           //}
         });
         if(valid !== true){
             this.setState({errors: errorSetter});

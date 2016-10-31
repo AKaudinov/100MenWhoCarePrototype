@@ -3,6 +3,14 @@ import TextInput from '../common/TextInput';
 import '../../styles/contact.scss';
 
 const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
+    let messageWrapperClass = 'form-group';
+    let messageInputClass = 'form-control';
+
+    if(errors.message && errors.message.length > 0){
+        messageWrapperClass += " " + 'has-warning';
+        messageInputClass += " " + 'form-control-warning';
+    }
+
     return (
         <div className="Contact">
             <div className="jumbotron">
@@ -29,7 +37,7 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                                     <TextInput
                                         name="email"
                                         label="Email"
-                                        type="email"
+                                        type="text"
                                         onChange={onChange}
                                         placeHolder="example@domain.com"
                                         value={contact.email}
@@ -45,9 +53,9 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                                         error={errors.subject}
                                     />
                                 </div>
-                                <div className="form-group">
+                                <div className={messageWrapperClass}>
                                     <label htmlFor="message">Message</label>
-                                    <textarea className="form-control" name="message" onChange={onChange}
+                                    <textarea className={messageInputClass} name="message" onChange={onChange}
                                               value={contact.message}/>
                                     {errors.message && <div className="alert alert-danger">{errors.message}</div>}
                                 </div>
