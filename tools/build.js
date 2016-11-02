@@ -1,6 +1,8 @@
+/*eslint-disable no-console*/
 import webpack from 'webpack';
 import webpackConfig from '../webpack/webpack.config.prod';
 import colors from 'colors';
+/*eslint-disable no-unused-vars*/
 
 process.env.NODE_ENV = 'production';
 

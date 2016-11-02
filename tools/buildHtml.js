@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import colors from 'colors';
 
 /*eslint-disable no-console*/
+/*eslint-disable no-unused-vars*/
 
 fs.readFile('src/index.html', 'utf8', (err, markup) =>{
     if(err){

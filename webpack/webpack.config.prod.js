@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import OptimizeCssAssetsWebpackPlugin from 'optimize-css-assets-webpack-plugin';
 
 let extractCss = new ExtractTextPlugin('vendorStyles.css');
 let extractSass = new ExtractTextPlugin('appStyles.css');
@@ -38,7 +39,7 @@ export default {
             {
                 test: /\.scss$/,
                 include: path.resolve('src/styles'),
-                loader: extractSass.extract(['css','postcss-loader','sass'])
+                loader: extractSass.extract(['css','sass'])
             },
             {
                 test:/\.(woff|woff2|ttf|eot|ico|)?(\?v=\d+\.\d+\.\d+)?$/,
@@ -53,6 +54,9 @@ export default {
     plugins: [
         extractCss,
         extractSass,
+        new OptimizeCssAssetsWebpackPlugin({
+            cssProcessorOptions: {zindex:false}
+        }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
         new webpack.optimize.DedupePlugin(),
