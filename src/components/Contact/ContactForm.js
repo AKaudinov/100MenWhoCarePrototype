@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
-import '../../styles/contact.scss';
+import '../../styles/contact/contact.scss';
 
 const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
     let messageWrapperClass = 'form-group';

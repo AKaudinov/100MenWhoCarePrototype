@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import '../../styles/homepage.scss';
+import '../../styles/home/homepage.scss';
+import ReactPlayer from 'react-player';
 
 class HomePage extends React.Component {
     render() {
@@ -24,7 +25,7 @@ class HomePage extends React.Component {
                         </div>
 
                         <div className="carousel-item">
-                            <img src={require('../../assets/colorado.png')} alt="Colorado 2"/>
+                            <img src={require('../../assets/coloradoMountains.png')} alt="Colorado 2"/>
                             <div className="carousel-caption">
                                 <h4>Second Slide</h4>
                                 <p>The second slide</p>
@@ -32,7 +33,7 @@ class HomePage extends React.Component {
                         </div>
 
                         <div className="carousel-item">
-                            <img src={require('../../assets/colorado.png')} alt="Colorado 3"/>
+                            <img src={require('../../assets/denver.png')} alt="Colorado 3"/>
                             <div className="carousel-caption">
                                 <h4>And one more for good measure</h4>
                                 <p>Third slide for good measure</p>
@@ -73,11 +74,10 @@ class HomePage extends React.Component {
                     </div>
                 </div>
 
-                <div className="card-section card-group">
+                <div className="homepage-card-section card-group">
                     <div className="card">
-                        <div className="yt-video1">
-                            <iframe className="card-img-top" src="//www.youtube.com/embed/FG0fTKAqZ5g"
-                                    frameBorder="0" allowFullScreen/>
+                        <div className="yt-video">
+                            <ReactPlayer url="https://www.youtube.com/watch?v=NM2wtte1JRE" controls={true} width="100%"/>
                         </div>
                         <div className="card-block">
                             <h5 className="card-title">Space vision</h5>
@@ -88,9 +88,8 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                     <div className="card">
-                        <div className="yt-video2">
-                            <iframe className="card-img-top" src="//www.youtube.com/embed/kBwBsaA8VdI"
-                                    frameBorder="0" allowFullScreen/>
+                        <div className="yt-video">
+                            <ReactPlayer url="https://www.youtube.com/watch?v=kBwBsaA8VdI" controls={true} width="100%"/>
                         </div>
                         <div className="card-block">
                             <h5 className="card-title">Abrams tank</h5>
@@ -102,10 +101,8 @@ class HomePage extends React.Component {
                     </div>
 
                     <div className="card">
-                        <div className="yt-video3">
-                            <div className="yt-video3">
-                                <iframe className="card-img-top" src="//www.youtube.com/embed/xh49qn2cQNU"
-                                        frameBorder="0" allowFullScreen/>
+                            <div className="yt-video">
+                                <ReactPlayer url="https://www.youtube.com/watch?v=xh49qn2cQNU" controls={true} width="100%"/>
                             </div>
                             <div className="card-block">
                                 <h5 className="card-title">F22 display</h5>
@@ -114,11 +111,21 @@ class HomePage extends React.Component {
                                     <small className="text-muted">captured during an air show</small>
                                 </p>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 }
+
+//<iframe className="card-img-top" src="//www.youtube.com/embed/xh49qn2cQNU"
+//        frameBorder="0" allowFullScreen/>
+
+
+//<iframe className="card-img-top" src="//www.youtube.com/embed/kBwBsaA8VdI"
+//        frameBorder="0" allowFullScreen/>
+
+//<iframe className="card-img-top" src="//www.youtube.com/embed/FG0fTKAqZ5g"
+//        frameBorder="0" allowFullScreen/>
+
 export default HomePage;

@@ -1,4 +1,4 @@
-@import 'baseColors';
+@import '../baseColors';
 
 //carousel styles
 #carousel-home {
@@ -10,8 +10,8 @@
 .carousel-item{
   max-height: 500px;
   img{
-    top:0;
     width:100%;
+    top:0;
   }
 }
 //carousel styles end
@@ -32,12 +32,7 @@
 
 
 //video section styles
-.card-section{
-  iframe{
-    border: 0;
-    width: 100%;
-    height: 250px;
-  }
+.homepage-card-section{
 }
 //video section styles end
 
