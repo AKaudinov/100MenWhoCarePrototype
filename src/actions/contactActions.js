@@ -5,17 +5,18 @@ export function contactSubmitSuccess() {
     return {type: actionTypes.CONTACT_SUBMIT_SUCCESS};
 }
 
-export function contactSubmitFailure() {
-    return {type: actionTypes.CONTACT_SUBMIT_FAILURE};
+export function contactSubmitFailure(contactSubmissionError) {
+    return {type: actionTypes.CONTACT_SUBMIT_FAILURE, contactSubmissionError};
 }
 
 export function submitContactForm(contactForm) {
     return function (dispatch) {
         return ContactApi.SendContact(contactForm).then(() => {
-            dispatch(contactSubmitSuccess());
+            //dispatch(contactSubmitSuccess());
+            return null;
         }).catch(error => {
-            dispatch(contactSubmitFailure());
-            throw(error);
+            dispatch(contactSubmitFailure(error));
+            //throw(error);
         });
     };
 }

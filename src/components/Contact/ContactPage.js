@@ -70,7 +70,7 @@ export class ManageContactpage extends React.Component {
             preventDuplicates: false,
             progressBar: true
         };
-        toastr.error('Submission error');
+        toastr.error(`failed to submit contact info ${this.props.contactSubmissionError}`);
         return this.setState({sending: false});
     }
 
@@ -78,8 +78,6 @@ export class ManageContactpage extends React.Component {
         event.preventDefault();
         if(this.isFormValid()) {
             this.setState({sending: true});
-
-
             this.props.dispatch(contactActions.submitContactForm(this.state.contact))
                 .then(this.onSuccessfulSubmit, this.onFailedSubmit);
         }
@@ -95,10 +93,6 @@ export class ManageContactpage extends React.Component {
                valid = false;
                return errorSetter[key] = `${key} cannot be blank`;
            }
-           //else{ //most likely no longer needed, as errors are being cleared as the user is inputting the values.
-            // Will remove if confirmed
-           //    return errorSetter[key] = '';
-           //}
         });
         if(valid !== true){
             this.setState({errors: errorSetter});
@@ -121,8 +115,15 @@ export class ManageContactpage extends React.Component {
     }
 }
 
+function mapStateToProps(state, ownprops){
+return{
+        contactSubmissionError: state.contactSubmissionError
+    };
+}
+
 ManageContactpage.propTypes = {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    contactSubmissionError: PropTypes.string
 };
 
-export default connect()(ManageContactpage);
+export default connect(mapStateToProps)(ManageContactpage);
