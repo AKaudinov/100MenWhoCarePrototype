@@ -44,7 +44,7 @@ export class ManageContactpage extends React.Component {
         let errorMessage = stateErrorsCleaner[fieldName];
         //to do: add live error removing for not valid email message when the user actually provides the '@' sign
 
-        if(fieldName == 'email' && fieldName.indexOf('@') !== -1){
+        if(fieldName == 'email' && fieldValue.indexOf('@') !== -1){
             stateErrorsCleaner.email = '';
         }
         if(fieldValue.length > 0 && errorMessage.indexOf('blank') !== -1){

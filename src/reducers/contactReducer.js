@@ -3,7 +3,7 @@ import initialState from './initialState';
 
 
 export default function contactReducer(state = initialState.contactSubmissionError, action) {
-    let status = '';
+    //let status = '';
     switch (action.type) {
         //case actionTypes.CONTACT_SUBMIT_SUCCESS:
         //    status = 'success';
@@ -11,7 +11,6 @@ export default function contactReducer(state = initialState.contactSubmissionErr
         case actionTypes.CONTACT_SUBMIT_FAILURE:
             //status = 'failed';
             return action.contactSubmissionError;
-        break;
         default:
             return state;
     }
