@@ -42,12 +42,13 @@ export class ManageContactpage extends React.Component {
     checkErrors(fieldName, fieldValue){
         let stateErrorsCleaner = this.state.errors;
         let errorMessage = stateErrorsCleaner[fieldName];
-        //to do: add live error removing for not valid email message when the user actually provides the '@' sign
 
+        //email validation
         if(fieldName == 'email' && fieldValue.indexOf('@') !== -1){
             stateErrorsCleaner.email = '';
         }
-        if(fieldValue.length > 0 && errorMessage.indexOf('blank') !== -1){
+        //check for blanks, make sure errorMessage is actually defined and than check for the 'blank' error
+        if(fieldValue.length > 0 && (errorMessage && errorMessage.indexOf('blank') !== -1)){
             stateErrorsCleaner[fieldName] = '';
             return this.setState({errors: stateErrorsCleaner});
         }

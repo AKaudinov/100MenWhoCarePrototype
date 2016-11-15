@@ -1,12 +1,13 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/contact/contact.scss';
 
 const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
     let messageWrapperClass = 'form-group';
     let messageInputClass = 'form-control';
 
-    if(errors.message && errors.message.length > 0){
+    if (errors.message && errors.message.length > 0) {
         messageWrapperClass += " " + 'has-warning';
         messageInputClass += " " + 'form-control-warning';
     }
@@ -57,7 +58,12 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                                     <label htmlFor="message">Message</label>
                                     <textarea className={messageInputClass} name="message" onChange={onChange}
                                               value={contact.message}/>
-                                    {errors.message && <div className="alert alert-danger">{errors.message}</div>}
+                                    <ReactCSSTransitionGroup
+                                    transitionName="error-validation"
+                                    transitionEnterTimeout={0}
+                                    transitionLeaveTimeout={0}>
+                                        {errors.message && <div className="validation-error alert alert-danger">{errors.message}</div>}
+                                    </ReactCSSTransitionGroup>
                                 </div>
                                 <div className="contact-submit">
                                     <button className="btn btn-lg" onClick={onSend} disabled={sending ? true : false}>
