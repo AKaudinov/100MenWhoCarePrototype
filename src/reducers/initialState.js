@@ -1,3 +1,7 @@
 export default {
-    contactSubmissionError: ''
+    fetchCallsInProgress: 0,
+    contact:{
+        successfulMessage:'',
+        messageSendError:''
+    }
 };

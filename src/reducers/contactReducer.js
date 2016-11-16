@@ -2,17 +2,20 @@ import * as actionTypes from '../actions/actionTypes';
 import initialState from './initialState';
 
 
-export default function contactReducer(state = initialState.contactSubmissionError, action) {
-    //let status = '';
+export default function contactReducer(state = initialState.contact, action) {
     switch (action.type) {
-        //case actionTypes.CONTACT_SUBMIT_SUCCESS:
-        //    status = 'success';
-        //    break;
+        case actionTypes.CONTACT_SUBMIT_SUCCESS:
+            return Object.assign({}, state,
+                {
+                   successfulMessage: action.message,
+                    messageSendError: ''
+                });
         case actionTypes.CONTACT_SUBMIT_FAILURE:
-            //status = 'failed';
-            return action.contactSubmissionError;
+            return Object.assign({}, state, {
+                successfulMessage: '',
+                messageSendError: action.err
+            });
         default:
             return state;
     }
-    //return status;
 }

@@ -3,7 +3,7 @@ import TextInput from '../common/TextInput';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
+const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) => {
     let messageWrapperClass = 'form-group';
     let messageInputClass = 'form-control';
 
@@ -66,8 +66,8 @@ const ContactForm = ({contact, onChange, onSend, sending, errors}) => {
                                     </ReactCSSTransitionGroup>
                                 </div>
                                 <div className="contact-submit">
-                                    <button className="btn btn-lg" onClick={onSend} disabled={sending ? true : false}>
-                                        {sending ?
+                                    <button className="btn btn-lg" onClick={onSend} disabled={fetchCallsInProgress > 0 ? true : false}>
+                                        {fetchCallsInProgress > 0 ?
                                             <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
                                     </button>
                                 </div>
@@ -84,7 +84,7 @@ ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
-    sending: PropTypes.bool.isRequired,
+    fetchCallsInProgress: PropTypes.number.isRequired,
     errors: PropTypes.object
 };
 
