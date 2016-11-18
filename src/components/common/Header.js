@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import '../../styles/header.scss';
 
@@ -13,11 +13,11 @@ class Header extends React.Component{
         this.onNavToggle = this.onNavToggle.bind(this);
 }
 
-    onNavClick(event) {
+    onNavClick() {
         return this.setState({navBarOpen: false});
     }
 
-    onNavToggle(event){
+    onNavToggle(){
         return this.setState({navBarOpen: !this.state.navBarOpen});
     }
 

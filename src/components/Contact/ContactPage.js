@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as contactActions from '../../actions/contactActions';
 import ContactForm from './ContactForm';
 import toastr from 'toastr';
@@ -76,25 +77,21 @@ export class ManageContactpage extends React.Component {
             progressBar: true
         };
         toastr.error(err);
-        //toastr.error(`failed to submit contact info ${this.props.contactSubmissionError}`);
-        //return this.setState({sending: false});
     }
 
     submitContact(event) {
         event.preventDefault();
         if(this.isFormValid()) {
-            //this.setState({sending: true});
-            this.props.dispatch(contactActions.submitContactForm(this.state.contact))
-            .then(msg => {
+            //this.props.dispatch(contactActions.submitContactForm(this.state.contact))
+            this.props.actions.submitContactForm(this.state.contact)
+            .then(() => {
                if(this.props.contact.successfulMessage){
                    return this.onSuccessfulSubmit(this.props.contact.successfulMessage);
                }else{
                    return this.onFailedSubmit(this.props.contact.messageSendError);
                }
             });
-                //.then(this.onSuccessfulSubmit, this.onFailedSubmit);
         }
-
     }
 
     isFormValid(){
@@ -138,7 +135,8 @@ export class ManageContactpage extends React.Component {
 }
 
 ManageContactpage.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    //dispatch: PropTypes.func.isRequired,
+    actions: PropTypes.object.isRequired,
     contact: PropTypes.object.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired
 };
@@ -150,4 +148,10 @@ return{
     };
 }
 
-export default connect(mapStateToProps)(ManageContactpage);
+function mapDispatchToProps(dispatch){
+    return {
+        actions: bindActionCreators(contactActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageContactpage);
