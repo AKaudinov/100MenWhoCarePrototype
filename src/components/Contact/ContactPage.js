@@ -12,8 +12,10 @@ export class ManageContactpage extends React.Component {
 
         this.state = {
             contact: {
-                name: '',
+                firstName: '',
+                lastName: '',
                 email: '',
+                phone:'',
                 subject: '',
                 message: ''
             },
@@ -47,6 +49,14 @@ export class ManageContactpage extends React.Component {
         if(fieldName == 'email' && fieldValue.indexOf('@') !== -1){
             stateErrorsCleaner.email = '';
         }
+
+        //phone validation
+        if(fieldName == 'phone'){
+            if(fieldValue.length === 10 && errorMessage.indexOf('digits') !== 1){
+                stateErrorsCleaner.phone = '';
+            }
+        }
+
         //check for blanks, make sure errorMessage is actually defined and than check for the 'blank' error
         if(fieldValue.length > 0 && (errorMessage && errorMessage.indexOf('blank') !== -1)){
             stateErrorsCleaner[fieldName] = '';
@@ -103,7 +113,14 @@ export class ManageContactpage extends React.Component {
         Object.keys(contactObj).map(key => {
            if(contactObj[key] == '') {
                valid = false;
-               return errorSetter[key] = `${key} cannot be blank`;
+               let objKey = key;
+               if(objKey === 'firstName'){
+                   objKey = 'First Name';
+               }
+               if(objKey === 'lastName'){
+                   objKey = 'Last Name';
+               }
+               return errorSetter[key] = `${objKey} cannot be blank`;
            }
         });
 
@@ -111,7 +128,17 @@ export class ManageContactpage extends React.Component {
         if(contactObj.email.indexOf('@') === -1 && contactObj.email !== ''){
             valid = false;
             errorSetter.email = `${contactObj.email} is not a valid email`;
+        }//
+
+        //phone check
+        if(contactObj.phone.length > 10){
+            valid = false;
+            errorSetter.phone = `Phone must be lower than 10 digits`;
         }
+        if(contactObj.phone.length < 10){
+            valid = false;
+            errorSetter.phone = `Phone must be 10 digits long`;
+        }//
 
         if(valid !== true){
             this.setState({errors: errorSetter});

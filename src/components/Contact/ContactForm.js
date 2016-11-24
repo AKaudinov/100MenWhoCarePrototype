@@ -26,14 +26,23 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
                                 <hr/>
                                 <div className="contact-user-info">
                                     <TextInput
-                                        name="name"
-                                        label="Name"
+                                        name="firstName"
+                                        label="First Name"
                                         type="text"
                                         onChange={onChange}
-                                        placeHolder="ex: John Doe"
-                                        value={contact.name}
-                                        error={errors.name}
+                                        placeHolder="ex: John"
+                                        value={contact.firstName}
+                                        error={errors.firstName}
                                     />
+
+                                    <TextInput
+                                        name="lastName"
+                                        label="Last Name"
+                                        type="text"
+                                        onChange={onChange}
+                                        placeHolder="ex: Mason"
+                                        value={contact.lastName}
+                                        error={errors.lastName}/>
 
                                     <TextInput
                                         name="email"
@@ -44,6 +53,16 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
                                         value={contact.email}
                                         error={errors.email}
                                     />
+
+                                    <TextInput
+                                        name="phone"
+                                        label="Phone"
+                                        type="number"
+                                        maxlength="10"
+                                        onChange={onChange}
+                                        placeHolder="ex: 3035054343"
+                                        value={contact.phone}
+                                        error={errors.phone}/>
 
                                     <TextInput
                                         name="subject"

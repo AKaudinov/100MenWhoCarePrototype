@@ -1,12 +1,17 @@
 import React, {PropTypes} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-const TextInput = ({name, label, type, onChange, placeHolder, value, error}) => {
+const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, error}) => {
     let wrapperClass = 'form-group';
     let controlWrapperClass = 'form-control';
     if (error && error.length > 0) {
         wrapperClass += " " + 'has-warning';
         controlWrapperClass += " " + 'form-control-warning';
+    }
+
+    let inputOpts = {};
+    if(type == 'number'){
+        inputOpts.min = '0';
     }
 
     return (
@@ -17,6 +22,8 @@ const TextInput = ({name, label, type, onChange, placeHolder, value, error}) => 
                     name={name}
                     className={controlWrapperClass}
                     placeholder={placeHolder}
+                    max={maxlength}
+                    {...inputOpts}
                     value={value}
                     onChange={onChange}
                 />
@@ -34,6 +41,7 @@ TextInput.propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    maxlength: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     placeHolder: PropTypes.string,
     value: PropTypes.string,
