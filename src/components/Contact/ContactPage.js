@@ -30,6 +30,11 @@ export class ManageContactpage extends React.Component {
         this.isFormValid = this.isFormValid.bind(this);
     }
 
+    //will need to be removed
+    componentWillMount(){
+        this.props.actions.getAllContacts();
+    }
+
     updateContactInfoState(event) {
         const field = event.target.name;
         const fieldValue = event.target.value;
@@ -95,10 +100,10 @@ export class ManageContactpage extends React.Component {
             //this.props.dispatch(contactActions.submitContactForm(this.state.contact))
             this.props.actions.submitContactForm(this.state.contact)
             .then(() => {
-               if(this.props.contact.successfulMessage){
-                   return this.onSuccessfulSubmit(this.props.contact.successfulMessage);
+               if(this.props.contactUsResult.successfulMessage){
+                   return this.onSuccessfulSubmit(this.props.contactUsResult.successfulMessage);
                }else{
-                   return this.onFailedSubmit(this.props.contact.messageSendError);
+                   return this.onFailedSubmit(this.props.contactUsResult.messageSendError);
                }
             });
         }
@@ -152,6 +157,7 @@ export class ManageContactpage extends React.Component {
         return (
             <ContactForm
                 contact={this.state.contact}
+                retrievedContacts={this.props.contacts}
                 onChange={this.updateContactInfoState}
                 onSend={this.submitContact}
                 fetchCallsInProgress={this.props.fetchCallsInProgress}
@@ -164,13 +170,15 @@ export class ManageContactpage extends React.Component {
 ManageContactpage.propTypes = {
     //dispatch: PropTypes.func.isRequired,
     actions: PropTypes.object.isRequired,
-    contact: PropTypes.object.isRequired,
+    contactUsResult: PropTypes.object.isRequired,
+    contacts: PropTypes.object.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired
 };
 
 function mapStateToProps(state, ownprops){
 return{
-        contact: state.contact,
+        contactUsResult: state.contactUsResult,
+        contacts: state.contacts,
         fetchCallsInProgress: state.fetchCallsInProgress
     };
 }

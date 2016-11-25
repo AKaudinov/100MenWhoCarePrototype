@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
-import contact from './contactReducer';
+import contactUsResult from './contactUsResultReducer';
 import fetchCallsInProgress from './fetchStatusReducer';
+import contacts from './contactsReducer';
 
 const rootReducer = combineReducers({
-   contact,
+   contactUsResult,
+   contacts,
    fetchCallsInProgress
 });
 

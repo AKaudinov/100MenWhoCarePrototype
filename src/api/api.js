@@ -18,7 +18,15 @@ class api {
     }
 
     static GetAllContacts(){
-        return fetch('localhost:3000/api/contacts')
+        let fetchRequest = new Request('http://localhost:3000/api/contacts', {
+           method: 'GET',
+            mode: 'cors',
+            redirect: 'follow',
+            headers: new Headers({
+                'Content-Type': 'text/plain'
+            })
+        });
+        return fetch(fetchRequest)
         .then(response => response.json());
     }
 }

@@ -3,7 +3,7 @@ import TextInput from '../common/TextInput';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) => {
+const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsInProgress, errors}) => {
     let messageWrapperClass = 'form-group';
     let messageInputClass = 'form-control';
 
@@ -12,13 +12,31 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
         messageInputClass += " " + 'form-control-warning';
     }
 
+    //will need to be removed
+    let contacts = retrievedContacts.data.map(contact => {
+       return (<div className="retrievedContact" key={contact.id} id={contact.id}>
+           <h5 className="text-warning d-block">contact.FirstName</h5>
+           <h5 className="text-warning d-block">contact.LastName</h5>
+           <h5 className="text-warning d-block">contact.email</h5>
+           <h5 className="text-warning d-block">contact.Phone</h5>
+       </div>);
+    });
+
     return (
+
         <div className="Contact">
             <div className="jumbotron">
                 <div className="container">
                     <div className="contact-description text-xs-center">
                         <h1 className="contact-header">Contact us</h1>
-                        <p>Please email us any questions, suggestions, or ideas - placeholder</p>
+                        <p className="d-block">Please email us any questions, suggestions, or ideas - placeholder</p>
+
+                        {fetchCallsInProgress > 0 &&
+                            <i className="fa fa-circle-o-notch fa-spin"/>
+                        }
+                        {contacts && contacts}
+                        {retrievedContacts.receivedError && <h4 className="text-danger">{retrievedContacts.receivedError}</h4>}
+
                     </div>
                     <form>
                         <div className="row">
@@ -101,6 +119,7 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
+    retrievedContacts: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired,

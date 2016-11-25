@@ -1,8 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 import initialState from './initialState';
 
-
-export default function contactReducer(state = initialState.contact, action) {
+//will need to be removed
+export default function contactUsResultReducer(state = initialState.contactUsResult, action) {
     switch (action.type) {
         case actionTypes.CONTACT_SUBMIT_SUCCESS:
             return Object.assign({}, state,

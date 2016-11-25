@@ -1,7 +1,11 @@
 export default {
     fetchCallsInProgress: 0,
-    contact:{
+    contactUsResult:{
         successfulMessage:'',
         messageSendError:''
+    },
+    contacts:{
+        data: [],
+        receivedError: ''
     }
 };
