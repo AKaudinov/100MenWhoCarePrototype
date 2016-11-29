@@ -3,8 +3,8 @@ import TextInput from '../common/TextInput';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsInProgress, errors}) => {
-    let messageWrapperClass = 'form-group';
+const ContactForm = ({contact, retrievedContacts, onChange, updateStateCheckBox, onSend, fetchCallsInProgress, errors}) => {
+    let messageWrapperClass = 'form-group col-xs-12';
     let messageInputClass = 'form-control';
 
     if (errors.message && errors.message.length > 0) {
@@ -14,13 +14,17 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
 
     //will need to be removed
     let contacts = retrievedContacts.data.map(contact => {
-       return (<div className="retrievedContact" key={contact.id} id={contact.id}>
-           <h5 className="text-warning d-block">contact.FirstName</h5>
-           <h5 className="text-warning d-block">contact.LastName</h5>
-           <h5 className="text-warning d-block">contact.email</h5>
-           <h5 className="text-warning d-block">contact.Phone</h5>
-       </div>);
+        return (<div className="retrievedContact" key={contact.id} id={contact.id}>
+            <h5 className="text-warning d-block">contact.FirstName</h5>
+            <h5 className="text-warning d-block">contact.LastName</h5>
+            <h5 className="text-warning d-block">contact.email</h5>
+            <h5 className="text-warning d-block">contact.Phone</h5>
+        </div>);
     });
+
+
+    let checkBoxNewsLetterClass = contact.newsLetter ? 'contact-checkbox-checked btn btn-warning' : 'contact-checkbox-unchecked btn btn-warning';
+    let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked btn btn-warning' : 'contact-checkbox-unchecked btn btn-warning';
 
     return (
 
@@ -32,78 +36,118 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                         <p className="d-block">Please email us any questions, suggestions, or ideas - placeholder</p>
 
                         {fetchCallsInProgress > 0 &&
-                            <i className="fa fa-circle-o-notch fa-spin"/>
+                        <i className="fa fa-circle-o-notch fa-spin"/>
                         }
                         {contacts && contacts}
-                        {retrievedContacts.receivedError && <h4 className="text-danger">{retrievedContacts.receivedError}</h4>}
+                        {retrievedContacts.receivedError &&
+                        <h4 className="text-danger">{retrievedContacts.receivedError}</h4>}
 
                     </div>
                     <form>
                         <div className="row">
-                            <div className="input-fields col-xs-12 col-sm-8 offset-sm-2">
+                            <div className="input-fields col-xs-12 col-sm-10 offset-sm-1">
                                 <hr/>
                                 <div className="contact-user-info">
-                                    <TextInput
-                                        name="firstName"
-                                        label="First Name"
-                                        type="text"
-                                        onChange={onChange}
-                                        placeHolder="ex: John"
-                                        value={contact.firstName}
-                                        error={errors.firstName}
-                                    />
+                                    <div className="contact-firstName col-sm-12 col-md-6">
+                                        <TextInput
+                                            name="firstName"
+                                            label="First Name"
+                                            type="text"
+                                            onChange={onChange}
+                                            placeHolder="ex: John"
+                                            value={contact.firstName}
+                                            error={errors.firstName}
+                                        />
+                                    </div>
 
-                                    <TextInput
-                                        name="lastName"
-                                        label="Last Name"
-                                        type="text"
-                                        onChange={onChange}
-                                        placeHolder="ex: Mason"
-                                        value={contact.lastName}
-                                        error={errors.lastName}/>
+                                    <div className="contact-lastName col-sm-12 col-md-6">
+                                        <TextInput
+                                            name="lastName"
+                                            label="Last Name"
+                                            type="text"
+                                            onChange={onChange}
+                                            placeHolder="ex: Mason"
+                                            value={contact.lastName}
+                                            error={errors.lastName}/>
+                                    </div>
 
-                                    <TextInput
-                                        name="email"
-                                        label="Email"
-                                        type="text"
-                                        onChange={onChange}
-                                        placeHolder="example@domain.com"
-                                        value={contact.email}
-                                        error={errors.email}
-                                    />
+                                    <div className="contact-organization col-sm-12 col-md-6">
+                                        <TextInput
+                                            name="organization"
+                                            label="Organization"
+                                            type="text"
+                                            onChange={onChange}
+                                            value={contact.organization}
+                                            error={errors.organization}/>
+                                    </div>
 
-                                    <TextInput
-                                        name="phone"
-                                        label="Phone"
-                                        type="number"
-                                        maxlength="10"
-                                        onChange={onChange}
-                                        placeHolder="ex: 3035054343"
-                                        value={contact.phone}
-                                        error={errors.phone}/>
+                                    <div className="contact-email col-sm-12 col-md-6">
+                                        <TextInput
+                                            name="email"
+                                            label="Email"
+                                            type="text"
+                                            onChange={onChange}
+                                            placeHolder="example@domain.com"
+                                            value={contact.email}
+                                            error={errors.email}
+                                        />
+                                    </div>
 
-                                    <TextInput
-                                        name="subject"
-                                        label="Subject"
-                                        type="text"
-                                        onChange={onChange}
-                                        value={contact.subject}
-                                        error={errors.subject}
-                                    />
+                                    <div className="contact-phone col-sm-12 col-md-6">
+                                        <TextInput
+                                            name="phone"
+                                            label="Phone"
+                                            type="number"
+                                            maxlength="10"
+                                            onChange={onChange}
+                                            placeHolder="ex: 3035054343"
+                                            value={contact.phone}
+                                            error={errors.phone}/>
+                                    </div>
+
+                                    <div className="contact-subject col-sm-12 col-md-6">
+                                        <TextInput
+                                            name="subject"
+                                            label="Subject"
+                                            type="text"
+                                            onChange={onChange}
+                                            value={contact.subject}
+                                            error={errors.subject}
+                                        />
+                                    </div>
+
+                                        <div className="news-letter col-sm-12 col-md-6">
+                                            <span>Would you like to sign up for news letter?</span>
+                                            <button className={checkBoxNewsLetterClass} name="newsLetter" onClick={updateStateCheckBox}>
+                                                <i className="fa fa-check"/>
+                                            </button>
+                                        </div>
+
+                                        <div className="receive-emails col-sm-12 col-md-6">
+                                            <span>Would you like to receive emails?</span>
+                                            <label className="btn btn-info d-inline">
+                                                <input type="checkbox" name="receiveEmails" autoComplete="off"/>
+                                                <i className="fa fa-check-circle-o"/>
+                                            </label>
+                                        </div>
+
+
                                 </div>
                                 <div className={messageWrapperClass}>
                                     <label htmlFor="message">Message</label>
                                     <textarea className={messageInputClass} name="message" onChange={onChange}
                                               value={contact.message}/>
                                     <ReactCSSTransitionGroup
-                                    transitionName="error-validation"
-                                    transitionEnterTimeout={0}
-                                    transitionLeaveTimeout={0}>
-                                        {errors.message && <div className="validation-error alert alert-danger">{errors.message}</div>}
+                                        transitionName="error-validation"
+                                        transitionEnterTimeout={0}
+                                        transitionLeaveTimeout={0}>
+                                        {errors.message &&
+                                        <div className="validation-error alert alert-danger">{errors.message}</div>}
                                     </ReactCSSTransitionGroup>
                                 </div>
-                                <div className="contact-submit">
-                                    <button className="btn btn-lg" onClick={onSend} disabled={fetchCallsInProgress > 0 ? true : false}>
+                                <div className="contact-submit col-xs-12">
+                                    <button className="btn btn-lg submit-contact" onClick={onSend}
+                                            disabled={fetchCallsInProgress > 0 ? true : false}>
                                         {fetchCallsInProgress > 0 ?
                                             <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
                                     </button>
@@ -121,6 +165,7 @@ ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     retrievedContacts: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
+    updateStateCheckBox: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired,
     errors: PropTypes.object

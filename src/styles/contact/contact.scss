@@ -6,9 +6,6 @@
   }
   .jumbotron {
     background-color: gainsboro;
-    .contact-user-info {
-      width: 500px;
-    }
   }
 }
 
@@ -18,17 +15,36 @@
     color: $coRed;
     font: italic bold 15px arial, sans-serif;
   }
-  button {
+  .submit-contact {
     @include btn-transition(0.5s);
     text-align: center;
     background-color: #2d4746;
     color: $coWhite;
     width: 200px;
   }
-  button:hover {
+  .submit-contact:hover {
     background-color: darkblue;
   }
+
+
+  @mixin checkBoxDefaultStyles(){
+    margin-left: 5px;
+    font-size: 16px;
+    width: 50px;
+  }
+  .contact-checkbox-checked{
+    @include checkBoxDefaultStyles();
+    border-radius: 100% !important;
+  }
+  .contact-checkbox-unchecked{
+    @include checkBoxDefaultStyles();
+    //border-radius: 4px !important;
+    .fa{
+      visibility: hidden;
+    }
+  }
 }
+
 
 @media screen and(max-width: 992px) {
   .Contact {

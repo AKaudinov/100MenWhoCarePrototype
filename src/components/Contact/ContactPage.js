@@ -17,12 +17,16 @@ export class ManageContactpage extends React.Component {
                 email: '',
                 phone:'',
                 subject: '',
+                organization: '',
+                newsLetter: false,
+                receiveEmails: false,
                 message: ''
             },
             errors: {}
         };
 
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
+        this.updateStateCheckBox = this.updateStateCheckBox.bind(this);
         this.checkErrors = this.checkErrors.bind(this);
         this.submitContact = this.submitContact.bind(this);
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
@@ -43,8 +47,17 @@ export class ManageContactpage extends React.Component {
 
         let contactSetter = this.state.contact;
         contactSetter[field] = fieldValue;
-        return this.setState({msgInfo: contactSetter});
+        return this.setState({contact: contactSetter});
     }
+
+    updateStateCheckBox(event){
+        event.preventDefault();
+        const fieldName = event.target.name;
+        let contactSetter = this.state.contact;
+        contactSetter[fieldName] = !this.state.contact[fieldName];
+        return this.setState({contact: contactSetter});
+    }
+
 
     checkErrors(fieldName, fieldValue){
         let stateErrorsCleaner = this.state.errors;
@@ -159,6 +172,7 @@ export class ManageContactpage extends React.Component {
                 contact={this.state.contact}
                 retrievedContacts={this.props.contacts}
                 onChange={this.updateContactInfoState}
+                updateStateCheckBox={this.updateStateCheckBox}
                 onSend={this.submitContact}
                 fetchCallsInProgress={this.props.fetchCallsInProgress}
                 errors={this.state.errors}

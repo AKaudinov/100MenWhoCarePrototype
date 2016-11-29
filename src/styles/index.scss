@@ -12,7 +12,13 @@ html, body{
 //buttons standard
 .btn {
   border: none;
+  outline: none;
   @include btn-transition(0.5s);
+}
+
+.btn:focus{
+  outline:none;
+  border: none;
 }
 //buttons standard end
 
