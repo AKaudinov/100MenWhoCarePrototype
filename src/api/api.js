@@ -30,15 +30,4 @@ class api {
         .then(response => response.json());
     }
 }
-
-
-//static SendContact(contactInfo){
-//    contactInfo = Object.assign({}, contactInfo);
-//    return new Promise((resolve, reject) =>{
-//        setTimeout(() => {
-//            contactForm  = contactInfo;
-//            resolve('Message Sent!');
-//        }, delay);
-//    });
-//}
 export default api;

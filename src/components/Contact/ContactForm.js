@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/contact/contact.scss';
 
 const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsInProgress, errors}) => {
@@ -156,23 +155,6 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
         </div>
     );
 };
-
-
-//old message text box validation animation that shows up on the bottom
-//<ReactCSSTransitionGroup
-//    transitionName="error-validation"
-//    transitionEnterTimeout={0}
-//    transitionLeaveTimeout={0}>
-//    {errors.message &&
-//    <div className="validation-error alert alert-danger">{errors.message}</div>}
-//</ReactCSSTransitionGroup>
-
-//<div className="news-letter col-sm-12 col-md-6">
-//    <span>Would you like to sign up for news letter?</span>
-//    <button className={checkBoxNewsLetterClass} name="newsLetter" onClick={updateStateCheckBox}>
-//        <i className="fa fa-check" onClick={updateStateCheckBox}/>
-//    </button>
-//</div>
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,

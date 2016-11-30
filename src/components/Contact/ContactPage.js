@@ -26,7 +26,6 @@ export class ManageContactpage extends React.Component {
         };
 
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
-        //this.updateStateCheckBox = this.updateStateCheckBox.bind(this);
         this.checkErrors = this.checkErrors.bind(this);
         this.submitContact = this.submitContact.bind(this);
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
@@ -55,15 +54,6 @@ export class ManageContactpage extends React.Component {
         }
         return this.setState({contact: contactSetter});
     }
-
-    //updateStateCheckBox(event){
-    //    event.preventDefault();
-    //    const fieldName = event.target.name;
-    //    let contactSetter = this.state.contact;
-    //    contactSetter[fieldName] = !this.state.contact[fieldName];
-    //    return this.setState({contact: contactSetter});
-    //}
-
 
     checkErrors(fieldName, fieldValue){
         let stateErrorsCleaner = this.state.errors;
@@ -137,15 +127,7 @@ export class ManageContactpage extends React.Component {
         Object.keys(contactObj).map(key => {
            if(contactObj[key] == '') {
                valid = false;
-               let objKey = key;
-               if(objKey === 'firstName'){
-                   objKey = 'First Name';
-               }
-               if(objKey === 'lastName'){
-                   objKey = 'Last Name';
-               }
                return errorSetter[key] = 'cannot be blank';
-               //`${objKey} cannot be blank`;
            }
         });
 
@@ -159,12 +141,10 @@ export class ManageContactpage extends React.Component {
         if(contactObj.phone.length > 10){
             valid = false;
             errorSetter.phone = `must be lower than 10 digits`;
-            //Phone must be lower than 10 digits
         }
         if(contactObj.phone.length < 10){
             valid = false;
             errorSetter.phone = `must be 10 digits long`;
-            //Phone must be 10 digits long
         }//
 
         if(valid !== true){

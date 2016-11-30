@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, error}) => {
     let wrapperClass = 'form-group';
@@ -33,13 +32,6 @@ const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, 
         </div>
     );
 };
-
-//<ReactCSSTransitionGroup
-//    transitionName="error-validation"
-//    transitionEnterTimeout={0}
-//    transitionLeaveTimeout={0}>
-//    {error && <div className="validation-error alert alert-danger">{error}</div>}
-//</ReactCSSTransitionGroup>
 
 TextInput.propTypes = {
     name: PropTypes.string.isRequired,
