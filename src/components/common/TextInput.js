@@ -4,9 +4,12 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, error}) => {
     let wrapperClass = 'form-group';
     let controlWrapperClass = 'form-control';
+    let labelClass = `${name}label`;
+
     if (error && error.length > 0) {
         wrapperClass += " " + 'has-warning';
         controlWrapperClass += " " + 'form-control-warning';
+        labelClass += " " + 'text-danger';
     }
 
     let inputOpts = {};
@@ -16,7 +19,7 @@ const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, 
 
     return (
         <div className={wrapperClass}>
-            <label htmlFor={name}>{label}</label>
+            <label className={labelClass} htmlFor={name}>{label} {error && `- ${error}`}</label>
                 <input
                     type={type}
                     name={name}
@@ -27,15 +30,16 @@ const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, 
                     value={value}
                     onChange={onChange}
                 />
-            <ReactCSSTransitionGroup
-            transitionName="error-validation"
-            transitionEnterTimeout={0}
-            transitionLeaveTimeout={0}>
-                {error && <div className="validation-error alert alert-danger">{error}</div>}
-            </ReactCSSTransitionGroup>
         </div>
     );
 };
+
+//<ReactCSSTransitionGroup
+//    transitionName="error-validation"
+//    transitionEnterTimeout={0}
+//    transitionLeaveTimeout={0}>
+//    {error && <div className="validation-error alert alert-danger">{error}</div>}
+//</ReactCSSTransitionGroup>
 
 TextInput.propTypes = {
     name: PropTypes.string.isRequired,

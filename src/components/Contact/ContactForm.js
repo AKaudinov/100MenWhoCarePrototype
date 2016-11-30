@@ -3,13 +3,15 @@ import TextInput from '../common/TextInput';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, retrievedContacts, onChange, updateStateCheckBox, onSend, fetchCallsInProgress, errors}) => {
-    let messageWrapperClass = 'form-group col-xs-12';
+const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsInProgress, errors}) => {
+    let messageWrapperClass = 'contact-message form-group col-xs-12';
     let messageInputClass = 'form-control';
+    let messageLabelClass = 'messageLabel';
 
     if (errors.message && errors.message.length > 0) {
         messageWrapperClass += " " + 'has-warning';
         messageInputClass += " " + 'form-control-warning';
+        messageLabelClass += " " + 'text-danger';
     }
 
     //will need to be removed
@@ -23,8 +25,8 @@ const ContactForm = ({contact, retrievedContacts, onChange, updateStateCheckBox,
     });
 
 
-    let checkBoxNewsLetterClass = contact.newsLetter ? 'contact-checkbox-checked btn btn-warning' : 'contact-checkbox-unchecked btn btn-warning';
-    let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked btn btn-warning' : 'contact-checkbox-unchecked btn btn-warning';
+    let checkBoxNewsLetterClass = contact.newsLetter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
+    let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
 
     return (
 
@@ -117,33 +119,27 @@ const ContactForm = ({contact, retrievedContacts, onChange, updateStateCheckBox,
                                     </div>
 
                                         <div className="news-letter col-sm-12 col-md-6">
-                                            <span>Would you like to sign up for news letter?</span>
-                                            <button className={checkBoxNewsLetterClass} name="newsLetter" onClick={updateStateCheckBox}>
-                                                <i className="fa fa-check"/>
-                                            </button>
-                                        </div>
-
-                                        <div className="receive-emails col-sm-12 col-md-6">
-                                            <span>Would you like to receive emails?</span>
-                                            <label className="btn btn-info d-inline">
-                                                <input type="checkbox" name="receiveEmails" autoComplete="off"/>
-                                                <i className="fa fa-check-circle-o"/>
+                                            <span className="news-letter-question">Would you like to sign up for news letter?</span>
+                                            <label className={checkBoxNewsLetterClass}>
+                                                <input type="checkbox" name="newsLetter" autoComplete="off" onChange={onChange}/>
+                                                    <i className="fa fa-check"/>
                                             </label>
                                         </div>
 
+                                        <div className="receive-emails col-sm-12 col-md-6">
+                                            <span className="receive-emails-question">Would you like to receive emails?</span>
+                                            <label className={emailCheckBoxClass}>
+                                                <input type="checkbox" name="receiveEmails" autoComplete="off" onChange={onChange}/>
+                                                    <i className="fa fa-check"/>
+                                            </label>
+                                        </div>
 
                                 </div>
                                 <div className={messageWrapperClass}>
-                                    <label htmlFor="message">Message</label>
+                                    <label className={messageLabelClass} htmlFor="message">Message {errors.message && `- ${errors.message}`}</label>
                                     <textarea className={messageInputClass} name="message" onChange={onChange}
                                               value={contact.message}/>
-                                    <ReactCSSTransitionGroup
-                                        transitionName="error-validation"
-                                        transitionEnterTimeout={0}
-                                        transitionLeaveTimeout={0}>
-                                        {errors.message &&
-                                        <div className="validation-error alert alert-danger">{errors.message}</div>}
-                                    </ReactCSSTransitionGroup>
+
                                 </div>
                                 <div className="contact-submit col-xs-12">
                                     <button className="btn btn-lg submit-contact" onClick={onSend}
@@ -161,11 +157,27 @@ const ContactForm = ({contact, retrievedContacts, onChange, updateStateCheckBox,
     );
 };
 
+
+//old message text box validation animation that shows up on the bottom
+//<ReactCSSTransitionGroup
+//    transitionName="error-validation"
+//    transitionEnterTimeout={0}
+//    transitionLeaveTimeout={0}>
+//    {errors.message &&
+//    <div className="validation-error alert alert-danger">{errors.message}</div>}
+//</ReactCSSTransitionGroup>
+
+//<div className="news-letter col-sm-12 col-md-6">
+//    <span>Would you like to sign up for news letter?</span>
+//    <button className={checkBoxNewsLetterClass} name="newsLetter" onClick={updateStateCheckBox}>
+//        <i className="fa fa-check" onClick={updateStateCheckBox}/>
+//    </button>
+//</div>
+
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     retrievedContacts: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
-    updateStateCheckBox: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired,
     errors: PropTypes.object

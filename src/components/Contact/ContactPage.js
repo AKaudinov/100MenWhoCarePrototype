@@ -26,7 +26,7 @@ export class ManageContactpage extends React.Component {
         };
 
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
-        this.updateStateCheckBox = this.updateStateCheckBox.bind(this);
+        //this.updateStateCheckBox = this.updateStateCheckBox.bind(this);
         this.checkErrors = this.checkErrors.bind(this);
         this.submitContact = this.submitContact.bind(this);
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
@@ -43,20 +43,26 @@ export class ManageContactpage extends React.Component {
         const field = event.target.name;
         const fieldValue = event.target.value;
 
-        this.checkErrors(field, fieldValue);
-
         let contactSetter = this.state.contact;
-        contactSetter[field] = fieldValue;
+
+        if(field == 'newsLetter' || field == 'receiveEmails'){
+            contactSetter[field] = !contactSetter[field];
+        }else {
+
+            this.checkErrors(field, fieldValue);
+
+            contactSetter[field] = fieldValue;
+        }
         return this.setState({contact: contactSetter});
     }
 
-    updateStateCheckBox(event){
-        event.preventDefault();
-        const fieldName = event.target.name;
-        let contactSetter = this.state.contact;
-        contactSetter[fieldName] = !this.state.contact[fieldName];
-        return this.setState({contact: contactSetter});
-    }
+    //updateStateCheckBox(event){
+    //    event.preventDefault();
+    //    const fieldName = event.target.name;
+    //    let contactSetter = this.state.contact;
+    //    contactSetter[fieldName] = !this.state.contact[fieldName];
+    //    return this.setState({contact: contactSetter});
+    //}
 
 
     checkErrors(fieldName, fieldValue){
@@ -138,7 +144,8 @@ export class ManageContactpage extends React.Component {
                if(objKey === 'lastName'){
                    objKey = 'Last Name';
                }
-               return errorSetter[key] = `${objKey} cannot be blank`;
+               return errorSetter[key] = 'cannot be blank';
+               //`${objKey} cannot be blank`;
            }
         });
 
@@ -151,11 +158,13 @@ export class ManageContactpage extends React.Component {
         //phone check
         if(contactObj.phone.length > 10){
             valid = false;
-            errorSetter.phone = `Phone must be lower than 10 digits`;
+            errorSetter.phone = `must be lower than 10 digits`;
+            //Phone must be lower than 10 digits
         }
         if(contactObj.phone.length < 10){
             valid = false;
-            errorSetter.phone = `Phone must be 10 digits long`;
+            errorSetter.phone = `must be 10 digits long`;
+            //Phone must be 10 digits long
         }//
 
         if(valid !== true){
@@ -172,7 +181,6 @@ export class ManageContactpage extends React.Component {
                 contact={this.state.contact}
                 retrievedContacts={this.props.contacts}
                 onChange={this.updateContactInfoState}
-                updateStateCheckBox={this.updateStateCheckBox}
                 onSend={this.submitContact}
                 fetchCallsInProgress={this.props.fetchCallsInProgress}
                 errors={this.state.errors}
