@@ -42,11 +42,11 @@ export default {
                 loader: extractSass.extract(['css','sass'])
             },
             {
-                test:/\.(woff|woff2|ttf|eot|ico|)?(\?v=\d+\.\d+\.\d+)?$/,
+                test:/\.(woff|woff2|ttf|eot|ico|svg)?(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file?name=fonts/[name].[hash].[ext]?'
             },
             {
-                test:/\.(png|jpe?g|gif|svg)$/,
+                test:/\.(png|jpe?g|gif)$/,
                 loader: 'file?name=assets/[name].[hash].[ext]?'
             }
         ]

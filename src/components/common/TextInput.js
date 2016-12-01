@@ -24,11 +24,10 @@ const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, 
                     name={name}
                     className={controlWrapperClass}
                     placeholder={placeHolder}
-                    max={maxlength}
+                    maxLength={maxlength}
                     {...inputOpts}
                     value={value}
-                    onChange={onChange}
-                />
+                    onChange={onChange}/>
         </div>
     );
 };

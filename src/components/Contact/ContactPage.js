@@ -12,15 +12,15 @@ export class ManageContactpage extends React.Component {
 
         this.state = {
             contact: {
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone:'',
-                subject: '',
-                organization: '',
-                newsLetter: false,
-                receiveEmails: false,
-                message: ''
+                FirstName: '',
+                LastName: '',
+                Email: '',
+                Phone:'',
+                Subject: '',
+                Organization: '',
+                Newsletter: false,
+                ReceiveEmails: false,
+                Message: ''
             },
             errors: {}
         };
@@ -44,7 +44,7 @@ export class ManageContactpage extends React.Component {
 
         let contactSetter = this.state.contact;
 
-        if(field == 'newsLetter' || field == 'receiveEmails'){
+        if(field == 'Newsletter' || field == 'ReceiveEmails'){
             contactSetter[field] = !contactSetter[field];
         }else {
 
@@ -60,14 +60,14 @@ export class ManageContactpage extends React.Component {
         let errorMessage = stateErrorsCleaner[fieldName];
 
         //email validation
-        if(fieldName == 'email' && fieldValue.indexOf('@') !== -1){
-            stateErrorsCleaner.email = '';
+        if(fieldName == 'Email' && fieldValue.indexOf('@') !== -1){
+            stateErrorsCleaner.Email = '';
         }
 
         //phone validation
-        if(fieldName == 'phone'){
+        if(fieldName == 'Phone'){
             if(fieldValue.length === 10 && errorMessage.indexOf('digits') !== 1){
-                stateErrorsCleaner.phone = '';
+                stateErrorsCleaner.Phone = '';
             }
         }
 
@@ -86,10 +86,15 @@ export class ManageContactpage extends React.Component {
         };
         toastr.success(msg);
         let stateContactSetter = Object.assign({}, this.state.contact, {
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
+            FirstName: '',
+            LastName: '',
+            Email: '',
+            Phone:'',
+            Subject: '',
+            Organization: '',
+            Newsletter: false,
+            ReceiveEmails: false,
+            Message: ''
         });
         return this.setState({contact: stateContactSetter});
     }
@@ -132,19 +137,19 @@ export class ManageContactpage extends React.Component {
         });
 
         //valid email check
-        if(contactObj.email.indexOf('@') === -1 && contactObj.email !== ''){
+        if(contactObj.Email.indexOf('@') === -1 && contactObj.Email !== ''){
             valid = false;
-            errorSetter.email = `${contactObj.email} is not a valid email`;
+            errorSetter.Email = `${contactObj.Email} is not a valid email`;
         }//
 
         //phone check
-        if(contactObj.phone.length > 10){
+        if(contactObj.Phone.length > 10){
             valid = false;
-            errorSetter.phone = `must be lower than 10 digits`;
+            errorSetter.Phone = `must be lower than 10 digits`;
         }
-        if(contactObj.phone.length < 10){
+        if(contactObj.Phone.length < 10){
             valid = false;
-            errorSetter.phone = `must be 10 digits long`;
+            errorSetter.Phone = `must be 10 digits long`;
         }//
 
         if(valid !== true){

@@ -6,10 +6,10 @@ class api {
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify(contactInfo),
-            redirect: 'follow',
-            headers: new Headers({
-                'Content-Type': 'text/plain'
-            })
+            redirect: 'follow'
+            //headers: new Headers({
+            //    'Content-Type': 'text/plain'
+            //})
 
         });
         return fetch(fetchRequest)
