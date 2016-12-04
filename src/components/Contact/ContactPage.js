@@ -16,7 +16,7 @@ export class ManageContactpage extends React.Component {
                 LastName: '',
                 Email: '',
                 Phone:'',
-                Subject: '',
+                //Subject: '',
                 Organization: '',
                 Newsletter: false,
                 ReceiveEmails: false,
@@ -85,17 +85,28 @@ export class ManageContactpage extends React.Component {
             progressBar: true
         };
         toastr.success(msg);
-        let stateContactSetter = Object.assign({}, this.state.contact, {
-            FirstName: '',
-            LastName: '',
-            Email: '',
-            Phone:'',
-            Subject: '',
-            Organization: '',
-            Newsletter: false,
-            ReceiveEmails: false,
-            Message: ''
+
+        let stateContactSetter = Object.assign({}, this.state.contact);
+
+        Object.keys(stateContactSetter).forEach(key => {
+            if(key == 'Newsletter' || key == 'ReceiveEmails'){
+                stateContactSetter[key] = false;
+            }else{
+                stateContactSetter[key] = '';
+            }
         });
+        //{
+        //    FirstName: '',
+        //    LastName: '',
+        //    Email: '',
+        //    Phone:'',
+        //    //Subject: '',
+        //    Organization: '',
+        //    Newsletter: false,
+        //    ReceiveEmails: false,
+        //    Message: ''
+        //});
+
         return this.setState({contact: stateContactSetter});
     }
 

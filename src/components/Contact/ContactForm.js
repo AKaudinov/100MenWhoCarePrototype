@@ -8,8 +8,8 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
     let messageLabelClass = 'messageLabel';
 
     if (errors.Message && errors.Message.length > 0) {
-        messageWrapperClass += " " + 'has-warning';
-        messageInputClass += " " + 'form-control-warning';
+        messageWrapperClass += " " + 'has-danger';
+        messageInputClass += " " + 'form-control-danger';
         messageLabelClass += " " + 'text-danger';
     }
 
@@ -72,7 +72,7 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                                             error={errors.LastName}/>
                                     </div>
 
-                                    <div className="contact-organization col-sm-12 col-md-6">
+                                    <div className="contact-organization col-xs-12">
                                         <TextInput
                                             name="Organization"
                                             label="Organization"
@@ -106,16 +106,7 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                                             error={errors.Phone}/>
                                     </div>
 
-                                    <div className="contact-subject col-sm-12 col-md-6">
-                                        <TextInput
-                                            name="Subject"
-                                            label="Subject"
-                                            type="text"
-                                            onChange={onChange}
-                                            value={contact.Subject}
-                                            error={errors.Subject}
-                                        />
-                                    </div>
+
 
                                         <div className="news-letter col-sm-12 col-md-6">
                                             <span className="news-letter-question">Would you like to sign up for news letter?</span>
@@ -155,6 +146,17 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
         </div>
     );
 };
+
+//<div className="contact-subject col-sm-12 col-md-6">
+//    <TextInput
+//        name="Subject"
+//        label="Subject"
+//        type="text"
+//        onChange={onChange}
+//        value={contact.Subject}
+//        error={errors.Subject}
+//    />
+//</div>
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,

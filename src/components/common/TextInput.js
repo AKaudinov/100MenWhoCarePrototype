@@ -6,8 +6,8 @@ const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, 
     let labelClass = `${name}label`;
 
     if (error && error.length > 0) {
-        wrapperClass += " " + 'has-warning';
-        controlWrapperClass += " " + 'form-control-warning';
+        wrapperClass += " " + 'has-danger';
+        controlWrapperClass += " " + 'form-control-danger';
         labelClass += " " + 'text-danger';
     }
 
