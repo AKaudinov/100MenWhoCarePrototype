@@ -134,7 +134,7 @@ export class ManageContactpage extends React.Component {
 
         //blank check
         Object.keys(contactObj).map(key => {
-           if(contactObj[key] == '') {
+           if(contactObj[key] == '' && (key !== 'newsletter' && key !== 'receiveEmails')) {
                valid = false;
                return errorSetter[key] = 'cannot be blank';
            }

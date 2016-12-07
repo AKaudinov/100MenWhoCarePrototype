@@ -27,7 +27,11 @@ export function submitContactForm(contactForm) {
                 dispatch(contactSubmitSuccess(message.status));
             }).catch(err => {
                 dispatch(fetchFail());
-                dispatch(contactSubmitFailure(err));
+                if(err.hasOwnProperty('message')){
+                    dispatch(contactSubmitFailure(err.message));
+                }else{
+                    dispatch(contactSubmitFailure(err));
+                }
                 //throw(error);
             });
     };
@@ -48,7 +52,11 @@ export function getAllContacts() {
                 }
             }).catch(err => {
                 dispatch(fetchFail());
-                dispatch(contactsReturnFailure(err.message));
+                if(err.hasOwnProperty('message')){
+                    dispatch(contactsReturnFailure(err.message));
+                }else{
+                    dispatch(contactsReturnFailure(err));
+                }
             });
     };
 }
