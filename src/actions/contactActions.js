@@ -24,7 +24,7 @@ export function submitContactForm(contactForm) {
         dispatch(beginFetch());
         return ContactApi.SendContact(contactForm)
             .then(message => {
-                dispatch(contactSubmitSuccess(message));
+                dispatch(contactSubmitSuccess(message.status));
             }).catch(err => {
                 dispatch(fetchFail());
                 dispatch(contactSubmitFailure(err));

@@ -7,7 +7,7 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
     let messageInputClass = 'form-control';
     let messageLabelClass = 'messageLabel';
 
-    if (errors.Message && errors.Message.length > 0) {
+    if (errors.message && errors.message.length > 0) {
         messageWrapperClass += " " + 'has-danger';
         messageInputClass += " " + 'form-control-danger';
         messageLabelClass += " " + 'text-danger';
@@ -24,8 +24,8 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
     });
 
 
-    let checkBoxNewsLetterClass = contact.Newsletter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
-    let emailCheckBoxClass = contact.ReceiveEmails ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
+    let checkBoxNewsLetterClass = contact.newsletter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
+    let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
 
     return (
 
@@ -51,59 +51,59 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                                 <div className="contact-user-info">
                                     <div className="contact-firstName col-sm-12 col-md-6">
                                         <TextInput
-                                            name="FirstName"
+                                            name="firstName"
                                             label="First Name"
                                             type="text"
                                             onChange={onChange}
                                             placeHolder="ex: John"
-                                            value={contact.FirstName}
-                                            error={errors.FirstName}
+                                            value={contact.firstName}
+                                            error={errors.firstName}
                                         />
                                     </div>
 
                                     <div className="contact-lastName col-sm-12 col-md-6">
                                         <TextInput
-                                            name="LastName"
+                                            name="lastName"
                                             label="Last Name"
                                             type="text"
                                             onChange={onChange}
                                             placeHolder="ex: Mason"
-                                            value={contact.LastName}
-                                            error={errors.LastName}/>
+                                            value={contact.lastName}
+                                            error={errors.lastName}/>
                                     </div>
 
                                     <div className="contact-organization col-xs-12">
                                         <TextInput
-                                            name="Organization"
+                                            name="organization"
                                             label="Organization"
                                             type="text"
                                             onChange={onChange}
-                                            value={contact.Organization}
-                                            error={errors.Organization}/>
+                                            value={contact.organization}
+                                            error={errors.organization}/>
                                     </div>
 
                                     <div className="contact-email col-sm-12 col-md-6">
                                         <TextInput
-                                            name="Email"
+                                            name="email"
                                             label="Email"
                                             type="text"
                                             onChange={onChange}
                                             placeHolder="example@domain.com"
-                                            value={contact.Email}
-                                            error={errors.Email}
+                                            value={contact.email}
+                                            error={errors.email}
                                         />
                                     </div>
 
                                     <div className="contact-phone col-sm-12 col-md-6">
                                         <TextInput
-                                            name="Phone"
+                                            name="phone"
                                             label="Phone"
                                             type="number"
                                             maxlength="10"
                                             onChange={onChange}
                                             placeHolder="ex: 3035054343"
-                                            value={contact.Phone}
-                                            error={errors.Phone}/>
+                                            value={contact.phone}
+                                            error={errors.phone}/>
                                     </div>
 
 
@@ -111,7 +111,7 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                                         <div className="news-letter col-sm-12 col-md-6">
                                             <span className="news-letter-question">Would you like to sign up for news letter?</span>
                                             <label className={checkBoxNewsLetterClass}>
-                                                <input type="checkbox" name="Newsletter" autoComplete="off" onChange={onChange}/>
+                                                <input type="checkbox" name="newsletter" autoComplete="off" onChange={onChange}/>
                                                     <i className="fa fa-check"/>
                                             </label>
                                         </div>
@@ -119,16 +119,16 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                                         <div className="receive-emails col-sm-12 col-md-6">
                                             <span className="receive-emails-question">Would you like to receive emails?</span>
                                             <label className={emailCheckBoxClass}>
-                                                <input type="checkbox" name="ReceiveEmails" autoComplete="off" onChange={onChange}/>
+                                                <input type="checkbox" name="receiveEmails" autoComplete="off" onChange={onChange}/>
                                                     <i className="fa fa-check"/>
                                             </label>
                                         </div>
 
                                 </div>
                                 <div className={messageWrapperClass}>
-                                    <label className={messageLabelClass} htmlFor="Message">Message {errors.Message && `- ${errors.Message}`}</label>
-                                    <textarea className={messageInputClass} name="Message" onChange={onChange}
-                                              value={contact.Message}/>
+                                    <label className={messageLabelClass} htmlFor="message">Message {errors.message && `- ${errors.message}`}</label>
+                                    <textarea className={messageInputClass} name="message" onChange={onChange} id="message"
+                                              value={contact.message}/>
 
                                 </div>
                                 <div className="contact-submit col-xs-12">

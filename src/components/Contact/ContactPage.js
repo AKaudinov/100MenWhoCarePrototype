@@ -12,15 +12,15 @@ export class ManageContactpage extends React.Component {
 
         this.state = {
             contact: {
-                FirstName: '',
-                LastName: '',
-                Email: '',
-                Phone:'',
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone:'',
                 //Subject: '',
-                Organization: '',
-                Newsletter: false,
-                ReceiveEmails: false,
-                Message: ''
+                organization: '',
+                newsletter: false,
+                receiveEmails: false,
+                message: ''
             },
             errors: {}
         };
@@ -44,7 +44,7 @@ export class ManageContactpage extends React.Component {
 
         let contactSetter = this.state.contact;
 
-        if(field == 'Newsletter' || field == 'ReceiveEmails'){
+        if(field == 'newsletter' || field == 'receiveEmails'){
             contactSetter[field] = !contactSetter[field];
         }else {
 
@@ -60,22 +60,25 @@ export class ManageContactpage extends React.Component {
         let errorMessage = stateErrorsCleaner[fieldName];
 
         //email validation
-        if(fieldName == 'Email' && fieldValue.indexOf('@') !== -1){
-            stateErrorsCleaner.Email = '';
+        if(fieldName == 'email' && fieldValue.indexOf('@') !== -1){
+            stateErrorsCleaner.email = '';
         }
 
-        //phone validation
-        if(fieldName == 'Phone'){
-            if(fieldValue.length === 10 && errorMessage.indexOf('digits') !== 1){
-                stateErrorsCleaner.Phone = '';
+        //make sure errorMessage is actually defined
+        if(errorMessage) {
+            //phone validation
+            if (fieldName == 'phone') {
+                if (fieldValue.length === 10 && errorMessage.indexOf('digits') !== 1) {
+                    stateErrorsCleaner.phone = '';
+                }
+            }
+
+            //check for blanks, make sure errorMessage is actually defined and than check for the 'blank' error
+            if (fieldValue.length > 0 && errorMessage.indexOf('blank') !== -1) {
+                stateErrorsCleaner[fieldName] = '';
             }
         }
-
-        //check for blanks, make sure errorMessage is actually defined and than check for the 'blank' error
-        if(fieldValue.length > 0 && (errorMessage && errorMessage.indexOf('blank') !== -1)){
-            stateErrorsCleaner[fieldName] = '';
-            return this.setState({errors: stateErrorsCleaner});
-        }
+        return this.setState({errors: stateErrorsCleaner});
     }
 
     onSuccessfulSubmit(msg) {
@@ -89,23 +92,13 @@ export class ManageContactpage extends React.Component {
         let stateContactSetter = Object.assign({}, this.state.contact);
 
         Object.keys(stateContactSetter).forEach(key => {
-            if(key == 'Newsletter' || key == 'ReceiveEmails'){
+            if(key == 'newsletter' || key == 'receiveEmails'){
                 stateContactSetter[key] = false;
             }else{
                 stateContactSetter[key] = '';
             }
         });
-        //{
-        //    FirstName: '',
-        //    LastName: '',
-        //    Email: '',
-        //    Phone:'',
-        //    //Subject: '',
-        //    Organization: '',
-        //    Newsletter: false,
-        //    ReceiveEmails: false,
-        //    Message: ''
-        //});
+
 
         return this.setState({contact: stateContactSetter});
     }
@@ -148,19 +141,19 @@ export class ManageContactpage extends React.Component {
         });
 
         //valid email check
-        if(contactObj.Email.indexOf('@') === -1 && contactObj.Email !== ''){
+        if(contactObj.email.indexOf('@') === -1 && contactObj.email !== ''){
             valid = false;
-            errorSetter.Email = `${contactObj.Email} is not a valid email`;
+            errorSetter.email = `${contactObj.email} is not a valid email`;
         }//
 
         //phone check
-        if(contactObj.Phone.length > 10){
+        if(contactObj.phone.length > 10){
             valid = false;
-            errorSetter.Phone = `must be lower than 10 digits`;
+            errorSetter.phone = `must be lower than 10 digits`;
         }
-        if(contactObj.Phone.length < 10){
+        if(contactObj.phone.length < 10){
             valid = false;
-            errorSetter.Phone = `must be 10 digits long`;
+            errorSetter.phone = `must be 10 digits long`;
         }//
 
         if(valid !== true){
@@ -208,3 +201,17 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageContactpage);
+
+
+
+//{
+//    FirstName: '',
+//    LastName: '',
+//    Email: '',
+//    Phone:'',
+//    //Subject: '',
+//    Organization: '',
+//    Newsletter: false,
+//    ReceiveEmails: false,
+//    Message: ''
+//});
