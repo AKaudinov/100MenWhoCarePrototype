@@ -20,7 +20,8 @@ export class ManageContactpage extends React.Component {
                 organization: '',
                 newsletter: false,
                 receiveEmails: false,
-                message: ''
+                message: '',
+                created: ''
             },
             errors: {}
         };
@@ -31,6 +32,7 @@ export class ManageContactpage extends React.Component {
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
         this.onFailedSubmit = this.onFailedSubmit.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
+        this.optionalKeyMatch = this.optionalKeyMatch.bind(this);
     }
 
     //will need to be removed
@@ -114,7 +116,10 @@ export class ManageContactpage extends React.Component {
 
     submitContact(event) {
         event.preventDefault();
+        let contactSetter = this.state.contact;
         if(this.isFormValid()) {
+            contactSetter.created = new Date();
+            this.setState({contact: contactSetter});
             //this.props.dispatch(contactActions.submitContactForm(this.state.contact))
             this.props.actions.submitContactForm(this.state.contact)
             .then(() => {
@@ -127,6 +132,14 @@ export class ManageContactpage extends React.Component {
         }
     }
 
+    optionalKeyMatch(key){
+        let match = false;
+        if(key == 'newsletter' || key == 'receiveEmails' || key == 'created'){
+                match = true;
+            }
+        return match;
+    }
+
     isFormValid(){
         let contactObj = this.state.contact;
         let errorSetter = this.state.errors;
@@ -134,7 +147,7 @@ export class ManageContactpage extends React.Component {
 
         //blank check
         Object.keys(contactObj).map(key => {
-           if(contactObj[key] == '' && (key !== 'newsletter' && key !== 'receiveEmails')) {
+           if(contactObj[key] == '' && !this.optionalKeyMatch(key)){
                valid = false;
                return errorSetter[key] = 'cannot be blank';
            }
@@ -201,17 +214,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageContactpage);
-
-
-
-//{
-//    FirstName: '',
-//    LastName: '',
-//    Email: '',
-//    Phone:'',
-//    //Subject: '',
-//    Organization: '',
-//    Newsletter: false,
-//    ReceiveEmails: false,
-//    Message: ''
-//});

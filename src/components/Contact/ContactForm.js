@@ -20,6 +20,9 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
             <p className="text-success d-inline">Last Name: <span className="text-danger">{contact.LastName} </span></p>
             <p className="text-success d-inline">Email: <span className="text-danger">{contact.Email} </span></p>
             <p className="text-success d-inline">Phone: <span className="text-danger">{contact.Phone} </span></p>
+            <p className="text-success d-inline">NewsLetter: <span className="text-danger">{contact.Newsletter.toString()}</span></p>
+            <p className="text-success d-inline">ReceiveEmails: <span className="text-danger">{contact.ReceiveEmails.toString()}</span></p>
+            <p className="text-success d-inline">Created: <span className="text-danger">{contact.Created}</span></p>
         </div>);
     });
 
@@ -146,17 +149,6 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
         </div>
     );
 };
-
-//<div className="contact-subject col-sm-12 col-md-6">
-//    <TextInput
-//        name="Subject"
-//        label="Subject"
-//        type="text"
-//        onChange={onChange}
-//        value={contact.Subject}
-//        error={errors.Subject}
-//    />
-//</div>
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
