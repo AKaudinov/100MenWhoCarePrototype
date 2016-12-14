@@ -6,7 +6,7 @@ import colors from 'colors';
 /*eslint-disable no-unused-vars*/
 /*eslint-disable no-console*/
 
-const port = System.getenv("PORT");
+const port = (process.env.PORT || 8080)
 const app = express();
 
 app.use(compression());
