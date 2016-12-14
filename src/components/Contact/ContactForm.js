@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsInProgress, errors}) => {
+const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) => {
     let messageWrapperClass = 'contact-message form-group col-xs-12';
     let messageInputClass = 'form-control';
     let messageLabelClass = 'messageLabel';
@@ -14,17 +14,24 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
     }
 
     //will need to be removed
-    let contacts = retrievedContacts.data.map(contact => {
-        return (<div className="retrievedContact d-block" key={contact.Id} id={contact.Id}>
-            <p className="text-success d-inline">First Name: <span className="text-danger">{contact.FirstName} </span></p>
-            <p className="text-success d-inline">Last Name: <span className="text-danger">{contact.LastName} </span></p>
-            <p className="text-success d-inline">Email: <span className="text-danger">{contact.Email} </span></p>
-            <p className="text-success d-inline">Phone: <span className="text-danger">{contact.Phone} </span></p>
-            <p className="text-success d-inline">NewsLetter: <span className="text-danger">{contact.Newsletter.toString()}</span></p>
-            <p className="text-success d-inline">ReceiveEmails: <span className="text-danger">{contact.ReceiveEmails.toString()}</span></p>
-            <p className="text-success d-inline">Created: <span className="text-danger">{contact.Created}</span></p>
-        </div>);
-    });
+    //let contacts = retrievedContacts.data.map(contact => {
+    //    return (<div className="retrievedContact d-block" key={contact.Id} id={contact.Id}>
+    //        <p className="text-success d-inline">First Name: <span className="text-danger">{contact.FirstName} </span></p>
+    //        <p className="text-success d-inline">Last Name: <span className="text-danger">{contact.LastName} </span></p>
+    //        <p className="text-success d-inline">Email: <span className="text-danger">{contact.Email} </span></p>
+    //        <p className="text-success d-inline">Phone: <span className="text-danger">{contact.Phone} </span></p>
+    //        <p className="text-success d-inline">NewsLetter: <span className="text-danger">{contact.Newsletter.toString()}</span></p>
+    //        <p className="text-success d-inline">ReceiveEmails: <span className="text-danger">{contact.ReceiveEmails.toString()}</span></p>
+    //        <p className="text-success d-inline">Created: <span className="text-danger">{contact.Created}</span></p>
+    //    </div>);
+    //});
+
+    //{fetchCallsInProgress > 0 &&
+    //<i className="fa fa-circle-o-notch fa-spin"/>
+    //}
+    //{contacts && <div className="retrieved-contacts"><h6 className="text-success">Contacts retrieved from API</h6> {contacts}</div>}
+    //{retrievedContacts.receivedError &&
+    //<h4 className="text-danger">{retrievedContacts.receivedError}</h4>}
 
 
     let checkBoxNewsLetterClass = contact.newsletter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
@@ -38,14 +45,6 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
                     <div className="contact-description text-xs-center">
                         <h1 className="contact-header">Contact us</h1>
                         <p className="d-block">Please email us any questions, suggestions, or ideas - placeholder</p>
-
-                        {fetchCallsInProgress > 0 &&
-                        <i className="fa fa-circle-o-notch fa-spin"/>
-                        }
-                        {contacts && <div className="retrieved-contacts"><h6 className="text-success">Contacts retrieved from API</h6> {contacts}</div>}
-                        {retrievedContacts.receivedError &&
-                        <h4 className="text-danger">{retrievedContacts.receivedError}</h4>}
-
                     </div>
                     <form>
                         <div className="row">
@@ -152,7 +151,6 @@ const ContactForm = ({contact, retrievedContacts, onChange, onSend, fetchCallsIn
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
-    retrievedContacts: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired,

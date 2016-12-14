@@ -16,7 +16,6 @@ export class ManageContactpage extends React.Component {
                 lastName: '',
                 email: '',
                 phone:'',
-                //Subject: '',
                 organization: '',
                 newsletter: false,
                 receiveEmails: false,
@@ -36,9 +35,9 @@ export class ManageContactpage extends React.Component {
     }
 
     //will need to be removed
-    componentWillMount(){
-        this.props.actions.getAllContacts();
-    }
+    //componentWillMount(){
+    //    this.props.actions.getAllContacts();
+    //}
 
     updateContactInfoState(event) {
         const field = event.target.name;
@@ -181,7 +180,6 @@ export class ManageContactpage extends React.Component {
         return (
             <ContactForm
                 contact={this.state.contact}
-                retrievedContacts={this.props.contacts}
                 onChange={this.updateContactInfoState}
                 onSend={this.submitContact}
                 fetchCallsInProgress={this.props.fetchCallsInProgress}
@@ -192,7 +190,6 @@ export class ManageContactpage extends React.Component {
 }
 
 ManageContactpage.propTypes = {
-    //dispatch: PropTypes.func.isRequired,
     actions: PropTypes.object.isRequired,
     contactUsResult: PropTypes.object.isRequired,
     contacts: PropTypes.object.isRequired,
