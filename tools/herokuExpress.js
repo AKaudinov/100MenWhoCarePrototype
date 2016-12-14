@@ -6,7 +6,7 @@ import colors from 'colors';
 /*eslint-disable no-unused-vars*/
 /*eslint-disable no-console*/
 
-const port = 8000;
+const port = System.getenv("PORT");
 const app = express();
 
 app.use(compression());
@@ -20,6 +20,6 @@ app.listen(port, err => {
    if(err) {
        console.log(err);
    }else{
-       console.log('listening on port 8000'.green);
+       console.log(`listening on ${port}`.green);
    }
 });
