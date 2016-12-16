@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) => {
+const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress, errors}) => {
     let messageWrapperClass = 'contact-message form-group col-xs-12';
     let messageInputClass = 'form-control';
     let messageLabelClass = 'messageLabel';
@@ -13,32 +13,13 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
         messageLabelClass += " " + 'text-danger';
     }
 
-    //will need to be removed
-    //let contacts = retrievedContacts.data.map(contact => {
-    //    return (<div className="retrievedContact d-block" key={contact.Id} id={contact.Id}>
-    //        <p className="text-success d-inline">First Name: <span className="text-danger">{contact.FirstName} </span></p>
-    //        <p className="text-success d-inline">Last Name: <span className="text-danger">{contact.LastName} </span></p>
-    //        <p className="text-success d-inline">Email: <span className="text-danger">{contact.Email} </span></p>
-    //        <p className="text-success d-inline">Phone: <span className="text-danger">{contact.Phone} </span></p>
-    //        <p className="text-success d-inline">NewsLetter: <span className="text-danger">{contact.Newsletter.toString()}</span></p>
-    //        <p className="text-success d-inline">ReceiveEmails: <span className="text-danger">{contact.ReceiveEmails.toString()}</span></p>
-    //        <p className="text-success d-inline">Created: <span className="text-danger">{contact.Created}</span></p>
-    //    </div>);
-    //});
-
-    //{fetchCallsInProgress > 0 &&
-    //<i className="fa fa-circle-o-notch fa-spin"/>
-    //}
-    //{contacts && <div className="retrieved-contacts"><h6 className="text-success">Contacts retrieved from API</h6> {contacts}</div>}
-    //{retrievedContacts.receivedError &&
-    //<h4 className="text-danger">{retrievedContacts.receivedError}</h4>}
-
 
     let checkBoxNewsLetterClass = contact.newsletter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
     let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
 
-    return (
 
+    //col-sm-10 offset-sm-1
+    return (
         <div className="Contact">
             <div className="jumbotron">
                 <div className="container">
@@ -48,7 +29,7 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
                     </div>
                     <form>
                         <div className="row">
-                            <div className="input-fields col-xs-12 col-sm-10 offset-sm-1">
+                            <div className="input-fields col-xs-12">
                                 <hr/>
                                 <div className="contact-user-info">
                                     <div className="contact-firstName col-sm-12 col-md-6">
@@ -88,7 +69,7 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
                                         <TextInput
                                             name="email"
                                             label="Email"
-                                            type="text"
+                                            type="email"
                                             onChange={onChange}
                                             placeHolder="example@domain.com"
                                             value={contact.email}
@@ -100,7 +81,7 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
                                         <TextInput
                                             name="phone"
                                             label="Phone"
-                                            type="number"
+                                            type="tel"
                                             maxlength="10"
                                             onChange={onChange}
                                             placeHolder="ex: 3035054343"
@@ -109,35 +90,43 @@ const ContactForm = ({contact, onChange, onSend, fetchCallsInProgress, errors}) 
                                     </div>
 
 
+                                    <div className="news-letter col-sm-12 col-md-6">
+                                        <label className={checkBoxNewsLetterClass}>
+                                            <input type="checkbox" name="newsletter" autoComplete="off"
+                                                   onChange={onChange}/>
+                                            <i className="fa fa-check"/>
+                                        </label>
+                                        <span className="news-letter-question">Would you like to sign up for the news letter?</span>
+                                    </div>
 
-                                        <div className="news-letter col-sm-12 col-md-6">
-                                            <span className="news-letter-question">Would you like to sign up for news letter?</span>
-                                            <label className={checkBoxNewsLetterClass}>
-                                                <input type="checkbox" name="newsletter" autoComplete="off" onChange={onChange}/>
-                                                    <i className="fa fa-check"/>
-                                            </label>
-                                        </div>
-
-                                        <div className="receive-emails col-sm-12 col-md-6">
-                                            <span className="receive-emails-question">Would you like to receive emails?</span>
-                                            <label className={emailCheckBoxClass}>
-                                                <input type="checkbox" name="receiveEmails" autoComplete="off" onChange={onChange}/>
-                                                    <i className="fa fa-check"/>
-                                            </label>
-                                        </div>
+                                    <div className="receive-emails col-sm-12 col-md-6">
+                                        <label className={emailCheckBoxClass}>
+                                            <input type="checkbox" name="receiveEmails" autoComplete="off"
+                                                   onChange={onChange}/>
+                                            <i className="fa fa-check"/>
+                                        </label>
+                                        <span
+                                            className="receive-emails-question">Would you like to receive emails?</span>
+                                    </div>
 
                                 </div>
                                 <div className={messageWrapperClass}>
-                                    <label className={messageLabelClass} htmlFor="message">Message {errors.message && `- ${errors.message}`}</label>
-                                    <textarea className={messageInputClass} name="message" onChange={onChange} id="message"
+                                    <label className={messageLabelClass}
+                                           htmlFor="message">Message {errors.message && `- ${errors.message}`}</label>
+                                    <textarea className={messageInputClass} name="message" onChange={onChange}
+                                              id="message"
                                               value={contact.message}/>
 
                                 </div>
-                                <div className="contact-submit col-xs-12">
-                                    <button className="btn btn-lg submit-contact" onClick={onSend}
-                                            disabled={fetchCallsInProgress > 0 ? true : false}>
-                                        {fetchCallsInProgress > 0 ?
-                                            <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
+                                    <div className="submit-contact col-sm-12 col-md-3">
+                                        <button className="btn btn-lg submit-contact-button" onClick={onSend}
+                                                disabled={fetchCallsInProgress > 0}>
+                                            {fetchCallsInProgress > 0 ? <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
+                                        </button>
+                                    </div>
+                                <div className="cancel-contact col-sm-12 col-md-3">
+                                    <button className="btn btn-lg btn-warning cancel-contact-button" onClick={onCancel}>
+                                        Cancel
                                     </button>
                                 </div>
                             </div>
@@ -153,6 +142,7 @@ ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired,
     errors: PropTypes.object
 };

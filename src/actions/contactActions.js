@@ -32,7 +32,6 @@ export function submitContactForm(contactForm) {
                 }else{
                     dispatch(contactSubmitFailure(err));
                 }
-                //throw(error);
             });
     };
 }

@@ -9,6 +9,9 @@
 
 //navbar header styles
 .header {
+  .navbar{
+    border-radius: 0px;
+  }
   a {
     position: relative;
     color: $coWhite;

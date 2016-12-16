@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 import toastr from 'toastr';
 
 
-export class ManageContactpage extends React.Component {
+export class ContactPage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -28,16 +28,12 @@ export class ManageContactpage extends React.Component {
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
         this.checkErrors = this.checkErrors.bind(this);
         this.submitContact = this.submitContact.bind(this);
+        this.cancelContact = this.cancelContact.bind(this);
         this.onSuccessfulSubmit = this.onSuccessfulSubmit.bind(this);
         this.onFailedSubmit = this.onFailedSubmit.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
         this.optionalKeyMatch = this.optionalKeyMatch.bind(this);
     }
-
-    //will need to be removed
-    //componentWillMount(){
-    //    this.props.actions.getAllContacts();
-    //}
 
     updateContactInfoState(event) {
         const field = event.target.name;
@@ -131,6 +127,11 @@ export class ManageContactpage extends React.Component {
         }
     }
 
+    cancelContact(event){
+        event.preventDefault();
+        this.context.router.push('/');
+    }
+
     optionalKeyMatch(key){
         let match = false;
         if(key == 'newsletter' || key == 'receiveEmails' || key == 'created'){
@@ -182,6 +183,7 @@ export class ManageContactpage extends React.Component {
                 contact={this.state.contact}
                 onChange={this.updateContactInfoState}
                 onSend={this.submitContact}
+                onCancel={this.cancelContact}
                 fetchCallsInProgress={this.props.fetchCallsInProgress}
                 errors={this.state.errors}
             />
@@ -189,17 +191,19 @@ export class ManageContactpage extends React.Component {
     }
 }
 
-ManageContactpage.propTypes = {
+ContactPage.propTypes = {
     actions: PropTypes.object.isRequired,
     contactUsResult: PropTypes.object.isRequired,
-    contacts: PropTypes.object.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired
+};
+
+ContactPage.contextTypes = {
+    router: PropTypes.object
 };
 
 function mapStateToProps(state, ownprops){
 return{
         contactUsResult: state.contactUsResult,
-        contacts: state.contacts,
         fetchCallsInProgress: state.fetchCallsInProgress
     };
 }
@@ -210,4 +214,4 @@ function mapDispatchToProps(dispatch){
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageContactpage);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactPage);

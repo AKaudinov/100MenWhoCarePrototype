@@ -15,20 +15,37 @@
     color: $coRed;
     font: italic bold 15px arial, sans-serif;
   }
-  .submit-contact {
+
+  //.submit-contact{
+  //  margin-right: 20px;
+  //}
+  //.cancel-contact{
+  //  margin-left: 20px;
+  //}
+
+  .submit-contact-button {
     @include btn-transition(0.5s);
     text-align: center;
     background-color: #2d4746;
     color: $coWhite;
-    width: 200px;
+    width: 100%;
   }
-  .submit-contact:hover {
+  .submit-contact-button:hover {
     background-color: darkblue;
+  }
+
+  .cancel-contact-button{
+    text-align: center;
+    width: 100%;
   }
 
   .news-letter-question, .receive-emails-question{
     color: $coRed;
     font: italic bold 15px arial, sans-serif;
+  }
+
+  .news-letter, .receive-emails{
+    margin-top: 10px;
   }
 
   input[type=checkbox]{
@@ -39,7 +56,7 @@
 
   @mixin checkBoxDefaultStyles(){
     text-align: center;
-    margin-left: 5px;
+    margin-right: 5px;
     font-size: 16px;
     width: 25px;
     border-radius: 15%;
@@ -65,10 +82,9 @@
   }
 
   .contact-message{
-    margin-top: 10px;
+    margin-top: 20px;
   }
 }
-
 
 @media screen and(max-width: 992px) {
   .Contact {
@@ -80,10 +96,11 @@
   }
 }
 
-@media screen and(max-width: 543px) {
-  .input-fields {
-    button {
-      width: 100%;
-    }
+@media screen and(max-width:767px){
+  .receive-emails{
+    margin-top: 15px;
+  }
+  .cancel-contact{
+    margin-top: 10px;
   }
 }
