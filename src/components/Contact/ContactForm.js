@@ -32,7 +32,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                             <div className="input-fields col-xs-12">
                                 <hr/>
                                 <div className="contact-user-info">
-                                    <div className="contact-firstName col-sm-12 col-md-6">
+                                    <div className="contact-firstName col-xs-12 col-md-6">
                                         <TextInput
                                             name="firstName"
                                             label="First Name"
@@ -44,7 +44,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                         />
                                     </div>
 
-                                    <div className="contact-lastName col-sm-12 col-md-6">
+                                    <div className="contact-lastName col-xs-12 col-md-6">
                                         <TextInput
                                             name="lastName"
                                             label="Last Name"
@@ -65,7 +65,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                             error={errors.organization}/>
                                     </div>
 
-                                    <div className="contact-email col-sm-12 col-md-6">
+                                    <div className="contact-email col-xs-12 col-md-6">
                                         <TextInput
                                             name="email"
                                             label="Email"
@@ -77,7 +77,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                         />
                                     </div>
 
-                                    <div className="contact-phone col-sm-12 col-md-6">
+                                    <div className="contact-phone col-xs-12 col-md-6">
                                         <TextInput
                                             name="phone"
                                             label="Phone"
@@ -90,7 +90,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                     </div>
 
 
-                                    <div className="news-letter col-sm-12 col-md-6">
+                                    <div className="news-letter col-xs-12 col-md-6">
                                         <label className={checkBoxNewsLetterClass}>
                                             <input type="checkbox" name="newsletter" autoComplete="off"
                                                    onChange={onChange}/>
@@ -99,7 +99,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                         <span className="news-letter-question">Would you like to sign up for the news letter?</span>
                                     </div>
 
-                                    <div className="receive-emails col-sm-12 col-md-6">
+                                    <div className="receive-emails col-xs-12 col-md-6">
                                         <label className={emailCheckBoxClass}>
                                             <input type="checkbox" name="receiveEmails" autoComplete="off"
                                                    onChange={onChange}/>
@@ -118,13 +118,13 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                               value={contact.message}/>
 
                                 </div>
-                                    <div className="submit-contact col-sm-12 col-md-3">
+                                    <div className="submit-contact col-xs-12 col-md-3">
                                         <button className="btn btn-lg submit-contact-button" onClick={onSend}
                                                 disabled={fetchCallsInProgress > 0}>
                                             {fetchCallsInProgress > 0 ? <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
                                         </button>
                                     </div>
-                                <div className="cancel-contact col-sm-12 col-md-3">
+                                <div className="cancel-contact col-xs-12 col-md-3">
                                     <button className="btn btn-lg btn-warning cancel-contact-button" onClick={onCancel}>
                                         Cancel
                                     </button>
