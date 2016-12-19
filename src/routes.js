@@ -3,7 +3,7 @@ import {Route, IndexRoute} from 'react-router';
 import App from './components/App';
 import HomePage from './components/Home/HomePage';
 import AboutPage from './components/About/AboutPage';
-import ContactPage from './components/Contact/ContactPage';
+import ContactPage from './components/Contact/ContactPage'; //eslint-disable-line import/no-named-as-default
 
 export default (
   <Route path="/" component={App}>

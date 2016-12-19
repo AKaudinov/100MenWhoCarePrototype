@@ -89,26 +89,26 @@ class HomePage extends React.Component {
                     </div>
                     <div className="card">
                         <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=kBwBsaA8VdI" controls={true} width="100%"/>
+                            <ReactPlayer url="https://www.youtube.com/watch?v=89eaxsthTqc" controls={true} width="100%"/>
                         </div>
                         <div className="card-block">
-                            <h5 className="card-title">Abrams tank</h5>
-                            <p className="card-text">This is a video displaying Abrams m1a2 in action</p>
+                            <h5 className="card-title">Universe Theme</h5>
+                            <p className="card-text">How The Universe works</p>
                             <p className="card-text">
-                                <small className="text-muted">captured on m1a2</small>
+                                <small className="text-muted">By Richard Blair</small>
                             </p>
                         </div>
                     </div>
 
                     <div className="card">
                             <div className="yt-video">
-                                <ReactPlayer url="https://www.youtube.com/watch?v=xh49qn2cQNU" controls={true} width="100%"/>
+                                <ReactPlayer url="https://www.youtube.com/watch?v=3gIdMEAvQk0" controls={true} width="100%"/>
                             </div>
                             <div className="card-block">
-                                <h5 className="card-title">F22 display</h5>
-                                <p className="card-text">A display of F22 aircraft performance</p>
+                                <h5 className="card-title">Quantum Physics</h5>
+                                <p className="card-text">Quantum Physics and Microscopic Universe</p>
                                 <p className="card-text">
-                                    <small className="text-muted">captured during an air show</small>
+                                    <small className="text-muted">Space Documentary</small>
                                 </p>
                             </div>
                     </div>
@@ -118,14 +118,5 @@ class HomePage extends React.Component {
     }
 }
 
-//<iframe className="card-img-top" src="//www.youtube.com/embed/xh49qn2cQNU"
-//        frameBorder="0" allowFullScreen/>
-
-
-//<iframe className="card-img-top" src="//www.youtube.com/embed/kBwBsaA8VdI"
-//        frameBorder="0" allowFullScreen/>
-
-//<iframe className="card-img-top" src="//www.youtube.com/embed/FG0fTKAqZ5g"
-//        frameBorder="0" allowFullScreen/>
 
 export default HomePage;
