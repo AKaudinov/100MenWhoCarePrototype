@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
+import {ChasingDots} from 'better-react-spinkit';
 import '../../styles/contact/contact.scss';
 
 const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress, errors}) => {
@@ -13,12 +14,22 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
         messageLabelClass += " " + 'text-danger';
     }
 
+    let sendButton = (
+        <button className="btn btn-lg submit-contact-button" onClick={onSend}>
+            Send
+        </button>
+    );
+
+    let disabledSendButton = (
+        <button className="btn btn-lg submit-contact-button" disabled>
+            <ChasingDots color="white" size={25} className="sending-contact-icon"/> Sending
+        </button>
+    );
+
 
     let checkBoxNewsLetterClass = contact.newsletter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
     let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
 
-
-    //col-sm-10 offset-sm-1
     return (
         <div className="Contact">
             <div className="jumbotron">
@@ -119,10 +130,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
 
                                 </div>
                                     <div className="submit-contact col-xs-12 col-md-3">
-                                        <button className="btn btn-lg submit-contact-button" onClick={onSend}
-                                                disabled={fetchCallsInProgress > 0}>
-                                            {fetchCallsInProgress > 0 ? <span><i className="fa fa-circle-o-notch fa-spin"/> Sending</span> : 'Send'}
-                                        </button>
+                                        {fetchCallsInProgress > 0 ? disabledSendButton : sendButton}
                                     </div>
                                 <div className="cancel-contact col-xs-12 col-md-3">
                                     <button className="btn btn-lg btn-warning cancel-contact-button" onClick={onCancel}>
