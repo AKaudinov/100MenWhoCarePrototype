@@ -61,9 +61,9 @@ class Header extends React.Component{
                             </li>
                             <li className="nav-item">
                                 <div className="menu-gallery"/>
-                                <a className="nav-link" href="#">
+                                <Link to="/gallery" className="nav-link" onClick={this.onNavClick}>
                                     <i className="fa fa-picture-o"/> Gallery
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-contact"/>
