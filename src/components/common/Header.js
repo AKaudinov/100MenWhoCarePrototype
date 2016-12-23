@@ -39,7 +39,7 @@ class Header extends React.Component{
             <div className="header">
                 <nav className="navbar bg-inverse">
                     <a className="navbar-brand" href="http://www.100whocarealliance.org/">
-                        <span><img className="logo" src={require('../../assets/100WhoCareColorado.png')}/></span>
+                        <span><img className="logo" src={require('../../assets/100M_logo.png')}/></span>
                     </a>
                     <button className={navbarButtonClass} type="button" data-toggle="collapse"
                             data-target="#navContent"

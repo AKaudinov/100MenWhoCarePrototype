@@ -56,14 +56,15 @@ class HomePage extends React.Component {
                         <div className="container">
                             <div className="row">
                                 <div className="jumbo-1 col-xs-12 col-md-4">
-                                    <h4>Home page example</h4>
-                                    <p>Something here to say</p>
+                                    <h6 className="lincoln-quote text-sm-center text-md-left">"I have an irrepressible desire to live so the world
+                                        is a little better for my having lived in it."</h6>
+                                    <p className="lincoln text-sm-center text-md-right">-Abraham Lincoln</p>
                                     <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
-                                        <Link to="about" className="btn btn-warning" id="toAbout">Learn more</Link>
+                                        <Link to="about" className="btn btn-warning" id="toAbout">Our mission</Link>
                                     </div>
                                 </div>
                                 <div className="jumbo-2 offset-md-4 offset-md-3 col-md-4 col-xs-12">
-                                    <h4>Some other information</h4>
+                                    <h6>Some other information</h6>
                                     <p>Something more to say here</p>
                                     <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
                                         <a className="btn btn-warning" href="#">Some Info</a>
