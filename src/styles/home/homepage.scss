@@ -12,7 +12,6 @@
   img{
     width:100%;
     top:0;
-    max-height: 600px;
   }
 }
 //carousel styles end
@@ -55,7 +54,7 @@
 @media screen and(max-width: 480px){
   //carousel responsiveness
   #carousel-home{
-    img{
+    .carousel-item{
       max-height: 200px;
     }
     .carousel-caption{
