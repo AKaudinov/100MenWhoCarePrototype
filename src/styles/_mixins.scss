@@ -5,3 +5,16 @@
   -o-transition: $seconds ease;
   transition: $seconds ease;
 }
+
+@mixin breakpoint($type){
+  @if $type == 'small'{
+    @media screen and(max-width: 767px) {
+      @content;
+    }
+  }
+  @else if $type == 'extra-small'{
+    @media screen and(max-width: 480px){
+      @content;
+    }
+  }
+}

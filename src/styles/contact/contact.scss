@@ -2,18 +2,34 @@
 
 .Contact {
   .contact-header {
+    font-size: 20px;
+    @include breakpoint(extra-small){
+      font-size: 18px;
+    }
     color: $coRed;
   }
-  .jumbotron {
-    background-color: gainsboro;
+}
+
+.contact-us-member-list {
+  font-size: 16px;
+  @include breakpoint(extra-small){
+    font-size: 14px;
   }
+  .contact-us-list-item {
+    margin-top: 10px;
+  }
+}
+.jumbotron {
+  background-color: gainsboro;
 }
 
 
 .input-fields {
   label {
     color: $coRed;
-    font: italic bold 15px arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
   }
 
   //.submit-contact{
@@ -30,6 +46,7 @@
     color: $coWhite;
     width: 100%;
   }
+
   .submit-contact-button:hover {
     background-color: darkblue;
   }
@@ -51,7 +68,6 @@
   input[type=checkbox]{
     display: none;
   }
-
 
 
   @mixin checkBoxDefaultStyles(){
@@ -89,13 +105,16 @@
 .sending-contact-icon{
   position: absolute;
   left: 35px;
-}
-
-@media screen and(min-width: 767px){
-  .sending-contact-icon{
+  @include breakpoint(tablet){
     left: 20px;
   }
 }
+
+//@media screen and(min-width: 767px){
+//  .sending-contact-icon{
+//    left: 20px;
+//  }
+//}
 
 @media screen and(max-width: 992px) {
   .Contact {

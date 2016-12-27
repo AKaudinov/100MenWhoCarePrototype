@@ -1,0 +1,49 @@
+@import "../baseColors", "../mixins";
+
+#toHome:hover {
+  background-color: #88abcf;
+}
+
+.about-us-page {
+  .jumbotron{
+    margin: 0;
+  }
+  .our-mission-section {
+    background-color: $coYellow;
+    color: $coBlue;
+  }
+  .mission-header{
+    @include breakpoint(extra-small){
+      font-size: 16px;
+    }
+  }
+  .mission-text{
+    font-size: 16px;
+    @include breakpoint(extra-small){
+      font-size: 14px;
+    }
+  }
+
+  .about-us-section{
+    .about-us-horizontal-break{
+      background-color: $coWhite;
+    }
+    background-color: $coRed;
+    color:$coWhite;
+  }
+  .about-us-header{
+    @include breakpoint(extra-small){
+      font-size: 16px;
+    }
+  }
+  .about-us-text{
+    font-size: 16px;
+    @include breakpoint(extra-small){
+      font-size: 14px;
+    }
+    .about-us-list-item{
+      margin-top: 10px;
+      text-align: left;
+    }
+  }
+}

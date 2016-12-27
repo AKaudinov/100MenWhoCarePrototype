@@ -64,10 +64,10 @@ class HomePage extends React.Component {
                                     </div>
                                 </div>
                                 <div className="jumbo-2 offset-md-4 offset-md-3 col-md-4 col-xs-12">
-                                    <h6>Some other information</h6>
-                                    <p>Something more to say here</p>
+                                    <h6 className="jumbo-contact-us-title">Members</h6>
+                                    <p className="jumbo-2-text">Why become one?</p>
                                     <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
-                                        <a className="btn btn-warning" href="#">Some Info</a>
+                                        <Link to="contact" className="btn btn-warning" id="toContact">Learn more</Link>
                                     </div>
                                 </div>
                             </div>

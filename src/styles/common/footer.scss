@@ -1,6 +1,11 @@
+@import '../mixins';
+
 //footer styles
 .horizontal-footer-break {
   margin-top: 50px;
+  @include breakpoint(small){
+    margin-top: 20px;
+  }
 }
 
 .watermark {
@@ -22,11 +27,11 @@
 
 //footer styles end
 
-@media(max-width: 767px) {
-  //footer responsiveness
-  .horizontal-footer-break {
-    margin-top: 20px;
-  }
-}
+//@media(max-width: 767px) {
+//  //footer responsiveness
+//  .horizontal-footer-break {
+//    margin-top: 20px;
+//  }
+//}
 
 //footer responsiveness end
