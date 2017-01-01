@@ -34,6 +34,9 @@ class Header extends React.Component{
         }else{
             navbarBodyClass += " "+'collapse in';
         }
+        //<i className="fa fa-bars"/>
+
+
 
         return (
             <div className="header">
@@ -41,13 +44,16 @@ class Header extends React.Component{
                     <a className="navbar-brand" href="http://www.100whocarealliance.org/">
                         <span><img className="logo" src={require('../../assets/100M_logo.png')}/></span>
                     </a>
-                    <button className={navbarButtonClass} type="button" data-toggle="collapse"
-                            data-target="#navContent"
-                            aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation" onClick={this.onNavToggle}>
-                        <i className="fa fa-bars"/>
+                    <button className="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse"
+                            data-target="#navContent" aria-controls="navContent" aria-expanded="false"
+                            aria-label="Toggle navigation" onClick={this.onNavToggle}>
+                        {this.state.navBarOpen
+                            ? <i className="fa fa-chevron-circle-down"/>
+                            : <i className="fa fa-chevron-circle-up"/>}
                     </button>
 
-                    <div className={navbarBodyClass} id="navContent">
+                    <div className="collapse navbar-toggleable-sm" id="navContent">
+                        <a class="navbar-brand" href="#">remove later - fix</a>
                         <ul className="headerMenu nav navbar-nav">
                             <li className="nav-item">
                                 <div className="menu-home"/>

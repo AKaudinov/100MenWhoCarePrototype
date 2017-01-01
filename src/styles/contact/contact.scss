@@ -35,7 +35,7 @@
   .submit-contact-button {
     @include btn-transition(0.5s);
     text-align: center;
-    background-color: #2d4746;
+    background-color: $dark;
     color: $coWhite;
     width: 100%;
   }

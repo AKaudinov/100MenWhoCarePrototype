@@ -10,7 +10,7 @@
   }
   .our-mission-section {
     background-color: $coYellow;
-    color: $coBlue;
+    color: $dark;
   }
   .mission-header{
     @include breakpoint(extra-small){
@@ -26,9 +26,9 @@
 
   .about-us-section{
     .about-us-horizontal-break{
-      background-color: $coWhite;
+      background-color: $coYellow;
     }
-    background-color: $coRed;
+    background-color: $dark;
     color:$coWhite;
   }
   .about-us-header{
