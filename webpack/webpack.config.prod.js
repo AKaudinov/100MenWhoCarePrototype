@@ -11,9 +11,7 @@ const GLOBALS = {
 };
 
 export default {
-    debug: true,
     devtool:'source-map',
-    noInfo: false,
     entry:'./src/index',
     target: 'web',
     output: {
@@ -29,29 +27,35 @@ export default {
             {
                 test: /\.js$/,
                 include: path.resolve('src'),
-                loader: 'babel'
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,
                 exclude: path.resolve('src'),
-                loader: extractCss.extract({fallbackLoader:'style', loader:'css'})
+                loader: extractCss.extract({fallbackLoader:'style-loader', loader:'css-loader'})
             },
             {
                 test: /\.scss$/,
                 include: path.resolve('src/styles'),
-                loader: extractSass.extract(['css','sass'])
+                loader: extractSass.extract(['css-loader','sass-loader'])
             },
             {
                 test:/\.(woff|woff2|ttf|eot|ico|svg)?(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file?name=fonts/[name].[hash].[ext]?'
+                loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
             },
             {
                 test:/\.(png|jpe?g|gif)$/,
-                loader: 'file?name=assets/[name].[hash].[ext]?'
+                loader: 'file-loader?name=assets/[name].[hash].[ext]?'
             }
         ]
     },
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+           debug: true,
+            options:{
+                noInfo: false
+            }
+        }),
         extractCss,
         extractSass,
         new OptimizeCssAssetsWebpackPlugin({
@@ -59,7 +63,6 @@ export default {
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
@@ -68,6 +71,8 @@ export default {
             "windows.jQuery":"jquery",
             "window.Tether":'tether'
         })
-
-    ]
+    ],
+    performance:{
+        hints: false
+    }
 }

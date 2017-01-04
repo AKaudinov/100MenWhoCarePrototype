@@ -2,9 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 
 export default {
-    debug: true,
     devtool:'source-map',
-    noInfo: false,
     entry: [
         'eventsource-polyfill',
         'webpack-hot-middleware/client',
@@ -24,33 +22,38 @@ export default {
             {
                 test: /\.js$/,
                 include: path.resolve('src'),
-                loader: 'babel'
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,
                 exclude: path.resolve('src'),
-                loaders: ['style', 'css']
+                loaders: ['style-loader', 'css-loader']
             },
             {
                 test: /\.scss$/,
                 include: path.resolve('src/styles'),
-                loaders:['style','css','postcss-loader','sass']
+                loaders:['style-loader','css-loader','postcss-loader','sass-loader']
             },
             {
                 test:/\.(woff|woff2|ttf|eot|ico|)?(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file?name=fonts/[name].[hash].[ext]?'
+                loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
             },
             {
                 test:/\.(png|jpe?g|gif|svg)$/,
-                loader: 'file?name=assets/[name].[hash].[ext]?'
+                loader: 'file-loader?name=assets/[name].[hash].[ext]?'
             }
         ]
     },
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+           debug: true,
+            options:{
+                noInfo: false
+            }
+        }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-
         new webpack.ProvidePlugin({
             $: "jquery",
             jquery:"jquery",
@@ -59,5 +62,8 @@ export default {
             "window.Tether":'tether'
         })
 
-    ]
+    ],
+    performance:{
+        hints: false
+    }
 }

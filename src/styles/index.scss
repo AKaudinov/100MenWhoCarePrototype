@@ -1,7 +1,7 @@
 @import '_baseColors', '_mixins';
 
 #app {
-  font: 15px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 15px 'Helvetica Neue', Helvetica, sans-serif;
   margin: 0 auto;
 }
 
@@ -9,6 +9,12 @@ html, body{
   height: 100%;
   min-width: 100%;
 }
+
+//links
+a:hover{
+ text-decoration: none;
+}
+//links end
 
 //buttons standard
 .btn {

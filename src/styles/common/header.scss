@@ -15,6 +15,9 @@
   .navbar-brand{
     position: relative;
   }
+  .main-brand:hover{
+    color: $coYellow;
+  }
   a {
     position: relative;
     color: $coWhite;

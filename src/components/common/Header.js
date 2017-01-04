@@ -42,18 +42,18 @@ class Header extends React.Component{
             <div className="header">
                 <nav className="navbar bg-inverse">
                     <a className="navbar-brand" href="http://www.100whocarealliance.org/">
-                        <span><img className="logo" src={require('../../assets/100M_logo.png')}/></span>
+                        <img className="logo" src={require('../../assets/100M_logo.png')}/>
                     </a>
                     <button className="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse"
                             data-target="#navContent" aria-controls="navContent" aria-expanded="false"
                             aria-label="Toggle navigation" onClick={this.onNavToggle}>
                         {this.state.navBarOpen
-                            ? <i className="fa fa-chevron-circle-down"/>
-                            : <i className="fa fa-chevron-circle-up"/>}
+                            ? <i className="fa fa-chevron-circle-up"/>
+                            : <i className="fa fa-chevron-circle-down"/>}
                     </button>
 
                     <div className="collapse navbar-toggleable-sm" id="navContent">
-                        <a class="navbar-brand" href="#">remove later - fix</a>
+                        <a className="main-brand" href="#">100 Men Who Care</a>
                         <ul className="headerMenu nav navbar-nav">
                             <li className="nav-item">
                                 <div className="menu-home"/>
