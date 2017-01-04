@@ -41,9 +41,7 @@ class Header extends React.Component{
         return (
             <div className="header">
                 <nav className="navbar bg-inverse">
-                    <a className="navbar-brand" href="http://www.100whocarealliance.org/">
-                        <img className="logo" src={require('../../assets/100M_logo.png')}/>
-                    </a>
+
                     <button className="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse"
                             data-target="#navContent" aria-controls="navContent" aria-expanded="false"
                             aria-label="Toggle navigation" onClick={this.onNavToggle}>
@@ -51,9 +49,11 @@ class Header extends React.Component{
                             ? <i className="fa fa-chevron-circle-up"/>
                             : <i className="fa fa-chevron-circle-down"/>}
                     </button>
-
+                    <a className="navbar-brand" href="http://www.100whocarealliance.org/">
+                        <img className="logo" src={require('../../assets/100M_logo.png')}/>
+                    </a>
                     <div className="collapse navbar-toggleable-sm" id="navContent">
-                        <ul className="headerMenu nav navbar-nav">
+                        <ul className="headerMenu nav navbar-nav float-xs-left float-md-right">
                             <li className="nav-item">
                                 <div className="menu-home"/>
                                 <IndexLink to="/" activeClassName="active" className="nav-link" onClick={this.onNavClick}>
