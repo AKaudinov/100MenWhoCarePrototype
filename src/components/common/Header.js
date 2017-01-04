@@ -53,7 +53,6 @@ class Header extends React.Component{
                     </button>
 
                     <div className="collapse navbar-toggleable-sm" id="navContent">
-                        <a className="main-brand" href="#">100 Men Who Care</a>
                         <ul className="headerMenu nav navbar-nav">
                             <li className="nav-item">
                                 <div className="menu-home"/>
