@@ -6,20 +6,6 @@ class AboutPage extends React.Component {
     render() {
         return (
             <div className="about-us-page">
-                <div className="jumbotron our-mission-section">
-                    <div className="container">
-                        <h4 className="mission-header">Our Mission</h4>
-                        <hr/>
-                        <div className="mission-text">
-                            <p>100+ Men committed to contributing $100 four times a year to
-                                local charities, which will positively impact our communities by
-                                allowing us to give $40,000 + annually.</p>
-                            <p>100% of our donations will be spent locally by the chosen
-                                charity.</p>
-                            <p><strong>Together</strong>, we will make a difference!</p>
-                        </div>
-                    </div>
-                </div>
                 <div className="jumbotron about-us-section">
                     <div className="container">
                         <h4 className="about-us-header">About us</h4>

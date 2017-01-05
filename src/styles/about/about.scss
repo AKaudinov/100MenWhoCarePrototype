@@ -8,35 +8,21 @@
   .jumbotron{
     margin: 0;
   }
-  .our-mission-section {
-    background-color: $coYellow;
-    color: $dark;
-  }
-  .mission-header{
-    @include breakpoint(extra-small){
-      font-size: 16px;
-    }
-  }
-  .mission-text{
-    font-size: 16px;
-    @include breakpoint(extra-small){
-      font-size: 14px;
-    }
-  }
 
   .about-us-section{
+    background-color: $coYellow;
+    color:$dark;
     .about-us-horizontal-break{
-      background-color: $coYellow;
-    }
-    background-color: $dark;
-    color:$coWhite;
-  }
-  .about-us-header{
-    @include breakpoint(extra-small){
-      font-size: 16px;
+      background-color:$dark;
     }
   }
+  //.about-us-header{
+  //  @include breakpoint(extra-small){
+  //    font-size: 16px;
+  //  }
+  //}
   .about-us-text{
+    line-height: 20px;
     font-size: 16px;
     @include breakpoint(extra-small){
       font-size: 14px;

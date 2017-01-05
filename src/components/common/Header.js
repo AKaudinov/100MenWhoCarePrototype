@@ -9,13 +9,8 @@ class Header extends React.Component{
         this.state = {
             navBarOpen: false
         };
-        this.onNavClick = this.onNavClick.bind(this);
         this.onNavToggle = this.onNavToggle.bind(this);
 }
-
-    onNavClick() {
-        return this.setState({navBarOpen: false});
-    }
 
     onNavToggle(){
         return this.setState({navBarOpen: !this.state.navBarOpen});
@@ -23,20 +18,6 @@ class Header extends React.Component{
 
 
     render() {
-        let navbarButtonClass = 'hidden-md-up float-xs-right navbar-toggler';
-        if(!this.state.navBarOpen){
-            navbarButtonClass += " "+'collapsed';
-        }
-
-        let navbarBodyClass = 'navbar-toggleable-sm';
-        if(!this.state.navBarOpen){
-            navbarBodyClass += " "+'collapse';
-        }else{
-            navbarBodyClass += " "+'collapse in';
-        }
-        //<i className="fa fa-bars"/>
-
-
 
         return (
             <div className="header">
@@ -56,28 +37,28 @@ class Header extends React.Component{
                         <ul className="headerMenu nav navbar-nav float-xs-left float-md-right">
                             <li className="nav-item">
                                 <div className="menu-home"/>
-                                <IndexLink to="/" activeClassName="active" className="nav-link" onClick={this.onNavClick}>
+                                <IndexLink to="/" activeClassName="active" className="nav-link">
                                     <i className="fa fa-home"/> Home</IndexLink>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-about"/>
-                                <Link to="/about" activeClassName="active" className="nav-link" onClick={this.onNavClick}>
+                                <Link to="/about" activeClassName="active" className="nav-link">
                                     <i className="fa fa-info-circle"/> About</Link>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-gallery"/>
-                                <Link to="/gallery" activeClassName="active" className="nav-link" onClick={this.onNavClick}>
+                                <Link to="/gallery" activeClassName="active" className="nav-link">
                                     <i className="fa fa-picture-o"/> Gallery
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-contact"/>
-                                <Link to="/contact" activeClassName="active" className="nav-link" onClick={this.onNavClick}>
+                                <Link to="/contact" activeClassName="active" className="nav-link">
                                     <i className="fa fa-envelope"/> Contact</Link>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-events"/>
-                                <a href="#" className="nav-link" onClick={this.onNavClick}>
+                                <a href="#" className="nav-link">
                                     <i className="fa fa-calendar"/> Events</a>
                             </li>
                         </ul>

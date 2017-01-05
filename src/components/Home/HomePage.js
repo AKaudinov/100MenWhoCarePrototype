@@ -55,19 +55,53 @@ class HomePage extends React.Component {
                     <div className="jumbotron">
                         <div className="container">
                             <div className="row">
-                                <div className="jumbo-1 col-xs-12 col-md-4">
-                                    <h6 className="lincoln-quote text-sm-center text-md-left">"I have an irrepressible desire to live so the world
-                                        is a little better for my having lived in it."</h6>
-                                    <p className="lincoln text-sm-center text-md-right">-Abraham Lincoln</p>
-                                    <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
-                                        <Link to="about" className="btn btn-warning" id="toAbout">Our mission</Link>
+                                <div className="jumbo-1 col-xs-12">
+                                    <p className="lincoln-quote text-xs-center">"I have an irrepressible desire to live
+                                        so the world
+                                        is a little better for my having lived in it."</p>
+                                    <p className="lincoln text-xs-center">-Abraham Lincoln</p>
+                                    <div className="offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
+                                        <Link to="about" className="btn btn-warning" id="toAbout">About us</Link>
                                     </div>
-                                </div>
-                                <div className="jumbo-2 offset-md-4 offset-md-3 col-md-4 col-xs-12">
-                                    <h6 className="jumbo-contact-us-title">Members</h6>
-                                    <p className="jumbo-2-text">Why become one?</p>
-                                    <div className="offset-xs-2 offset-md-1 col-md-10 col-xs-8">
-                                        <Link to="contact" className="btn btn-warning" id="toContact">Learn more</Link>
+                                    <div className="mission-statement text-xs-center col-xs-12">
+                                        <p className="mission-statement-main offset-md-3 col-md-6 col-xs-12 d-block">
+                                            100+ Men committed to contributing $100 four times a year to local
+                                            charities,
+                                            which will positively impact our communities by allowing us to give $40,000
+                                            + annually.
+                                            100% of our donations will be spent locally by the chosen charity.</p>
+
+                                        <p className="mission-statement-footer col-xs-12 d-block">
+                                            <strong>Together</strong><br/>We will make a difference!</p>
+                                    </div>
+
+                                    <div className="member-statement col-xs-12">
+                                        <p className="member-statement-header text-xs-center d-block">Why should you become a member?</p>
+
+                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                            You don’t have time in your busy life
+                                            to volunteer but want to help those in need and can commit to
+                                            90 minutes each quarter;
+                                        </div>
+
+                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                            You are involved with other groups but
+                                            also
+                                            see the potential in this idea and are interested in adding it to your
+                                            charitable efforts;
+                                        </div>
+
+                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                            You want 100% of your donations to go
+                                            directly to a local charity;
+                                        </div>
+
+                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                            You want your $100 donation to
+                                            become a part of a larger amount of money by joining together with other
+                                            men,
+                                            creating a powerful impact in our local area.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +112,8 @@ class HomePage extends React.Component {
                 <div className="homepage-card-section card-group">
                     <div className="card">
                         <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=NM2wtte1JRE" controls={true} width="100%"/>
+                            <ReactPlayer url="https://www.youtube.com/watch?v=NM2wtte1JRE" controls={true}
+                                         width="100%"/>
                         </div>
                         <div className="card-block">
                             <h5 className="card-title">Space vision</h5>
@@ -90,7 +125,8 @@ class HomePage extends React.Component {
                     </div>
                     <div className="card">
                         <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=89eaxsthTqc" controls={true} width="100%"/>
+                            <ReactPlayer url="https://www.youtube.com/watch?v=89eaxsthTqc" controls={true}
+                                         width="100%"/>
                         </div>
                         <div className="card-block">
                             <h5 className="card-title">Universe Theme</h5>
@@ -102,16 +138,17 @@ class HomePage extends React.Component {
                     </div>
 
                     <div className="card">
-                            <div className="yt-video">
-                                <ReactPlayer url="https://www.youtube.com/watch?v=3gIdMEAvQk0" controls={true} width="100%"/>
-                            </div>
-                            <div className="card-block">
-                                <h5 className="card-title">Quantum Physics</h5>
-                                <p className="card-text">Quantum Physics and Microscopic Universe</p>
-                                <p className="card-text">
-                                    <small className="text-muted">Space Documentary</small>
-                                </p>
-                            </div>
+                        <div className="yt-video">
+                            <ReactPlayer url="https://www.youtube.com/watch?v=3gIdMEAvQk0" controls={true}
+                                         width="100%"/>
+                        </div>
+                        <div className="card-block">
+                            <h5 className="card-title">Quantum Physics</h5>
+                            <p className="card-text">Quantum Physics and Microscopic Universe</p>
+                            <p className="card-text">
+                                <small className="text-muted">Space Documentary</small>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

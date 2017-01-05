@@ -34,24 +34,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
         <div className="Contact">
             <div className="jumbotron">
                 <div className="container">
-                    <div className="contact-description">
-                        <h3 className="contact-header text-xs-left">Why should you become a member?</h3>
-
-                        <ul className="contact-us-member-list text-xs-left">
-                            <li className="contact-us-list-item">You don’t have time in your busy life
-                                to volunteer but want to help those in need and can commit to
-                                90 minutes each quarter;</li>
-                            <li className="contact-us-list-item">You are involved with other groups but also
-                                 see the potential in this idea and are interested in adding it to your
-                                charitable efforts;</li>
-                            <li className="contact-us-list-item">You want 100% of your donations to go
-                                directly to a local charity;</li>
-                            <li className="contact-us-list-item">You want your $100 donation to
-                                become a part of a larger amount of money by joining together with other men,
-                                creating a powerful impact in our local area.</li>
-                        </ul>
-
-                    </div>
+                    <h4 className="contact-us-header text-xs-center">Contact us</h4>
                     <form>
                         <div className="row">
                             <div className="input-fields col-xs-12">
