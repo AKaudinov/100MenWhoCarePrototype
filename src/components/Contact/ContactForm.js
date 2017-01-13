@@ -3,7 +3,7 @@ import TextInput from '../common/TextInput';
 import {ChasingDots} from 'better-react-spinkit';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress, errors}) => {
+const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetchCallsInProgress, errors}) => {
     let messageWrapperClass = 'contact-message form-group col-xs-12';
     let messageInputClass = 'form-control';
     let messageLabelClass = 'messageLabel';
@@ -92,6 +92,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
                                             type="tel"
                                             maxlength="10"
                                             onChange={onChange}
+                                            onKeyPress={onPhoneKeyPress}
                                             placeHolder="ex: 3035054343"
                                             value={contact.phone}
                                             error={errors.phone}/>
@@ -148,6 +149,7 @@ const ContactForm = ({contact, onChange, onSend, onCancel, fetchCallsInProgress,
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
+    onPhoneKeyPress: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired,

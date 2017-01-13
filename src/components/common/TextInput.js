@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, error}) => {
+const TextInput = ({name, label, type, maxlength, onChange, onKeyPress, placeHolder, value, error}) => {
     let wrapperClass = 'form-group';
     let controlWrapperClass = 'form-control';
     let labelClass = `${name}label`;
@@ -27,7 +27,8 @@ const TextInput = ({name, label, type, maxlength, onChange, placeHolder, value, 
                     maxLength={maxlength}
                     {...inputOpts}
                     value={value}
-                    onChange={onChange}/>
+                    onChange={onChange}
+                    onKeyPress={onKeyPress}/>
         </div>
     );
 };
@@ -38,6 +39,7 @@ TextInput.propTypes = {
     type: PropTypes.string.isRequired,
     maxlength: PropTypes.string,
     onChange: PropTypes.func.isRequired,
+    onKeyPress: PropTypes.func,
     placeHolder: PropTypes.string,
     value: PropTypes.string,
     error: PropTypes.string

@@ -33,6 +33,7 @@ export class ContactPage extends React.Component {
         this.onFailedSubmit = this.onFailedSubmit.bind(this);
         this.isFormValid = this.isFormValid.bind(this);
         this.optionalKeyMatch = this.optionalKeyMatch.bind(this);
+        this.onPhoneKeyPress = this.onPhoneKeyPress.bind(this);
     }
 
     updateContactInfoState(event) {
@@ -76,6 +77,12 @@ export class ContactPage extends React.Component {
             }
         }
         return this.setState({errors: stateErrorsCleaner});
+    }
+
+    onPhoneKeyPress(event){
+        if(event.which < 48 || event.which > 57){
+            event.preventDefault();
+        }
     }
 
     onSuccessfulSubmit(msg) {
@@ -160,10 +167,10 @@ export class ContactPage extends React.Component {
         }//
 
         //phone check
-        if(contactObj.phone.length > 10){
-            valid = false;
-            errorSetter.phone = `must be lower than 10 digits`;
-        }
+        //if(contactObj.phone.length > 10){
+        //    valid = false;
+        //    errorSetter.phone = `must be lower than 10 digits`;
+        //}
         if(contactObj.phone.length < 10){
             valid = false;
             errorSetter.phone = `must be 10 digits long`;
@@ -182,6 +189,7 @@ export class ContactPage extends React.Component {
             <ContactForm
                 contact={this.state.contact}
                 onChange={this.updateContactInfoState}
+                onPhoneKeyPress={this.onPhoneKeyPress}
                 onSend={this.submitContact}
                 onCancel={this.cancelContact}
                 fetchCallsInProgress={this.props.fetchCallsInProgress}
