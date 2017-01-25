@@ -30,10 +30,6 @@
       position: absolute;
       height: 0px;
       display: block;
-      //webkit-transition: height 0.5s;
-      //-moz-transition: height 0.5s;
-      //-ms-transition: height 0.5s;
-      //-o-transition: height 0.5s;
       transition: height 0.5s;
       z-index: 1;
     }
@@ -84,22 +80,8 @@
     position: relative;
     cursor: pointer;
   }
-  //.navbar-toggler:focus{
-  //  border: 1px solid $coYellow;
-  //}
 }
 //navbar header styles end
-
-//@media screen and(min-width: 768px){
-//  //.header {
-//  //  .headerMenu{
-//  //    float: right;
-//  //  }
-//  //}
-//  .headerMenu{
-//    float: right;
-//  }
-//}
 
 //navbar header responsiveness
 @media(max-width: 767px) {
