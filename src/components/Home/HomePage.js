@@ -139,7 +139,7 @@ class HomePage extends React.Component {
 
                     <div className="card">
                         <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=3gIdMEAvQk0" controls={true}
+                            <ReactPlayer url="https://www.youtube.com/watch?v=CBrsWPCp_rs" controls={true}
                                          width="100%"/>
                         </div>
                         <div className="card-block">
