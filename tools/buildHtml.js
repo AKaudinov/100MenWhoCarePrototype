@@ -1,6 +1,6 @@
 import fs from 'fs'; //from node and interacts with file system (fs for file system)
 import cheerio from 'cheerio';
-import colors from 'colors';
+import colors from 'colors'; //eslint-disable-line no-unused-vars
 
 /*eslint-disable no-console*/
 /*eslint-disable no-unused-vars*/

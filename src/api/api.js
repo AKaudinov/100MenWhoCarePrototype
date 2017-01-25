@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 const apiUrl = 'https://denver-100menwhocare.herokuapp.com/api/contacts';
-const localApiUrl = 'http://localhost:3000/api/contacts';
+//const localApiUrl = 'http://localhost:3000/api/contacts';
 
 class api {
     static SendContact(contactInfo){

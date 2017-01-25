@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import compression from 'compression';
-import colors from 'colors';
+import colors from 'colors'; //eslint-disable-line no-unused-vars
 
 /*eslint-disable no-unused-vars*/
 /*eslint-disable no-console*/

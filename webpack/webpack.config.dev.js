@@ -18,29 +18,29 @@ export default {
       contentBase: './src'
     },
     module:{
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 include: path.resolve('src'),
-                loader: 'babel-loader'
+                use: 'babel-loader'
             },
             {
                 test: /\.css$/,
                 exclude: path.resolve('src'),
-                loaders: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.scss$/,
                 include: path.resolve('src/styles'),
-                loaders:['style-loader','css-loader','postcss-loader','sass-loader']
+                use:['style-loader','css-loader','postcss-loader','sass-loader']
             },
             {
                 test:/\.(woff|woff2|ttf|eot|ico|)?(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
+                use: 'file-loader?name=fonts/[name].[hash].[ext]?'
             },
             {
                 test:/\.(png|jpe?g|gif|svg)$/,
-                loader: 'file-loader?name=assets/[name].[hash].[ext]?'
+                use: 'file-loader?name=assets/[name].[hash].[ext]?'
             }
         ]
     },
@@ -53,7 +53,7 @@ export default {
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
             jquery:"jquery",

@@ -23,11 +23,11 @@ export default {
         contentBase: './dist'
     },
     module:{
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 include: path.resolve('src'),
-                loader: 'babel-loader'
+                use: 'babel-loader'
             },
             {
                 test: /\.css$/,
@@ -37,15 +37,15 @@ export default {
             {
                 test: /\.scss$/,
                 include: path.resolve('src/styles'),
-                loader: extractSass.extract(['css-loader','sass-loader'])
+                loader: extractSass.extract(['css-loader','postcss-loader','sass-loader'])
             },
             {
                 test:/\.(woff|woff2|ttf|eot|ico|svg)?(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
+                use: 'file-loader?name=fonts/[name].[hash].[ext]?'
             },
             {
                 test:/\.(png|jpe?g|gif)$/,
-                loader: 'file-loader?name=assets/[name].[hash].[ext]?'
+                use: 'file-loader?name=assets/[name].[hash].[ext]?'
             }
         ]
     },

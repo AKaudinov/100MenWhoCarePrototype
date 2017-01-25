@@ -164,13 +164,14 @@ export class ContactPage extends React.Component {
         if(contactObj.email.indexOf('@') === -1 && contactObj.email !== ''){
             valid = false;
             errorSetter.email = `${contactObj.email} is not a valid email`;
+        }
+        if(contactObj.email[contactObj.email.length - 1] === '@') {
+            valid = false;
+            errorSetter.email = `${contactObj.email} is not a valid email`;
         }//
 
+
         //phone check
-        //if(contactObj.phone.length > 10){
-        //    valid = false;
-        //    errorSetter.phone = `must be lower than 10 digits`;
-        //}
         if(contactObj.phone.length < 10){
             valid = false;
             errorSetter.phone = `must be 10 digits long`;

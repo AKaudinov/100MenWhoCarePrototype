@@ -1,6 +1,7 @@
 process.env.NODE_ENV = 'test';
 
 /*eslint-disable no-console*/
+/*eslint-disable no-var*/
 
 require('babel-register')();
 
