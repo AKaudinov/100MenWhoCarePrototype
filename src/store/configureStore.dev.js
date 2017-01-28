@@ -8,8 +8,7 @@ export default function configureStore(initialState) {
     return createStore(
         rootReducer,
         initialState,
-        compose(applyMiddleware(thunk, reduxImmutableStateInvariant()),
-            window.devToolsExtension ? window.devToolsExtension() : f => f)
+        applyMiddleware(thunk, reduxImmutableStateInvariant())
         //supplying middleware via commas via parameters as much middleware as needed.
     );
 }
