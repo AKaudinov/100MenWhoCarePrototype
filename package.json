@@ -55,6 +55,7 @@
     "redux": "^3.6.0",
     "redux-immutable-state-invariant": "^1.2.4",
     "redux-thunk": "^2.1.0",
+    "tether": "^1.4.0",
     "toastr": "^2.1.2"
   },
   "devDependencies": {
