@@ -69,7 +69,7 @@ class HomePage extends React.Component {
                                             charities,
                                             which will positively impact our communities by allowing us to give $40,000
                                             + annually.
-                                            100% of our donations will be spent locally by the chosen charity.</p>
+                                            100% of our donations will be spent locally by the chosen charity</p>
 
                                         <p className="mission-statement-footer col-xs-12 d-block">
                                             <strong>Together</strong><br/>We will make a difference!</p>
@@ -81,19 +81,19 @@ class HomePage extends React.Component {
                                         <div className="list-item text-xs-center col-md-3 col-sm-12">
                                             You don’t have time in your busy life
                                             to volunteer but want to help those in need and can commit to
-                                            90 minutes each quarter;
+                                            90 minutes each quarter
                                         </div>
 
                                         <div className="list-item text-xs-center col-md-3 col-sm-12">
                                             You are involved with other groups but
                                             also
                                             see the potential in this idea and are interested in adding it to your
-                                            charitable efforts;
+                                            charitable efforts
                                         </div>
 
                                         <div className="list-item text-xs-center col-md-3 col-sm-12">
                                             You want 100% of your donations to go
-                                            directly to a local charity;
+                                            directly to a local charity
                                         </div>
 
                                         <div className="list-item text-xs-center col-md-3 col-sm-12">
