@@ -59,7 +59,9 @@ export default {
             jquery:"jquery",
             jQuery:"jquery",
             "windows.jQuery":"jquery",
-            "window.Tether":'tether'
+            "window.Tether":'tether',
+            "tether":'tether',
+            "Tether":'tether'
         })
 
     ],
