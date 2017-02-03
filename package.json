@@ -1,7 +1,7 @@
 {
-  "name": "100WhoCarePrototype",
+  "name": "100MenWhoCare",
   "version": "1.0.0",
-  "description": "100 who care prototype",
+  "description": "100 who care web app",
   "scripts": {
     "prestart": "babel-node tools/devStartMessage.js",
     "start": "npm-run-all --parallel open:srcExpress lint:watch test:watch",

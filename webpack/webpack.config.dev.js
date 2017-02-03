@@ -63,7 +63,6 @@ export default {
             "tether":'tether',
             "Tether":'tether'
         })
-
     ],
     performance:{
         hints: false
