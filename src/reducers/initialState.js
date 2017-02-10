@@ -4,8 +4,12 @@ export default {
         successfulMessage:'',
         messageSendError:''
     },
-    contacts:{
+    contacts: {
         data: [],
         receivedError: ''
+    },
+    gallery:{
+        data: [],
+        message: ''
     }
 };

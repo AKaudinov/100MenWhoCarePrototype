@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-fetch';
 
-const apiUrl = 'https://denver-100menwhocare.herokuapp.com/api/contacts';
+const apiUrl = 'https://denver-100menwhocare.herokuapp.com/api/';
 //const localApiUrl = 'http://localhost:3000/api/contacts';
 
-const request = (method, body) => {
-    return method.toLowerCase() === 'post' ? new Request(apiUrl, {
+const request = (method, service, body) => {
+    let requestUrl = `${apiUrl}${service}`;
+    return method.toLowerCase() === 'post' ? new Request(requestUrl, {
         method: 'POST',
         body: JSON.stringify(body),
         mode: 'cors',
@@ -13,7 +14,7 @@ const request = (method, body) => {
             'Content-Type': 'application/json'
         })
     }) :
-        new Request(apiUrl, {
+        new Request(requestUrl, {
             method: 'GET',
             mode: 'cors',
             redirect: 'follow',
@@ -26,13 +27,19 @@ const request = (method, body) => {
 
 class api {
     static SendContact(contactInfo){
-        let fetchRequest = request('post', contactInfo);
+        let fetchRequest = request('post', 'contacts', contactInfo);
         return fetch(fetchRequest)
         .then(response => response.json());
     }
 
     static GetAllContacts(){
-        let fetchRequest = request('get');
+        let fetchRequest = request('get', 'contacts');
+        return fetch(fetchRequest)
+        .then(response => response.json());
+    }
+
+    static GetGallery(){
+        let fetchRequest = request('get', 'contentplacements');
         return fetch(fetchRequest)
         .then(response => response.json());
     }
