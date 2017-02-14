@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as galleryActions from '../../actions/galleryActions';
+import GalleryPage from './GalleryPage';
 
 class GalleryContainer extends React.Component{
     constructor(props, context) {
@@ -18,14 +19,15 @@ class GalleryContainer extends React.Component{
 
     render(){
         return (
-            <div className="text-xs-center"><strong>Gallery will be here</strong></div>
+            <GalleryPage gallery={this.state.gallery}/>
         );
     }
 }
 
 
 GalleryContainer.propTypes = {
-    gallery: PropTypes.object.isRequired
+    gallery: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownprops){
