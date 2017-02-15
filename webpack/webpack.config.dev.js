@@ -58,7 +58,7 @@ export default {
             $: "jquery",
             jquery:"jquery",
             jQuery:"jquery",
-            "windows.jQuery":"jquery",
+            "window.jQuery":"jquery",
             "window.Tether":'tether',
             "tether":'tether',
             "Tether":'tether'
