@@ -9,12 +9,15 @@ class GalleryContainer extends React.Component{
         super(props, context);
 
         this.state = {
-            gallery: this.props.gallery.data
+            gallery: []
         };
     }
 
     componentWillMount(){
-        this.props.actions.loadGallery();
+        this.props.actions.loadGallery()
+        .then(() => {
+            return this.setState({gallery: this.props.gallery.data});
+        });
     }
 
     render(){
@@ -43,28 +46,3 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryContainer);
-
-//ge.propTypes = {
-//    actions: PropTypes.object.isRequired,
-//    contactUsResult: PropTypes.object.isRequired,
-//    fetchCallsInProgress: PropTypes.number.isRequired
-//};
-//
-//ContactPage.contextTypes = {
-//    router: PropTypes.object
-//};
-//
-//function mapStateToProps(state, ownprops){
-//    return{
-//        contactUsResult: state.contactUsResult,
-//        fetchCallsInProgress: state.fetchCallsInProgress
-//    };
-//}
-//
-//function mapDispatchToProps(dispatch){
-//    return {
-//        actions: bindActionCreators(contactActions, dispatch)
-//    };
-//}
-//
-//export default connect(mapStateToProps, mapDispatchTo

@@ -39,7 +39,7 @@ class api {
     }
 
     static GetGallery(){
-        let fetchRequest = request('get', 'contentplacements');
+        let fetchRequest = request('get', 'contents');
         return fetch(fetchRequest)
         .then(response => response.json());
     }
