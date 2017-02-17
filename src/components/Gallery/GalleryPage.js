@@ -5,7 +5,7 @@ const GalleryPage = ({gallery}) => {
   let images = (
       gallery.map(image => {
         return <div key={image.Id} className="col-xs-12 col-sm-6 col-md-3">
-            <ImageDisplayer imgId={image.Id} img={image.Title}/>
+            <ImageDisplayer imgId={image.Id} img={image.Content.data}/>
         </div>}));
     return(
       <div className="text-xs-center row">
