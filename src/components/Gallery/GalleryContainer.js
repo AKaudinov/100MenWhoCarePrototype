@@ -22,7 +22,7 @@ class GalleryContainer extends React.Component{
 
     render(){
         return (
-            <GalleryPage gallery={this.state.gallery}/>
+            <GalleryPage gallery={this.state.gallery} isLoading={this.props.fetchCallsInProgress > 0}/>
         );
     }
 }
@@ -30,12 +30,14 @@ class GalleryContainer extends React.Component{
 
 GalleryContainer.propTypes = {
     gallery: PropTypes.object.isRequired,
+    fetchCallsInProgress: PropTypes.number.isRequired,
     actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownprops){
     return{
-      gallery: state.gallery
+      gallery: state.gallery,
+        fetchCallsInProgress: state.fetchCallsInProgress
     };
 }
 

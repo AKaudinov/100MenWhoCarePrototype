@@ -12,7 +12,7 @@ const ImageDisplayer = ({imgId, img}) => {
 
 ImageDisplayer.propTypes = {
     imgId: PropTypes.number.isRequired,
-  img: PropTypes.string.isRequired
+  img: PropTypes.string
 };
 
 export default ImageDisplayer;
