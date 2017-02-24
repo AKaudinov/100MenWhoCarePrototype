@@ -27,8 +27,8 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
     );
 
 
-    let checkBoxNewsLetterClass = contact.newsletter ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
-    let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-checked contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
+    let checkBoxNewsLetterClass = contact.newsletter ? 'contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
+    let emailCheckBoxClass = contact.receiveEmails ? 'contact-checkbox-button' : 'contact-checkbox-unchecked contact-checkbox-button';
 
     return (
         <div className="Contact">
@@ -143,8 +143,6 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
         </div>
     );
 };
-
-//<p className="d-block">Please email us any questions, suggestions, or ideas - placeholder</p>
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
