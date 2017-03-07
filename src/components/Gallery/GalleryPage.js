@@ -1,18 +1,12 @@
 import React, {PropTypes} from 'react';
-import ImageDisplayer from './ImageDispayer';
 import {FoldingCube} from 'better-react-spinkit';
 import '../../styles/gallery/gallery.scss';
-import ImageGallery from 'react-image-gallery';
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
+import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
+import ImageGallery from 'react-image-gallery';
 
 const GalleryPage = ({gallery, isLoading}) => {
-    let images = (
-        gallery.map(image => {
-            return (<div key={image.Id} className="col-xs-12 col-sm-6 col-md-3">
-                <ImageDisplayer imgId={image.Id} img={image.ContentStr}/>
-            </div>);
-        }));
-    let imgs = gallery.map(image => {
+    let images = gallery.map(image => {
         return {
             original: `data:image/jpeg;base64,${image.ContentStr}`,
             thumbnail: `data:image/jpeg;base64,${image.ContentStr}`
@@ -28,7 +22,7 @@ const GalleryPage = ({gallery, isLoading}) => {
             <div className="container-fluid">
                 <div className="gallery-displayer">
                     <ImageGallery
-                        items={imgs}
+                        items={images}
                         slideInterval={3000}
                     />
                 </div>

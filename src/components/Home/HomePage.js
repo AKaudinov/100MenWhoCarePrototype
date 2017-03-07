@@ -103,6 +103,9 @@ class HomePage extends React.Component {
                                             creating a powerful impact in our local area.
                                         </div>
                                     </div>
+                                    <div className="contact-us-btn offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
+                                        <Link to="contact" className="btn btn-info" id="toContactUs">Contact us</Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

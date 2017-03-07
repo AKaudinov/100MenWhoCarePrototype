@@ -38,12 +38,14 @@ class Header extends React.Component{
                             <li className="nav-item">
                                 <div className="menu-home"/>
                                 <IndexLink to="/" activeClassName="active" className="nav-link">
-                                    <i className="fa fa-home"/> Home</IndexLink>
+                                    <i className="fa fa-home"/> Home
+                                </IndexLink>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-about"/>
                                 <Link to="/about" activeClassName="active" className="nav-link">
-                                    <i className="fa fa-info-circle"/> About</Link>
+                                    <i className="fa fa-info-circle"/> About
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-gallery"/>
@@ -54,12 +56,14 @@ class Header extends React.Component{
                             <li className="nav-item">
                                 <div className="menu-contact"/>
                                 <Link to="/contact" activeClassName="active" className="nav-link">
-                                    <i className="fa fa-envelope"/> Contact</Link>
+                                    <i className="fa fa-envelope"/> Contact
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <div className="menu-events"/>
-                                <a href="#" className="nav-link">
-                                    <i className="fa fa-calendar"/> Events</a>
+                                <Link to="/events" activeClassName="active" className="nav-link">
+                                    <i className="fa fa-calendar"/> Events
+                                </Link>
                             </li>
                         </ul>
                     </div>
