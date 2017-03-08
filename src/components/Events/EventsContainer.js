@@ -1,10 +1,8 @@
 import React, {PropTypes} from 'react';
-import EventCalendar from 'react-event-calendar';
-import '../../styles/events/events.scss';
-
+import EventsPage from './EventsPage';
 
 class EventsContainer extends React.Component {
-    constructor(props, context){
+    constructor(props, context) {
         super(props, context);
 
         this.state = {
@@ -12,11 +10,9 @@ class EventsContainer extends React.Component {
         };
     }
 
-    render(){
+    render() {
         return (
-          <div className="jumbotron event-main">
-              <h2><strong>Events will be here</strong></h2>
-          </div>
+            <EventsPage/>
         );
     }
 }

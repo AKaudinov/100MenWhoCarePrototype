@@ -8,7 +8,7 @@ class AboutPage extends React.Component {
             <div className="about-us-page">
                 <div className="jumbotron about-us-section">
                     <div className="container">
-                        <h4 className="about-us-header">About us</h4>
+                        <h4 className="about-us-header display-4">About us</h4>
                         <hr className="about-us-horizontal-break"/>
                         <div className="about-us-text">
                             <p>We are not a charity.  We facilitate giving to local charities.

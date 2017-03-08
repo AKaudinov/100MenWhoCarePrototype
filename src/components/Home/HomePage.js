@@ -104,7 +104,7 @@ class HomePage extends React.Component {
                                         </div>
                                     </div>
                                     <div className="contact-us-btn offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
-                                        <Link to="contact" className="btn btn-info" id="toContactUs">Contact us</Link>
+                                        <Link to="contact" className="btn btn-warning" id="toContactUs">Contact us</Link>
                                     </div>
                                 </div>
                             </div>
@@ -142,14 +142,14 @@ class HomePage extends React.Component {
 
                     <div className="card">
                         <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=CBrsWPCp_rs" controls={true}
+                            <ReactPlayer url="https://www.youtube.com/watch?v=I_PLLXgma9g" controls={true}
                                          width="100%"/>
                         </div>
                         <div className="card-block">
-                            <h5 className="card-title">Quantum Physics</h5>
-                            <p className="card-text">Quantum Physics and Microscopic Universe</p>
+                            <h5 className="card-title">Denver Skyline</h5>
+                            <p className="card-text">Denver Skyline by drone in 4k</p>
                             <p className="card-text">
-                                <small className="text-muted">Space Documentary</small>
+                                <small className="text-muted">Denver Skyline</small>
                             </p>
                         </div>
                     </div>

@@ -34,11 +34,11 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
         <div className="Contact">
             <div className="jumbotron">
                 <div className="container">
-                    <h4 className="contact-us-header text-xs-center">Contact us</h4>
+                    <h4 className="contact-us-header display-4">Contact us</h4>
+                    <hr className="contact-us-horizontal-line-break"/>
                     <form>
                         <div className="row">
-                            <div className="input-fields col-xs-12">
-                                <hr/>
+                            <div className="input-fields">
                                 <div className="contact-user-info">
                                     <div className="contact-firstName col-xs-12 col-md-6">
                                         <TextInput
