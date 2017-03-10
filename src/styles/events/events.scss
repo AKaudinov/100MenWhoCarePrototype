@@ -1,7 +1,66 @@
+@import "../mixins", "../baseColors";
+
 .events-horizontal-break-line{
   margin-bottom: 30px;
 }
 
-.events-calendar-view{
-  height: 600px;
+.event-item{
+  margin-bottom: 20px;
+
 }
+
+@mixin standardEventStyles{
+  height: 100px;
+  min-height: 100px;
+  padding: 15px;
+}
+
+@mixin title-radius{
+  border-radius: 15px 1px 1px 1px;
+  @include breakpoint('small'){
+    border-radius: 1px;
+  }
+}
+
+@mixin description-radius{
+  border-radius: 1px 1px 15px 1px;
+  @include breakpoint('small'){
+    border-radius: 1px;
+  }
+}
+
+.event-title{
+  font-style: oblique;
+  background-color: lightskyblue;
+  color: $coBlue;
+  @include standardEventStyles;
+  @include title-radius;
+}
+
+.event-title-alternate{
+  font-style: oblique;
+  background-color: orange;
+  color: $dark;
+  @include standardEventStyles;
+  @include title-radius;
+}
+
+.event-description{
+  background-color: darkgrey;
+  color: $coWhite;
+  @include standardEventStyles;
+  @include description-radius;
+}
+
+.event-description-alternate{
+  background-color: $dark;
+  color: $coWhite;
+  @include standardEventStyles;
+  @include description-radius;
+}
+
+//
+//.events-calendar-view{
+//  height: 600px;
+//}
+
