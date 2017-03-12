@@ -25,7 +25,7 @@ const EventsPage = () => {
                     <div key={`item${index}`} className="col-xs-12 event-item">
                         <div className="event-title text-xs-center text-sm-left col-xs-12 col-sm-4">
                             <h5>{event.title}</h5>
-                            <div className="event-date">{event.start} - {event.end}</div>
+                            <div className="event-date"><p className="small">{event.start} - {event.end}</p></div>
                         </div>
                         <div className="event-description text-xs-center text-sm-left col-xs-12 col-sm-8">
                             <p>{event.description}</p>
@@ -35,7 +35,7 @@ const EventsPage = () => {
                     <div key={`item${index}`} className="col-xs-12 event-item">
                         <div className="event-title-alternate text-xs-center text-sm-left col-xs-12 col-sm-4">
                             <h5>{event.title}</h5>
-                            <div className="event-date">{event.start} - {event.end}</div>
+                            <div className="event-date"><p className="small">{event.start} - {event.end}</p></div>
                         </div>
                         <div className="event-description-alternate text-xs-center text-sm-left col-xs-12 col-sm-8">
                             <p>{event.description}</p>
@@ -48,7 +48,7 @@ const EventsPage = () => {
     return (
         <div className="jumbotron event-main">
             <div className="events-container container">
-                <h2 className="display-4">Events this month</h2>
+                <h2 className="display-4">Upcoming events</h2>
                 <hr className="events-horizontal-break-line"/>
                 <div className="events-view row">
                     {displayEvents}

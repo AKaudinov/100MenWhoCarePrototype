@@ -16,16 +16,24 @@
 }
 
 @mixin title-radius{
-  border-radius: 15px 1px 1px 1px;
-  @include breakpoint('small'){
-    border-radius: 1px;
-  }
+  border-radius: 20px 0 0 2px;
 }
 
 @mixin description-radius{
-  border-radius: 1px 1px 15px 1px;
-  @include breakpoint('small'){
-    border-radius: 1px;
+  border-radius: 0 2px 20px 0;
+}
+
+@mixin title-font-resize{
+  font-size: 16px;
+  @include breakpoint('extra-small') {
+    font-size: 14px;
+  }
+}
+
+@mixin description-font-resize{
+  font-size: 14px;
+  @include breakpoint('extra-small'){
+    font-size: 12px;
   }
 }
 
@@ -35,6 +43,7 @@
   color: $coBlue;
   @include standardEventStyles;
   @include title-radius;
+  @include title-font-resize;
 }
 
 .event-title-alternate{
@@ -43,6 +52,7 @@
   color: $dark;
   @include standardEventStyles;
   @include title-radius;
+  @include title-font-resize;
 }
 
 .event-description{
@@ -50,6 +60,7 @@
   color: $coWhite;
   @include standardEventStyles;
   @include description-radius;
+  @include description-font-resize;
 }
 
 .event-description-alternate{
@@ -57,10 +68,14 @@
   color: $coWhite;
   @include standardEventStyles;
   @include description-radius;
+  @include description-font-resize;
 }
 
-//
-//.events-calendar-view{
-//  height: 600px;
-//}
-
+@media screen and(max-width: 575px){
+  .event-title, .event-title-alternate{
+    border-radius: 20px 2px 0 0;
+  }
+  .event-description, .event-description-alternate{
+    border-radius: 0 0 20px 2px;
+  }
+}
