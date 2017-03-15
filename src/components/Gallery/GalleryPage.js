@@ -55,7 +55,7 @@ const GalleryPage = ({gallery, isLoading}) => {
                                     ? <ImageGallery
                                         items={images}
                                         slideInterval={3000}
-                                        thumbnailPosition="right"
+                                        thumbnailPosition="bottom"
                                         autoPlay={true}
                                     />
                                     : <p className="lead">No images were retrieved to view</p>}
