@@ -1,7 +1,16 @@
 import fetch from 'isomorphic-fetch';
-
 const apiUrl = 'https://denver-100menwhocare.herokuapp.com/api/';
 //const localApiUrl = 'http://localhost:3000/api/contacts';
+import aws from 'aws-sdk';
+
+
+//aws.config.loadFromPath('../../aws/AwsConfig.json');
+aws.config.update({
+    accessKeyId: "AKIAJSUPCVGUGOJZUCTQ",
+    secretAccessKey: "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"
+});
+let s3 = new aws.S3();
+
 
 const request = (method, service, body) => {
     let requestUrl = `${apiUrl}${service}`;
@@ -39,9 +48,15 @@ class api {
     }
 
     static GetGallery(){
-        let fetchRequest = request('get', 'contents');
-        return fetch(fetchRequest)
-        .then(response => response.json());
+        //let fetchRequest = request('get', 'contents');
+        //return fetch(fetchRequest)
+        //.then(response => response.json());
+        let s3Params = {
+            Bucket: 'hrdmenwhocaredenver',
+            Key: 'SiteContent/DF logo_Site.png'
+        };
+        return s3.getObject(s3Params).promise()
+        .then(data => data.Body).catch(err => err);
     }
 }
 

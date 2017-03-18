@@ -9,20 +9,20 @@ class GalleryContainer extends React.Component{
         super(props, context);
 
         this.state = {
-            gallery: []
+            img: {}
         };
     }
 
     componentWillMount(){
         this.props.actions.loadGallery()
         .then(() => {
-            return this.setState({gallery: this.props.gallery.data});
+            return this.setState({img: this.props.gallery.data});
         });
     }
 
     render(){
         return (
-            <GalleryPage gallery={this.state.gallery} isLoading={this.props.fetchCallsInProgress > 0}/>
+            <GalleryPage image={this.state.img} isLoading={this.props.fetchCallsInProgress > 0}/>
         );
     }
 }

@@ -4,8 +4,9 @@ import '../../styles/gallery/gallery.scss';
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
 import ImageGallery from 'react-image-gallery';
+import {encode} from 'base64-arraybuffer';
 
-const GalleryPage = ({gallery, isLoading}) => {
+const GalleryPage = ({image, isLoading}) => {
     //let images = gallery.map(image => {
     //    return {
     //        original: `data:image/jpeg;base64,${image.ContentStr}`,
@@ -13,8 +14,12 @@ const GalleryPage = ({gallery, isLoading}) => {
     //    };
     //});
 
-
+    let s3Image = `data:image/jpeg;base64,${encode(image)}`;
     let images = [
+        {
+          original: s3Image,
+            thumbnail: s3Image
+        },
         {
          original: 'http://deskbg.com/s3/temp/96-Image00005.jpg',
             thumbnail: 'http://deskbg.com/s3/temp/96-Image00005.jpg'
@@ -70,7 +75,7 @@ const GalleryPage = ({gallery, isLoading}) => {
 };
 
 GalleryPage.propTypes = {
-    gallery: PropTypes.array.isRequired,
+    image: PropTypes.object.isRequired,
     isLoading: PropTypes.bool.isRequired
 };
 

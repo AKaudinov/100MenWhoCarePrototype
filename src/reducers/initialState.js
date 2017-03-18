@@ -9,7 +9,7 @@ export default {
         receivedError: ''
     },
     gallery:{
-        data: [],
+        data: {},
         message: ''
     }
 };
