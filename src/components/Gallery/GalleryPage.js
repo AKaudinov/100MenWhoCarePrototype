@@ -14,12 +14,12 @@ const GalleryPage = ({image, isLoading}) => {
     //    };
     //});
 
-    let s3Image = `data:image/jpeg;base64,${encode(image)}`;
+    //let s3Image = `data:image/jpeg;base64,${encode(image)}`;
     let images = [
-        {
-          original: s3Image,
-            thumbnail: s3Image
-        },
+        //{
+        //  original: s3Image,
+        //    thumbnail: s3Image
+        //},
         {
          original: 'http://deskbg.com/s3/temp/96-Image00005.jpg',
             thumbnail: 'http://deskbg.com/s3/temp/96-Image00005.jpg'

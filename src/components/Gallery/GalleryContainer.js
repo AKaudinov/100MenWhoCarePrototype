@@ -13,12 +13,13 @@ class GalleryContainer extends React.Component{
         };
     }
 
-    componentWillMount(){
-        this.props.actions.loadGallery()
-        .then(() => {
-            return this.setState({img: this.props.gallery.data});
-        });
-    }
+    //commenting this out for now until we figure out what to do with S3 keys.
+    //componentWillMount(){
+    //    this.props.actions.loadGallery()
+    //    .then(() => {
+    //        return this.setState({img: this.props.gallery.data});
+    //    });
+    //}
 
     render(){
         return (

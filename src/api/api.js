@@ -5,8 +5,8 @@ import aws from 'aws-sdk';
 
 
 aws.config.update({
-    accessKeyId: "AKIAIR3YSPZX7WVCNRBQ",
-    secretAccessKey: "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"
+    accessKeyId: "test",
+    secretAccessKey: "test"
 });
 let s3 = new aws.S3();
 
