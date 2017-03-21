@@ -4,10 +4,9 @@ const apiUrl = 'https://denver-100menwhocare.herokuapp.com/api/';
 import aws from 'aws-sdk';
 
 
-//aws.config.loadFromPath('../../aws/AwsConfig.json');
 aws.config.update({
-    accessKeyId: "AKIAJSUPCVGUGOJZUCTQ",
-    secretAccessKey: "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"
+    accessKeyId: "AKIAIR3YSPZX7WVCNRBQ",
+    secretAccessKey: "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"
 });
 let s3 = new aws.S3();
 
@@ -48,9 +47,6 @@ class api {
     }
 
     static GetGallery(){
-        //let fetchRequest = request('get', 'contents');
-        //return fetch(fetchRequest)
-        //.then(response => response.json());
         let s3Params = {
             Bucket: 'hrdmenwhocaredenver',
             Key: 'SiteContent/DF logo_Site.png'
