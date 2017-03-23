@@ -21,23 +21,5 @@ export function loadGallery(){
               dispatch(fetchFail);
                dispatch(loadGalleryFailure(err));
            });
-
-
-        //.then(body => {
-        //    dispatch(loadGallerySuccess(body.content));
-        //}).catch(err =>{
-        //       dispatch(fetchFail);
-        //        dispatch(loadGalleryFailure(err));////
-        //    });
-
-
-        //.then(json => {
-        //    if(json.status === 'success'){
-        //        dispatch(loadGallerySuccess(json.data));
-        //    }
-        //}).catch(err => {
-        //        dispatch(fetchFail);
-        //        dispatch(loadGalleryFailure(err.hasOwnProperty('message') ? err.message : err));
-        //    });
     };
 }
