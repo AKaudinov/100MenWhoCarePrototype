@@ -5,8 +5,9 @@ import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
 import ImageGallery from 'react-image-gallery';
 import {encode} from 'base64-arraybuffer';
+import DropZone from 'react-dropzone';
 
-const GalleryPage = ({image, isLoading}) => {
+const GalleryPage = ({onDrop, files, image, isLoading}) => {
     //let images = gallery.map(image => {
     //    return {
     //        original: `data:image/jpeg;base64,${image.ContentStr}`,
@@ -55,6 +56,15 @@ const GalleryPage = ({image, isLoading}) => {
                                 <FoldingCube size={100}/>
                             </div>}
 
+                            <div className="image-upload-area">
+                                <DropZone className="drop-zone" onDrop={onDrop} multiple={false} accept="image/*" >
+                                        <div>Drag and drop an image here, or click to select</div>
+                                </DropZone>
+                                {files.length > 0 &&
+                                <div className="preview-area">{files.map(file =>
+                                    <img key={file.name} className="preview-image" src={file.preview}/>)}</div>}
+                            </div>
+
                                 <div className="gallery-displayer">
                                     {images.length > 0
                                     ? <ImageGallery
@@ -75,8 +85,10 @@ const GalleryPage = ({image, isLoading}) => {
 };
 
 GalleryPage.propTypes = {
-    image: PropTypes.object.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    onDrop: PropTypes.func.isRequired,
+    files: PropTypes.array.isRequired,
+    image: PropTypes.object,
+    isLoading: PropTypes.bool
 };
 
 

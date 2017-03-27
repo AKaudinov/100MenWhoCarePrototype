@@ -9,8 +9,30 @@
   width: 100px;
 }
 
+.drop-zone{
+  width: 100%;
+  padding: 25px;
+  border-radius: 5px;
+  border: dashed 2px darkslategrey;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.preview-area {
+  width: 100%;
+  .preview-image {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px darkslategray;
+  }
+}
 
 .gallery-displayer{
+  .image-gallery-slides{
+    box-shadow: 0 5px 20px darkslategray;
+  }
     .image-gallery-image {
       width: 100%;
     }

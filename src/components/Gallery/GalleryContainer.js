@@ -9,8 +9,11 @@ class GalleryContainer extends React.Component{
         super(props, context);
 
         this.state = {
-            img: {}
+            img: {},
+            files: []
         };
+
+        this.onDrop = this.onDrop.bind(this);
     }
 
     //commenting this out for now until we figure out what to do with S3 keys.
@@ -21,9 +24,16 @@ class GalleryContainer extends React.Component{
     //    });
     //}
 
+    onDrop(files){
+        this.setState({files: files});
+    }
+
     render(){
         return (
-            <GalleryPage image={this.state.img} isLoading={this.props.fetchCallsInProgress > 0}/>
+            <GalleryPage onDrop={this.onDrop}
+                         files={this.state.files}
+                         image={this.state.img}
+                         isLoading={this.props.fetchCallsInProgress > 0}/>
         );
     }
 }
