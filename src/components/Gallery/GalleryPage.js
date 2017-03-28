@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react';
 import {FoldingCube} from 'better-react-spinkit';
 import '../../styles/gallery/gallery.scss';
-import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
-import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
-import ImageGallery from 'react-image-gallery';
+//import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
+//import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
+import '../../../node_modules/evolved-react-image-gallery/build/image-gallery.css';
+import ImageGallery from 'evolved-react-image-gallery';
 import {encode} from 'base64-arraybuffer';
 import DropZone from 'react-dropzone';
 
@@ -43,6 +44,14 @@ const GalleryPage = ({onDrop, files, image, isLoading}) => {
         }
     ];
 
+    let galleryMenu = [];
+    galleryMenu.push({
+       text: 'details',
+        callback: function(idx){
+            console.log(`selected image ${idx}`);
+        }
+    });
+
     return (
         <div className="gallery-main row">
             <div className="container-fluid">
@@ -70,7 +79,9 @@ const GalleryPage = ({onDrop, files, image, isLoading}) => {
                                     ? <ImageGallery
                                         items={images}
                                         slideInterval={3000}
-                                        thumbnailPosition="bottom"
+                                        gallerymenu={galleryMenu}
+                                        //thumbnailPosition="bottom"
+                                        showFullScreenButton={true}
                                         autoPlay={true}
                                     />
                                     : <p className="lead">No images were retrieved to view</p>}
