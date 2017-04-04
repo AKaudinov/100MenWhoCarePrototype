@@ -14,6 +14,7 @@ class GalleryContainer extends React.Component{
         };
 
         this.onDrop = this.onDrop.bind(this);
+        this.cancelUpload = this.cancelUpload.bind(this);
     }
 
     //commenting this out for now until we figure out what to do with S3 keys.
@@ -25,12 +26,17 @@ class GalleryContainer extends React.Component{
     //}
 
     onDrop(files){
-        this.setState({files: files});
+        return this.setState({files: files});
+    }
+
+    cancelUpload(){
+        return this.setState({files: []});
     }
 
     render(){
         return (
             <GalleryPage onDrop={this.onDrop}
+                         cancelUpload={this.cancelUpload}
                          files={this.state.files}
                          image={this.state.img}
                          isLoading={this.props.fetchCallsInProgress > 0}/>

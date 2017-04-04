@@ -1,14 +1,13 @@
 import React, {PropTypes} from 'react';
 import {FoldingCube} from 'better-react-spinkit';
 import '../../styles/gallery/gallery.scss';
-//import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
-//import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
-import '../../../node_modules/evolved-react-image-gallery/build/image-gallery.css';
-import ImageGallery from 'evolved-react-image-gallery';
+import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css';
+import '../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css';
+import ImageGallery from 'react-image-gallery';
 import {encode} from 'base64-arraybuffer';
 import DropZone from 'react-dropzone';
 
-const GalleryPage = ({onDrop, files, image, isLoading}) => {
+const GalleryPage = ({onDrop, cancelUpload, files, image, isLoading}) => {
     //let images = gallery.map(image => {
     //    return {
     //        original: `data:image/jpeg;base64,${image.ContentStr}`,
@@ -23,7 +22,7 @@ const GalleryPage = ({onDrop, files, image, isLoading}) => {
         //    thumbnail: s3Image
         //},
         {
-         original: 'http://deskbg.com/s3/temp/96-Image00005.jpg',
+            original: 'http://deskbg.com/s3/temp/96-Image00005.jpg',
             thumbnail: 'http://deskbg.com/s3/temp/96-Image00005.jpg'
         },
         {
@@ -44,14 +43,6 @@ const GalleryPage = ({onDrop, files, image, isLoading}) => {
         }
     ];
 
-    let galleryMenu = [];
-    galleryMenu.push({
-       text: 'details',
-        callback: function(idx){
-            console.log(`selected image ${idx}`);
-        }
-    });
-
     return (
         <div className="gallery-main row">
             <div className="container-fluid">
@@ -59,34 +50,47 @@ const GalleryPage = ({onDrop, files, image, isLoading}) => {
                     <div className="gallery-jumbotron jumbotron">
                         <div className="gallery-container container">
                             <h2 className="display-4 gallery-title">Our Gallery</h2>
-                            <hr className="gallery-horizontal-line-break" />
+                            <hr className="gallery-horizontal-line-break"/>
                             {isLoading &&
                             <div className="gallery-loading">
                                 <FoldingCube size={100}/>
                             </div>}
 
                             <div className="image-upload-area">
-                                <DropZone className="drop-zone" onDrop={onDrop} multiple={false} accept="image/*" >
-                                        <div>Drag and drop an image here, or click to select</div>
+                                <DropZone className="drop-zone" onDrop={onDrop} multiple={false} accept="image/*">
+                                    <div>Drag and drop an image here, or click to select</div>
                                 </DropZone>
                                 {files.length > 0 &&
                                 <div className="preview-area">{files.map(file =>
-                                    <img key={file.name} className="preview-image" src={file.preview}/>)}</div>}
+                                    <img key={file.name} className="preview-image" src={file.preview}/>)}
+                                    <div className="preview-action-area row">
+                                        <div className="offset-md-2 col-md-4 col-xs-6">
+                                            <button className="btn btn-lg btn-info upload-image-button">
+                                                Upload
+                                            </button>
+                                        </div>
+                                        <div className="col-md-4 col-xs-6">
+                                            <button className="btn btn-lg btn-warning cancel-image-upload"
+                                                    onClick={cancelUpload}>
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>}
                             </div>
 
-                                <div className="gallery-displayer">
-                                    {images.length > 0
+                            <div className="gallery-displayer">
+                                {images.length > 0
                                     ? <ImageGallery
-                                        items={images}
-                                        slideInterval={3000}
-                                        gallerymenu={galleryMenu}
-                                        //thumbnailPosition="bottom"
-                                        showFullScreenButton={true}
-                                        autoPlay={true}
-                                    />
+                                    items={images}
+                                    slideInterval={3000}
+                                    thumbnailPosition="bottom"
+                                    showFullScreenButton={true}
+                                    autoPlay={true}
+                                />
                                     : <p className="lead">No images were retrieved to view</p>}
 
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,6 +101,7 @@ const GalleryPage = ({onDrop, files, image, isLoading}) => {
 
 GalleryPage.propTypes = {
     onDrop: PropTypes.func.isRequired,
+    cancelUpload: PropTypes.func.isRequired,
     files: PropTypes.array.isRequired,
     image: PropTypes.object,
     isLoading: PropTypes.bool
