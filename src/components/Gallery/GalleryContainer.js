@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as galleryActions from '../../actions/galleryActions';
 import GalleryPage from './GalleryPage';
+import ImageGallery from 'react-image-gallery';
 
 class GalleryContainer extends React.Component{
     constructor(props, context) {
@@ -37,7 +38,7 @@ class GalleryContainer extends React.Component{
 
     deleteImage(img){
         /*eslint-disable no-console*/
-        console.log(img);
+        //console.log(img.target.parentElement.parentElement.parentElement);
     }
 
     renderCustomDeleteButton(){
