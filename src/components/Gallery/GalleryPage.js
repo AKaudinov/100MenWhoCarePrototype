@@ -7,13 +7,15 @@ import ImageGallery from 'react-image-gallery';
 import {encode} from 'base64-arraybuffer';
 import DropZone from 'react-dropzone';
 
-const GalleryPage = ({onDrop, cancelUpload, files, image, isLoading}) => {
+const GalleryPage = ({onDrop, cancelUpload, renderDeleteBtn, files, image, isLoading}) => {
     //let images = gallery.map(image => {
     //    return {
     //        original: `data:image/jpeg;base64,${image.ContentStr}`,
     //        thumbnail: `data:image/jpeg;base64,${image.ContentStr}`
     //    };
     //});
+
+
 
     //let s3Image = `data:image/jpeg;base64,${encode(image)}`;
     let images = [
@@ -87,6 +89,7 @@ const GalleryPage = ({onDrop, cancelUpload, files, image, isLoading}) => {
                                     thumbnailPosition="bottom"
                                     showFullScreenButton={true}
                                     autoPlay={true}
+                                    renderCustomControls={renderDeleteBtn}
                                 />
                                     : <p className="lead">No images were retrieved to view</p>}
 
@@ -102,6 +105,7 @@ const GalleryPage = ({onDrop, cancelUpload, files, image, isLoading}) => {
 GalleryPage.propTypes = {
     onDrop: PropTypes.func.isRequired,
     cancelUpload: PropTypes.func.isRequired,
+    renderDeleteBtn: PropTypes.func.isRequired,
     files: PropTypes.array.isRequired,
     image: PropTypes.object,
     isLoading: PropTypes.bool
