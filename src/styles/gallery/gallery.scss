@@ -50,6 +50,21 @@
   }
 }
 
+.gallery-manager-area{
+  margin-bottom: 20px;
+}
+
+.gallery-manager-card-block {
+  background-color:$dark;
+  .image-in-manager {
+    img {
+      max-width: 180px;
+      max-height: 120px;
+    }
+    margin-bottom: 15px;
+  }
+}
+
 .gallery-displayer{
   .image-gallery-slides{
     box-shadow: 0 2px 20px darkslategray;

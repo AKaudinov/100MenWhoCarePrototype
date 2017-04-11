@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as galleryActions from '../../actions/galleryActions';
 import GalleryPage from './GalleryPage';
-import ImageGallery from 'react-image-gallery';
 
 class GalleryContainer extends React.Component{
     constructor(props, context) {
@@ -16,8 +15,8 @@ class GalleryContainer extends React.Component{
 
         this.onDrop = this.onDrop.bind(this);
         this.cancelUpload = this.cancelUpload.bind(this);
-        this.deleteImage = this.deleteImage.bind(this);
-        this.renderCustomDeleteButton = this.renderCustomDeleteButton.bind(this);
+        //this.deleteImage = this.deleteImage.bind(this);
+        //this.renderCustomDeleteButton = this.renderCustomDeleteButton.bind(this);
     }
 
     //commenting this out for now until we figure out what to do with S3 keys.
@@ -36,25 +35,24 @@ class GalleryContainer extends React.Component{
         return this.setState({files: []});
     }
 
-    deleteImage(img){
-        /*eslint-disable no-console*/
-        //console.log(img.target.parentElement.parentElement.parentElement);
-    }
-
-    renderCustomDeleteButton(){
-        return (
-            <div className="image-gallery-delete-section">
-                <button type="button" className="image-gallery-delete-button">
-                <i className="fa fa-xing fa-3x" aria-hidden="true" onClick={this.deleteImage}/></button>
-            </div>
-        );
-    }
+    //deleteImage(img){
+    //    /*eslint-disable no-console*/
+    //    //console.log(img.target.parentElement.parentElement.parentElement);
+    //}
+    //
+    //renderCustomDeleteButton(){
+    //    return (
+    //        <div className="image-gallery-delete-section">
+    //            <button type="button" className="image-gallery-delete-button">
+    //            <i className="fa fa-xing fa-3x" aria-hidden="true" onClick={this.deleteImage}/></button>
+    //        </div>
+    //    );
+    //}
 
     render(){
         return (
             <GalleryPage onDrop={this.onDrop}
                          cancelUpload={this.cancelUpload}
-                         renderDeleteBtn={this.renderCustomDeleteButton}
                          files={this.state.files}
                          image={this.state.img}
                          isLoading={this.props.fetchCallsInProgress > 0}/>
