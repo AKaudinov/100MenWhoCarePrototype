@@ -66,7 +66,7 @@ const GalleryPage = ({onDrop, cancelUpload, files, image, isLoading}) => {
                                     <img key={file.name} className="preview-image" src={file.preview}/>)}
                                     <div className="preview-action-area row">
                                         <div className="offset-md-2 col-md-4 col-xs-6">
-                                            <button className="btn btn-lg btn-info upload-image-button">
+                                            <button className="btn btn-lg submit-dark-button upload-image-button">
                                                 Upload
                                             </button>
                                         </div>

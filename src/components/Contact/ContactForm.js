@@ -15,13 +15,13 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
     }
 
     let sendButton = (
-        <button className="btn btn-lg submit-contact-button" onClick={onSend}>
+        <button className="btn btn-lg submit-dark-button" onClick={onSend}>
             Send
         </button>
     );
 
     let disabledSendButton = (
-        <button className="btn btn-lg submit-contact-button" disabled>
+        <button className="btn btn-lg submit-dark-button" disabled>
             <ChasingDots color="white" size={25} className="sending-contact-icon"/> Sending
         </button>
     );

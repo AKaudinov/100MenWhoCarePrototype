@@ -41,6 +41,33 @@ button:focus{
   outline:none;
   border:none;
 }
+
+
+.submit-dark-button {
+  @include btn-transition(0.5s);
+  text-align: center;
+  background-color: $dark;
+  color: $coWhite;
+  width: 100%;
+}
+
+.submit-dark-button:hover {
+  background-color: darkblue;
+  color: $coWhite;
+}
+
+.submit-yellow-button {
+  @include btn-transition(0.5s);
+  text-align: center;
+  background-color: $coYellow;
+  color: $coBlue;
+  width: 100%;
+}
+
+.submit-yellow-button:hover {
+  background-color: $broncosOrange;
+  color: $coWhite;
+}
 //buttons standard end
 
 //jumbotron
