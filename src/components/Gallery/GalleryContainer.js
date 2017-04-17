@@ -10,11 +10,13 @@ class GalleryContainer extends React.Component{
 
         this.state = {
             img: {},
-            files: []
+            files: [],
+            filesToDelete: []
         };
 
         this.onDrop = this.onDrop.bind(this);
         this.cancelUpload = this.cancelUpload.bind(this);
+        this.addToDeleteArray = this.addToDeleteArray.bind(this);
         //this.deleteImage = this.deleteImage.bind(this);
         //this.renderCustomDeleteButton = this.renderCustomDeleteButton.bind(this);
     }
@@ -33,6 +35,12 @@ class GalleryContainer extends React.Component{
 
     cancelUpload(){
         return this.setState({files: []});
+    }
+
+    addToDeleteArray(image){
+        let currentDeleteArray = this.state.filesToDelete;
+        currentDeleteArray.push(image.name);
+        return this.setState({filesToDelete: currentDeleteArray})
     }
 
     //deleteImage(img){
@@ -54,7 +62,9 @@ class GalleryContainer extends React.Component{
             <GalleryPage onDrop={this.onDrop}
                          cancelUpload={this.cancelUpload}
                          files={this.state.files}
+                         imagesToDeleteArray={this.state.filesToDelete}
                          image={this.state.img}
+                         addToDeleteArray={this.addToDeleteArray}
                          isLoading={this.props.fetchCallsInProgress > 0}/>
         );
     }

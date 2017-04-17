@@ -56,10 +56,16 @@
 
 .gallery-manager-card-block {
   background-color:$dark;
+  .delete-images-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: $coWhite;
+  }
   .image-in-manager {
     img {
       max-width: 180px;
       max-height: 120px;
+      cursor: pointer;
     }
     margin-bottom: 15px;
   }
