@@ -14,8 +14,8 @@
 .drop-zone{
   width: 100%;
   padding: 25px;
-  border-radius: 5px;
-  border: dashed 2px darkslategrey;
+  border-radius: 8px;
+  border: solid 2px darkslategrey;
   text-align: center;
   margin-bottom: 20px;
   cursor: pointer;
@@ -51,11 +51,16 @@
 }
 
 .gallery-manager-area{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.gallery-manager-card{
+  margin-top: 20px;
 }
 
 .gallery-manager-card-block {
   background-color:$dark;
+  box-shadow: 0 2px 20px darkslategray;
   .delete-images-button{
     margin-top: 10px;
     margin-bottom: 10px;
