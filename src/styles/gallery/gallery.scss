@@ -71,6 +71,12 @@
       max-width: 180px;
       max-height: 120px;
       cursor: pointer;
+      border-radius: 2px;
+      border:2px solid transparent;
+    }
+    .image-selected{
+      border-radius: 2px;
+      border:2px solid $coYellow;
     }
     margin-bottom: 15px;
   }

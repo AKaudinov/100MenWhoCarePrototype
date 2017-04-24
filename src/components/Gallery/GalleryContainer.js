@@ -39,7 +39,11 @@ class GalleryContainer extends React.Component{
 
     addToDeleteArray(image){
         let currentDeleteArray = this.state.filesToDelete;
-        currentDeleteArray.push(image.name);
+        if(currentDeleteArray.indexOf(image.name) !== -1){
+            currentDeleteArray.splice(currentDeleteArray.indexOf(image.name), 1);
+        }else {
+            currentDeleteArray.push(image.name);
+        }
         return this.setState({filesToDelete: currentDeleteArray})
     }
 

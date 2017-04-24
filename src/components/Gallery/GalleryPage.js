@@ -104,7 +104,9 @@ const GalleryPage = ({onDrop, cancelUpload, files, addToDeleteArray, image, imag
                                                 {images.map((image, i) => (
                                                     <div key={`image${i}`}
                                                          className="image-in-manager col-sm-6 col-md-4">
-                                                        <img src={image.original} onClick={() => addToDeleteArray(image)}/>
+                                                        <img className={imagesToDeleteArray.indexOf(image.name) !== -1
+                                                         ? "image-selected" : ""}
+                                                             src={image.original} onClick={() => addToDeleteArray(image)}/>
                                                     </div>
                                                 ))}
                                             </div>
