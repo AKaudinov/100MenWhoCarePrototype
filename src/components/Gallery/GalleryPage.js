@@ -96,7 +96,7 @@ const GalleryPage = ({onDrop, cancelUpload, files, addToDeleteArray, image, imag
                                         <div className="card-block gallery-manager-card-block">
                                             <div className="row">
                                                 <div className="col-xs-12 images-delete-section">
-                                                    <button type="button" className="btn btn-info delete-images-button"
+                                                    <button type="button" className="btn btn-warning delete-images-button"
                                                             disabled={imagesToDeleteArray.length === 0}>
                                                         <i className="fa fa-trash fa-1x" aria-hidden="true"/>
                                                     </button>
