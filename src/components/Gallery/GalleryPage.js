@@ -23,27 +23,27 @@ const GalleryPage = ({onDrop, cancelUpload, files, addToDeleteArray, image, imag
         //    thumbnail: s3Image
         //},
         {
-            name:'image1',
+            name: 'image1',
             original: 'http://deskbg.com/s3/temp/96-Image00005.jpg',
             thumbnail: 'http://deskbg.com/s3/temp/96-Image00005.jpg'
         },
         {
-            name:'image2',
+            name: 'image2',
             original: 'https://i.ytimg.com/vi/m8Lrby7g498/maxresdefault.jpg',
             thumbnail: 'https://i.ytimg.com/vi/m8Lrby7g498/maxresdefault.jpg'
         },
         {
-            name:'image3',
+            name: 'image3',
             original: 'http://www.prgn.com/wp-content/uploads/2013/12/Denver-Skyline.jpg',
             thumbnail: 'http://www.prgn.com/wp-content/uploads/2013/12/Denver-Skyline.jpg'
         },
         {
-            name:'image4',
+            name: 'image4',
             original: 'http://www.mycoolbackgrounds.com/backgrounds/24532/Summit%20Lake%20Below%20Mount%20Evans,%20Arapaho%20National%20Forest,%20Colorado.jpg',
             thumbnail: 'http://www.mycoolbackgrounds.com/backgrounds/24532/Summit%20Lake%20Below%20Mount%20Evans,%20Arapaho%20National%20Forest,%20Colorado.jpg'
         },
         {
-            name:'image5',
+            name: 'image5',
             original: 'http://domplast.biz/wp-content/uploads/2016/12/garden_of_the_gods_open_hours_181984_1920_1080.jpg',
             thumbnail: 'http://domplast.biz/wp-content/uploads/2016/12/garden_of_the_gods_open_hours_181984_1920_1080.jpg'
         }
@@ -71,7 +71,7 @@ const GalleryPage = ({onDrop, cancelUpload, files, addToDeleteArray, image, imag
                                     <img key={file.name} className="preview-image" src={file.preview}/>)}
                                     <div className="preview-action-area row">
                                         <div className="offset-md-2 col-md-4 col-xs-6">
-                                            <button className="btn btn-lg submit-dark-button upload-image-button">
+                                            <button className="btn btn-lg accept-dark-button upload-image-button">
                                                 Upload
                                             </button>
                                         </div>
@@ -86,17 +86,18 @@ const GalleryPage = ({onDrop, cancelUpload, files, addToDeleteArray, image, imag
                             </div>
 
                             <div className="gallery-manager-area text-xs-center">
-                                <button className="btn btn-warning" type="button" data-toggle="collapse"
-                                        data-target="#galleryManager" aria-expanded="false"
-                                        aria-controls="galleryManagerCollapse">
-                                    Manage Images
-                                </button>
+                                    <button className="btn btn-warning" type="button" data-toggle="collapse"
+                                            data-target="#galleryManager" aria-expanded="false"
+                                            aria-controls="galleryManagerCollapse">
+                                        Manage Images
+                                    </button>
                                 <div className="collapse" id="galleryManager">
                                     <div className="card gallery-manager-card">
                                         <div className="card-block gallery-manager-card-block">
                                             <div className="row">
                                                 <div className="col-xs-12 images-delete-section">
-                                                    <button type="button" className="btn btn-warning delete-images-button"
+                                                    <button type="button"
+                                                            className="btn btn-warning delete-images-button"
                                                             disabled={imagesToDeleteArray.length === 0}>
                                                         <i className="fa fa-trash fa-1x" aria-hidden="true"/>
                                                     </button>
@@ -106,7 +107,8 @@ const GalleryPage = ({onDrop, cancelUpload, files, addToDeleteArray, image, imag
                                                          className="image-in-manager col-sm-6 col-md-4">
                                                         <img className={imagesToDeleteArray.indexOf(image.name) !== -1
                                                          ? "image-selected" : ""}
-                                                             src={image.original} onClick={() => addToDeleteArray(image)}/>
+                                                             src={image.original}
+                                                             onClick={() => addToDeleteArray(image)}/>
                                                     </div>
                                                 ))}
                                             </div>

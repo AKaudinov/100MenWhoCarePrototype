@@ -61,7 +61,7 @@ class HomePage extends React.Component {
                                         is a little better for my having lived in it."</p>
                                     <p className="lincoln text-xs-center">-Abraham Lincoln</p>
                                     <div className="offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
-                                        <Link to="about" className="btn btn-lg submit-yellow-button" id="toAbout">About us</Link>
+                                        <Link to="about" className="btn btn-lg accept-yellow-button" id="toAbout">About us</Link>
                                     </div>
                                     <div className="mission-statement text-xs-center col-xs-12">
                                         <p className="mission-statement-main offset-md-3 col-md-6 col-xs-12 d-block">
@@ -104,7 +104,7 @@ class HomePage extends React.Component {
                                         </div>
                                     </div>
                                     <div className="contact-us-btn offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
-                                        <Link to="contact" className="btn btn-lg submit-yellow-button" id="toContactUs">Contact us</Link>
+                                        <Link to="contact" className="btn btn-lg accept-yellow-button" id="toContactUs">Contact us</Link>
                                     </div>
                                 </div>
                             </div>

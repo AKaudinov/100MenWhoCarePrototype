@@ -43,7 +43,7 @@ button:focus{
 }
 
 
-.submit-dark-button {
+.accept-dark-button {
   @include btn-transition(0.5s);
   text-align: center;
   background-color: $dark;
@@ -51,12 +51,12 @@ button:focus{
   width: 100%;
 }
 
-.submit-dark-button:hover {
+.accept-dark-button:hover {
   background-color: darkblue;
   color: $coWhite;
 }
 
-.submit-yellow-button {
+.accept-yellow-button {
   @include btn-transition(0.5s);
   text-align: center;
   background-color: $coYellow;
@@ -64,7 +64,7 @@ button:focus{
   width: 100%;
 }
 
-.submit-yellow-button:hover {
+.accept-yellow-button:hover {
   background-color: $broncosOrange;
   color: $coWhite;
 }
