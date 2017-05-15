@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import TextInput from '../common/TextInput';
 import moment from 'moment';
 import '../../styles/events/events.scss';
 
-const EventsPage = () => {
+const EventsPage = (event, errors, onChange, retrievedEvents) => {
     let events = [
         {
             title: 'Daylight Savings',
@@ -51,11 +52,37 @@ const EventsPage = () => {
                 <h2 className="display-4">Upcoming events</h2>
                 <hr className="events-horizontal-break-line"/>
                 <div className="events-view row">
+                    <div className="event-name col-xs-12 col-sm-6">
+                        <TextInput
+                            name="name"
+                            label="Name"
+                            type="text"
+                            onChange={onChange}
+                            value={event.name}
+                            error={errors.name}/>
+                    </div>
+                    <div className="event-date col-xs-12 col-sm-6">
+                        <TextInput
+                        name="date"
+                        label="Date"
+                        type="text"
+                        onChange={onChange}
+                        value={event.date}
+                        error={errors.date}/>
+                    </div>
                     {displayEvents}
                 </div>
             </div>
         </div>
     );
 };
+
+EventsPage.propTypes = {
+    event: PropTypes.object.isRequired,
+    errors: PropTypes.object,
+    onChange: PropTypes.func.isRequired,
+    retrievedEvents: PropTypes.array
+};
+
 
 export default EventsPage;

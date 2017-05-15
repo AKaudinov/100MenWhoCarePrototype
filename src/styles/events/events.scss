@@ -4,9 +4,17 @@
   margin-bottom: 30px;
 }
 
+.events-view{
+  label{
+    color:$coRed;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
 .event-item{
   margin-bottom: 20px;
-
 }
 
 @mixin standardEventStyles{
