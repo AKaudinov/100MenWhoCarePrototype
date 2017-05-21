@@ -6,7 +6,7 @@ class EventsContainer extends React.Component {
         super(props, context);
 
         this.state = {
-            event:{
+            eventObj:{
                 name: '',
                 description: '',
                 date: ''
@@ -15,25 +15,25 @@ class EventsContainer extends React.Component {
             events: []
         };
 
-        this.updateEventState = this.updateEventState.bind(this);
+        this.updateStateEventObj = this.updateStateEventObj.bind(this);
     }
 
-    updateEventState(event){
+    updateStateEventObj(event){
         let fieldName = event.target.name;
         let fieldValue = event.target.value;
 
-        let eventSetter = this.state.event;
+        let eventSetter = this.state.eventObj;
 
         eventSetter[fieldName] = fieldValue;
 
-        return this.setState({event: eventSetter})
+        return this.setState({eventObj: eventSetter});
     }
 
     render() {
         return (
-            <EventsPage event={this.state.event}
+            <EventsPage eventObj={this.state.eventObj}
                         errors={this.state.errors}
-                        onChange={this.updateEventState}
+                        onChange={this.updateStateEventObj}
                         retrievedEvents={this.state.events}/>
         );
     }

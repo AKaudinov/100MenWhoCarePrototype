@@ -3,7 +3,17 @@ import TextInput from '../common/TextInput';
 import moment from 'moment';
 import '../../styles/events/events.scss';
 
-const EventsPage = (event, errors, onChange, retrievedEvents) => {
+const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
+    let descriptionWrapperClass = "event-form-description form-group col-xs-12";
+    let descriptionLabelClass = "event-form-description-label";
+    let descriptionInputClass = "form-control";
+
+    if(errors.description && errors.description.length > 0){
+        descriptionWrapperClass += " " + 'has-danger';
+        descriptionLabelClass += " " + 'text-danger';
+        descriptionInputClass += " " + 'form-control-danger';
+    }
+
     let events = [
         {
             title: 'Daylight Savings',
@@ -20,28 +30,28 @@ const EventsPage = (event, errors, onChange, retrievedEvents) => {
     ];
 
     let displayEvents =
-        events.map((event, index) => {
+        events.map((eventItem, index) => {
                 return (
-                index % 2 == 0 ?
-                    <div key={`item${index}`} className="col-xs-12 event-item">
-                        <div className="event-title text-xs-center text-sm-left col-xs-12 col-sm-4">
-                            <h5>{event.title}</h5>
-                            <div className="event-date"><p className="small">{event.start} - {event.end}</p></div>
+                    index % 2 == 0 ?
+                        <div key={`item${index}`} className="col-xs-12 event-item">
+                            <div className="event-title text-xs-center text-sm-left col-xs-12 col-sm-4">
+                                <h5>{eventItem.title}</h5>
+                                <div className="event-date"><p className="small">{eventItem.start} - {eventItem.end}</p></div>
+                            </div>
+                            <div className="event-description text-xs-center text-sm-left col-xs-12 col-sm-8">
+                                <p>{eventItem.description}</p>
+                            </div>
                         </div>
-                        <div className="event-description text-xs-center text-sm-left col-xs-12 col-sm-8">
-                            <p>{event.description}</p>
+                        :
+                        <div key={`item${index}`} className="col-xs-12 event-item">
+                            <div className="event-title-alternate text-xs-center text-sm-left col-xs-12 col-sm-4">
+                                <h5>{eventItem.title}</h5>
+                                <div className="event-date"><p className="small">{eventItem.start} - {eventItem.end}</p></div>
+                            </div>
+                            <div className="event-description-alternate text-xs-center text-sm-left col-xs-12 col-sm-8">
+                                <p>{eventItem.description}</p>
+                            </div>
                         </div>
-                    </div>
-                    :
-                    <div key={`item${index}`} className="col-xs-12 event-item">
-                        <div className="event-title-alternate text-xs-center text-sm-left col-xs-12 col-sm-4">
-                            <h5>{event.title}</h5>
-                            <div className="event-date"><p className="small">{event.start} - {event.end}</p></div>
-                        </div>
-                        <div className="event-description-alternate text-xs-center text-sm-left col-xs-12 col-sm-8">
-                            <p>{event.description}</p>
-                        </div>
-                    </div>
                 );
             }
         );
@@ -52,24 +62,33 @@ const EventsPage = (event, errors, onChange, retrievedEvents) => {
                 <h2 className="display-4">Upcoming events</h2>
                 <hr className="events-horizontal-break-line"/>
                 <div className="events-view row">
-                    <div className="event-name col-xs-12 col-sm-6">
-                        <TextInput
-                            name="name"
-                            label="Name"
-                            type="text"
-                            onChange={onChange}
-                            value={event.name}
-                            error={errors.name}/>
-                    </div>
-                    <div className="event-date col-xs-12 col-sm-6">
-                        <TextInput
-                        name="date"
-                        label="Date"
-                        type="text"
-                        onChange={onChange}
-                        value={event.date}
-                        error={errors.date}/>
-                    </div>
+                        <div className="event-name col-xs-12 col-sm-6">
+                            <TextInput
+                                name="name"
+                                label="Name"
+                                type="text"
+                                onChange={onChange}
+                                value={eventObj.name}
+                                error={errors.name}/>
+                        </div>
+                        <div className="event-date col-xs-12 col-sm-6">
+                            <TextInput
+                                name="date"
+                                label="Date"
+                                type="text"
+                                onChange={onChange}
+                                value={eventObj.date}
+                                error={errors.date}/>
+                        </div>
+                        <div className={descriptionWrapperClass}>
+                            <label className={descriptionLabelClass} htmlFor="description">
+                                Description {errors.description && `-${errors.description}`}</label>
+                            <textarea className={descriptionInputClass}
+                                      id="description"
+                                      name="description"
+                                      onChange={onChange}
+                                      value={eventObj.description}/>
+                        </div>
                     {displayEvents}
                 </div>
             </div>
@@ -78,9 +97,9 @@ const EventsPage = (event, errors, onChange, retrievedEvents) => {
 };
 
 EventsPage.propTypes = {
-    event: PropTypes.object.isRequired,
-    errors: PropTypes.object,
+    eventObj: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
+    errors: PropTypes.object,
     retrievedEvents: PropTypes.array
 };
 
