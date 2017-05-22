@@ -89,6 +89,14 @@ const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
                                       onChange={onChange}
                                       value={eventObj.description}/>
                         </div>
+                        <div className="submit-event col-xs-12 col-md-3">
+                            <button className="btn btn-lg accept-dark-button">Submit</button>
+                        </div>
+                        <div className="cancel-event col-xs-12 col-md-3">
+                            <button className="btn btn-lg cancel-event-button btn-warning">
+                                Cancel
+                            </button>
+                        </div>
                     {displayEvents}
                 </div>
             </div>

@@ -11,6 +11,15 @@
     font-weight: bold;
     font-size: 15px;
   }
+  .cancel-event{
+    @include breakpoint(small){
+      margin-top: 15px;
+    }
+    margin-bottom: 15px;
+    .cancel-event-button{
+      width: 100%;
+    }
+  }
 }
 
 .event-item{
