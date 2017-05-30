@@ -1,18 +1,19 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
+import TextAreaInput from '../common/TextAreaInput';
 import {ChasingDots} from 'better-react-spinkit';
 import '../../styles/contact/contact.scss';
 
 const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetchCallsInProgress, errors}) => {
-    let messageWrapperClass = 'contact-message form-group col-xs-12';
-    let messageInputClass = 'form-control';
-    let messageLabelClass = 'messageLabel';
-
-    if (errors.message && errors.message.length > 0) {
-        messageWrapperClass += " " + 'has-danger';
-        messageInputClass += " " + 'form-control-danger';
-        messageLabelClass += " " + 'text-danger';
-    }
+    //let messageWrapperClass = 'contact-message form-group col-xs-12';
+    //let messageInputClass = 'form-control';
+    //let messageLabelClass = 'messageLabel';
+    //
+    //if (errors.message && errors.message.length > 0) {
+    //    messageWrapperClass += " " + 'has-danger';
+    //    messageInputClass += " " + 'form-control-danger';
+    //    messageLabelClass += " " + 'text-danger';
+    //}
 
     let sendButton = (
         <button className="btn btn-lg accept-dark-button" onClick={onSend}>
@@ -119,14 +120,17 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
                                     </div>
 
                                 </div>
-                                <div className={messageWrapperClass}>
-                                    <label className={messageLabelClass}
-                                           htmlFor="message">Message {errors.message && `- ${errors.message}`}</label>
-                                    <textarea className={messageInputClass} name="message" onChange={onChange}
-                                              id="message"
-                                              value={contact.message}/>
 
+                                <div className="contact-message col-xs-12">
+                                    <TextAreaInput
+                                            name="message"
+                                            label="Message"
+                                            id="message"
+                                            onChange={onChange}
+                                            value={contact.message}
+                                            error={errors.message}/>
                                 </div>
+
                                     <div className="submit-contact col-xs-12 col-md-3">
                                         {fetchCallsInProgress > 0 ? disabledSendButton : sendButton}
                                     </div>
@@ -143,6 +147,16 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
         </div>
     );
 };
+
+
+//<div className={messageWrapperClass}>
+//    <label className={messageLabelClass}
+//           htmlFor="message">Message {errors.message && `- ${errors.message}`}</label>
+//                                    <textarea className={messageInputClass} name="message" onChange={onChange}
+//                                              id="message"
+//                                              value={contact.message}/>
+//
+//</div>
 
 ContactForm.propTypes = {
     contact: PropTypes.object.isRequired,
