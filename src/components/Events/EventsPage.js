@@ -5,15 +5,6 @@ import moment from 'moment';
 import '../../styles/events/events.scss';
 
 const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
-    //let descriptionWrapperClass = "event-form-description form-group col-xs-12";
-    //let descriptionLabelClass = "event-form-description-label";
-    //let descriptionInputClass = "form-control";
-    //
-    //if (errors.description && errors.description.length > 0) {
-    //    descriptionWrapperClass += " " + 'has-danger';
-    //    descriptionLabelClass += " " + 'text-danger';
-    //    descriptionInputClass += " " + 'form-control-danger';
-    //}
 
     let events = [
         {
@@ -106,16 +97,6 @@ const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
         </div>
     );
 };
-
-//<div className={descriptionWrapperClass}>
-//    <label className={descriptionLabelClass} htmlFor="description">
-//        Description {errors.description && `-${errors.description}`}</label>
-//                            <textarea className={descriptionInputClass}
-//                                      id="description"
-//                                      name="description"
-//                                      onChange={onChange}
-//                                      value={eventObj.description}/>
-//</div>
 
 EventsPage.propTypes = {
     eventObj: PropTypes.object.isRequired,
