@@ -4,7 +4,7 @@ import TextAreaInput from '../common/TextAreaInput';
 import moment from 'moment';
 import '../../styles/events/events.scss';
 
-const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
+const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, retrievedEvents}) => {
 
     let events = [
         {
@@ -84,10 +84,10 @@ const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
                     </div>
 
                     <div className="submit-event col-xs-12 col-md-3">
-                        <button className="btn btn-lg accept-dark-button">Submit</button>
+                        <button className="btn btn-lg accept-dark-button" onClick={onSubmit}>Submit</button>
                     </div>
                     <div className="cancel-event col-xs-12 col-md-3">
-                        <button className="btn btn-lg cancel-event-button btn-warning">
+                        <button className="btn btn-lg cancel-event-button btn-warning" onClick={onCancel}>
                             Cancel
                         </button>
                     </div>
@@ -101,6 +101,8 @@ const EventsPage = ({eventObj, errors, onChange, retrievedEvents}) => {
 EventsPage.propTypes = {
     eventObj: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired,
     errors: PropTypes.object,
     retrievedEvents: PropTypes.array
 };
