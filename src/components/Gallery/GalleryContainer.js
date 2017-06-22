@@ -44,7 +44,7 @@ class GalleryContainer extends React.Component{
         }else {
             currentDeleteArray.push(image.name);
         }
-        return this.setState({filesToDelete: currentDeleteArray})
+        return this.setState({filesToDelete: currentDeleteArray});
     }
 
     //deleteImage(img){

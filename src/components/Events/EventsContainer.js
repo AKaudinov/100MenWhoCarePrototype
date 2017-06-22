@@ -1,7 +1,12 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as eventActions from '../../actions/eventActions';
+import toastr from 'toastr';
+
 import EventsPage from './EventsPage';
 
-class EventsContainer extends React.Component {
+export class EventsContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -98,4 +103,25 @@ class EventsContainer extends React.Component {
     }
 }
 
+EventsContainer.propTypes = {
+    actions: PropTypes.object.isRequired,
+    eventSubmitResult: PropTypes.object.isRequired,
+    fetchCallsInProgress: PropTypes.number.isRequired
+};
+
+function mapStateToProps(state, ownprops){
+    //return{
+    //
+    //};//map state to props
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        actions: bindActionCreators(eventActions, dispatch)
+    };
+}
+
+
+//once everything is ready, un-comment this.
+//export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer);
 export default EventsContainer;
