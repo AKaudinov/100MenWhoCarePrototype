@@ -1,10 +1,10 @@
 import * as actionTypes from './actionTypes';
 import {beginFetch, fetchFail} from './fetchStatusActions';
-import api from '../api/mockContactApi'; //change this to mock event api
+import api from '../api/mockEventApi';
 
 
 export function eventSubmitSuccess(message){
-    return {type: actionTypes.EVENT_SUBMIT_SUCCESS, message}
+    return {type: actionTypes.EVENT_SUBMIT_SUCCESS, message};
 }
 
 export function eventSubmitFailure(err){
@@ -22,6 +22,18 @@ export function eventsReturnFailure(err){
 export function submitEvent(eventForm){
     return dispatch => {
         //submit an event
+        dispatch(beginFetch);
+        return api.CreateEvent(eventForm)
+        .then(message => {
+            dispatch(eventSubmitSuccess(message.status));})
+        .catch(err => {
+            dispatch(fetchFail());
+            if(err.hasOwnProperty('message')){
+                dispatch(eventSubmitFailure(err.message));
+            }else{
+                dispatch(eventSubmitFailure(err));
+            }
+        })
     };
 }
 

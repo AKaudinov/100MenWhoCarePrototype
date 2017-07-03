@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as eventActions from '../../actions/eventActions';
+import {ChasingDots} from 'better-react-spinkit';
 import toastr from 'toastr';
 
 import EventsPage from './EventsPage';
@@ -25,6 +26,8 @@ export class EventsContainer extends React.Component {
         this.onCancel = this.onCancel.bind(this);
         this.cleanAnyErrors = this.cleanAnyErrors.bind(this);
         this.isEventValid = this.isEventValid.bind(this);
+        this.onSuccessfullEventSubmit = this.onSuccessfullEventSubmit.bind(this);
+        this.onFailedEventSubmit = this.onFailedEventSubmit.bind(this);
     }
 
     updateStateEventObj(event) {
@@ -53,11 +56,46 @@ export class EventsContainer extends React.Component {
         return this.setState({errors: errorCleaner});
     }
 
+    onSuccessfullEventSubmit(msg){
+        toastr.options = {
+            positionClass: 'toast-top-center',
+            preventDuplicates: false,
+            progressBar: true
+        };
+        toastr.success(msg);
+
+        let stateEventSetter = Object.assign({}, this.state.eventObj);
+
+        Object.keys(stateEventSetter).forEach(key => {
+            stateEventSetter[key] = '';
+        });
+
+        return this.setState({eventObj: stateEventSetter});
+    }
+
+    onFailedEventSubmit(errMsg){
+        toastr.options = {
+            positionClass: 'toast-top-center',
+            preventDuplicates: false,
+            progressBar: true
+        };
+        toastr.error(errMsg);
+    }
+
     onSubmit() {
         if (this.isEventValid()) {
-            console.log('valid submission');
+            this.props.actions.submitEvent(this.state.eventObj)
+            .then(() => {
+                if(this.props.events.eventSubmitSuccessMessage){
+                    return this.onSuccessfullEventSubmit(this.props.events.eventSubmitSuccessMessage);
+                }else{
+                    return this.onFailedEventSubmit(this.props.events.eventSubmitErrorMessage);
+                }
+            });
         }
     }
+
+
 
     isEventValid() {
         let stateEvent = this.state.eventObj;
@@ -105,14 +143,15 @@ export class EventsContainer extends React.Component {
 
 EventsContainer.propTypes = {
     actions: PropTypes.object.isRequired,
-    eventSubmitResult: PropTypes.object.isRequired,
+    events: PropTypes.object.isRequired,
     fetchCallsInProgress: PropTypes.number.isRequired
 };
 
 function mapStateToProps(state, ownprops){
-    //return{
-    //
-    //};//map state to props
+    return{
+        events: state.events,
+        fetchCallsInProgress: state.fetchCallsInProgress
+    };//map state to props
 }
 
 function mapDispatchToProps(dispatch){
@@ -123,5 +162,5 @@ function mapDispatchToProps(dispatch){
 
 
 //once everything is ready, un-comment this.
-//export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer);
-export default EventsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer);
+//export default EventsContainer;

@@ -8,8 +8,12 @@ class EventApi {
         return new Promise((resolve, reject) => {
            setTimeout(() => {
                eventForm = eventInfo;
-               resolve('Event Created!');
+               resolve({
+                   status: 'Event Created!'
+               });
            }, delay);
         });
     }
 }
+
+export default EventApi;

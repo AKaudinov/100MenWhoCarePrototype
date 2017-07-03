@@ -11,5 +11,11 @@ export default {
     gallery:{
         data: {},
         message: ''
+    },
+    events:{
+        data:[],
+        dataRetrieveError:'',
+        eventSubmitSuccessMessage:'',
+        eventSubmitErrorMessage:''
     }
 };
