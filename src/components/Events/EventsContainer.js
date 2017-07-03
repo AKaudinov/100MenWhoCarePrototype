@@ -8,6 +8,9 @@ import toastr from 'toastr';
 import EventsPage from './EventsPage';
 
 export class EventsContainer extends React.Component {
+//a named exported component, useful for testing when you only need a raw component
+//{EventContainer} //raw component
+    //EventContainer - default connected component
     constructor(props, context) {
         super(props, context);
 
@@ -163,4 +166,4 @@ function mapDispatchToProps(dispatch){
 
 //once everything is ready, un-comment this.
 export default connect(mapStateToProps, mapDispatchToProps)(EventsContainer);
-//export default EventsContainer;
+//export default connected EventsContainer;
