@@ -14,7 +14,7 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
 
     let disabledSendButton = (
         <button className="btn btn-lg accept-dark-button" disabled>
-            <ChasingDots color="white" size={25} className="standard-saving-sending-button-icon"/> Sending
+            <ChasingDots color="white" size={25} className="standard-in-progress-button-icon"/> Sending
         </button>
     );
 

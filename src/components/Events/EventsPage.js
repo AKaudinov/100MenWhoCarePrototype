@@ -28,7 +28,7 @@ const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, fetchCallsI
 
     let eventSubmitButtonDisabled = (
             <button className="btn btn-lg accept-dark-button" disabled>
-                <ChasingDots color="white" size={25} className="standard-saving-sending-button-icon"/> Saving
+                <ChasingDots color="white" size={25} className="standard-in-progress-button-icon"/> Saving
             </button>
     );
 
