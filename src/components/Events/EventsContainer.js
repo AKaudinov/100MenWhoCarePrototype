@@ -63,7 +63,8 @@ export class EventsContainer extends React.Component {
         toastr.options = {
             positionClass: 'toast-top-center',
             preventDuplicates: false,
-            progressBar: true
+            progressBar: true,
+            closeButton: true,
         };
         toastr.success(msg);
 
@@ -80,7 +81,9 @@ export class EventsContainer extends React.Component {
         toastr.options = {
             positionClass: 'toast-top-center',
             preventDuplicates: false,
-            progressBar: true
+            progressBar: true,
+            closeButton: true,
+            timeOut: '10000'
         };
         toastr.error(errMsg);
     }
@@ -139,6 +142,7 @@ export class EventsContainer extends React.Component {
                         onChange={this.updateStateEventObj}
                         onSubmit={this.onSubmit}
                         onCancel={this.onCancel}
+                        fetchCallsInProgress = {this.props.fetchCallsInProgress}
                         retrievedEvents={this.state.events}/>
         );
     }

@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
 import TextInput from '../common/TextInput';
 import TextAreaInput from '../common/TextAreaInput';
+import {ChasingDots} from 'better-react-spinkit';
 import moment from 'moment';
 import '../../styles/events/events.scss';
 
-const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, retrievedEvents}) => {
+const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, fetchCallsInProgress, retrievedEvents}) => {
 
     let events = [
         {
@@ -20,6 +21,16 @@ const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, retrievedEv
             end: moment("2017-03-23").format("MM/DD/YYYY")
         }
     ];
+
+    let eventSubmitButton = (
+            <button className="btn btn-lg accept-dark-button" onClick={onSubmit}>Save</button>
+    );
+
+    let eventSubmitButtonDisabled = (
+            <button className="btn btn-lg accept-dark-button" disabled>
+                <ChasingDots color="white" size={25} className="standard-saving-sending-button-icon"/> Saving
+            </button>
+    );
 
     let displayEvents =
         events.map((eventItem, index) => {
@@ -84,7 +95,7 @@ const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, retrievedEv
                     </div>
 
                     <div className="submit-event col-xs-12 col-md-3">
-                        <button className="btn btn-lg accept-dark-button" onClick={onSubmit}>Submit</button>
+                        {fetchCallsInProgress > 0 ? eventSubmitButtonDisabled : eventSubmitButton}
                     </div>
                     <div className="cancel-event col-xs-12 col-md-3">
                         <button className="btn btn-lg cancel-event-button btn-warning" onClick={onCancel}>
@@ -104,6 +115,7 @@ EventsPage.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
     errors: PropTypes.object,
+    fetchCallsInProgress: PropTypes.number.isRequired,
     retrievedEvents: PropTypes.array
 };
 

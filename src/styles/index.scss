@@ -68,6 +68,14 @@ button:focus{
   background-color: $broncosOrange;
   color: $coWhite;
 }
+
+.standard-saving-sending-button-icon{
+  position: absolute;
+  left: 30px;
+  @include breakpoint(tablet){
+    left: 20px;
+  }
+}
 //buttons standard end
 
 //jumbotron

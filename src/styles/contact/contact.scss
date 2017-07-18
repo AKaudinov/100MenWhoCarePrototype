@@ -92,14 +92,6 @@
   }
 }
 
-.sending-contact-icon{
-  position: absolute;
-  left: 35px;
-  @include breakpoint(tablet){
-    left: 20px;
-  }
-}
-
 @media screen and(max-width: 992px) {
   .Contact {
     .jumbotron {

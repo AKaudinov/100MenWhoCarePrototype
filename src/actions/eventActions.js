@@ -20,9 +20,9 @@ export function eventsReturnFailure(err){
 }
 
 export function submitEvent(eventForm){
-    return dispatch => {
+    return dispatch =>{
         //submit an event
-        dispatch(beginFetch);
+        dispatch(beginFetch());
         return api.CreateEvent(eventForm)
         .then(message => {
             dispatch(eventSubmitSuccess(message.status));})
@@ -33,12 +33,12 @@ export function submitEvent(eventForm){
             }else{
                 dispatch(eventSubmitFailure(err));
             }
-        })
+        });
     };
 }
 
 export function getEvents(){
-    return dispatch => {
-        //get all events from the api
-    };
+    //return dispatch => {
+    //    //get all events from the api
+    //};
 }
