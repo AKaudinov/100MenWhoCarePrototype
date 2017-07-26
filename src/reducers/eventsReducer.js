@@ -13,6 +13,8 @@ export default function eventsReducer(state = initialState.events, action){
                 eventSubmitSuccessMessage: '',
                 eventSubmitErrorMessage: action.err
             });
+        //will later also set up for actual event collection, to populate all events here, and if retrieval fails
+            //populate dataRetrieveError property of the events object.
         default:
             return state;
     }

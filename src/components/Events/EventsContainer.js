@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as eventActions from '../../actions/eventActions';
-import {ChasingDots} from 'better-react-spinkit';
 import toastr from 'toastr';
 
 import EventsPage from './EventsPage';
@@ -64,7 +63,7 @@ export class EventsContainer extends React.Component {
             positionClass: 'toast-top-center',
             preventDuplicates: false,
             progressBar: true,
-            closeButton: true,
+            closeButton: true
         };
         toastr.success(msg);
 

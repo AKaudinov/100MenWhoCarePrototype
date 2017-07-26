@@ -67,6 +67,7 @@ const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, fetchCallsI
                 <h2 className="display-4">Upcoming events</h2>
                 <hr className="events-horizontal-break-line"/>
                 <div className="events-view row">
+                    <h3 className="col-xs-12 create-event-header">Create an event</h3>
                     <div className="event-name col-xs-12 col-sm-6">
                         <TextInput
                             name="name"

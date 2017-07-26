@@ -60,13 +60,13 @@ button:focus{
   @include btn-transition(0.5s);
   text-align: center;
   background-color: $coYellow;
-  color: $coBlue;
+  color: $dark;
   width: 100%;
 }
 
 .accept-yellow-button:hover {
   background-color: $broncosOrange;
-  color: $coWhite;
+  color: $dark;
 }
 
 .standard-in-progress-button-icon{
