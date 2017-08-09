@@ -1,5 +1,38 @@
 @import '../baseColors', '../mixins';
 
+//main intro image
+.home-page-main-intro{
+  min-width: 100%;
+  min-height: 800px;
+  display: block;
+  .home-page-intro-text-container{
+    color: white;
+    vertical-align: top;
+    line-height: 0;
+    margin-bottom: -10px;
+    .home-page-main-text-hundred{
+      padding-top: 15%;
+      font-weight: 300;
+      font-size: 200px;
+      letter-spacing: 40px;
+      @include breakpoint(small){
+        padding-top:25%;
+      }
+      @include breakpoint(extra-small){
+        padding-top: 50%;
+        font-size: 150px;
+      }
+    }
+    .home-page-main-subtext{
+      font-weight: 200;
+      letter-spacing: 25px;
+    }
+  }
+}
+
+//main intro image end
+
+
 //carousel styles
 #carousel-home {
   .carousel-indicators{
