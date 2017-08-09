@@ -4,7 +4,7 @@ import App from './components/App';
 import HomePage from './components/Home/HomePage';
 import AboutPage from './components/About/AboutPage';
 import ContactPage from './components/Contact/ContactPage'; //eslint-disable-line import/no-named-as-default
-import GalleryContainer from './components/Gallery/GalleryContainer';
+//import GalleryContainer from './components/Gallery/GalleryContainer';
 import EventsContainer from './components/Events/EventsContainer'; //eslint-disable-line import/no-named-as-default
 
 export default (
@@ -12,7 +12,8 @@ export default (
   <IndexRoute component={HomePage}/>
       <Route path="about" component={AboutPage}/>
       <Route path="contact" component={ContactPage}/>
-      <Route path="gallery" component={GalleryContainer}/>
       <Route path="events" component={EventsContainer}/>
   </Route>
 );
+
+//<Route path="gallery" component={GalleryContainer}/> //cutting gallery out: downscoping.

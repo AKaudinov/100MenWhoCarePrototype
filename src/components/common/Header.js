@@ -48,12 +48,6 @@ class Header extends React.Component{
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <div className="menu-gallery"/>
-                                <Link to="/gallery" activeClassName="active" className="nav-link">
-                                    <i className="fa fa-picture-o"/> Gallery
-                                </Link>
-                            </li>
-                            <li className="nav-item">
                                 <div className="menu-contact"/>
                                 <Link to="/contact" activeClassName="active" className="nav-link">
                                     <i className="fa fa-envelope"/> Contact
@@ -73,5 +67,12 @@ class Header extends React.Component{
     }
 }
 
+//cutting gallery out; downscoping.
+//<li className="nav-item">
+//    <div className="menu-gallery"/>
+//    <Link to="/gallery" activeClassName="active" className="nav-link">
+//        <i className="fa fa-picture-o"/> Gallery
+//    </Link>
+//</li>
 
 export default Header;

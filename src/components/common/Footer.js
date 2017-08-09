@@ -12,7 +12,7 @@ const Footer = () => {
                         <a className="btn facebook-link" href="https://www.facebook.com/100WhoCareAlliance/">
                             <i className="fa fa-facebook-official"/>
                         </a>
-                <p className="text-muted d-block"><i className="fa fa-copyright"/>2016</p>
+                <p className="text-muted d-block"><i className="fa fa-copyright"/>2017</p>
             </div>
         </div>
     );
