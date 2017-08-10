@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player';
 class HomePage extends React.Component {
     render() {
         const introDivStyle = {
-            backgroundImage: `url(${require('../../assets/MaroonBells.jpg')})`,
+            backgroundImage: `url(${require('../../assets/together.jpg')})`,
             backgroundSize: 'cover',
             textAlign: 'center',
             backgroundRepeat:'no-repeat',
@@ -17,8 +17,13 @@ class HomePage extends React.Component {
 
                 <div id="home-page-main" className="home-page-main-intro" style={introDivStyle}>
                     <div className="home-page-intro-text-container">
-                        <h1 className="home-page-main-text-hundred">100</h1>
-                        <h3 className="home-page-main-subtext">Men who care</h3>
+                        <h1 className="home-page-main-text-hundred col-sm-12">100</h1>
+                        <h3 className="home-page-main-subtext col-sm-12">Men who care</h3>
+                        <hr width="50%" size="2px" color="white"/>
+                        <h3 className="home-page-main-subtext-together col-sm-12">Together</h3>
+                        <h3 className="home-page-main-subtext-difference col-sm-12">We will make a difference</h3>
+                        <button className="learn-more-btn offset-sm-4 col-sm-2 btn btn-lg">Learn more</button>
+                        <button className="contact-btn col-sm-2 btn btn-lg">Contact</button>
                     </div>
                 </div>
 

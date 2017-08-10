@@ -22,6 +22,7 @@ a:hover{
 
 //buttons standard
 .btn {
+  border-radius: 0;
   border: none;
   outline: none;
   @include btn-transition(0.5s);
@@ -32,6 +33,7 @@ a:hover{
 }
 
 button{
+  border-radius: 0;
   border:none;
   outline: none;
   @include btn-transition(0.5s);
