@@ -22,8 +22,14 @@ class HomePage extends React.Component {
                         <hr width="50%" size="2px" color="white"/>
                         <h3 className="home-page-main-subtext-together col-sm-12">Together</h3>
                         <h3 className="home-page-main-subtext-difference col-sm-12">We will make a difference</h3>
-                        <button className="learn-more-btn offset-sm-4 col-sm-2 btn btn-lg">Learn more</button>
-                        <button className="contact-btn col-sm-2 btn btn-lg">Contact</button>
+                    </div>
+                    <div className="col-xs-12">
+                        <div className="offset-sm-3 col-xs-12 col-sm-3">
+                            <Link to="about" className="ghost-white-button about-btn btn btn-lg">About</Link>
+                        </div>
+                        <div className="col-xs-12 col-sm-3">
+                            <Link to="contact" className="ghost-white-button contact-btn btn btn-lg">Contact</Link>
+                        </div>
                     </div>
                 </div>
 

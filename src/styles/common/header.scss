@@ -16,17 +16,20 @@
     position: relative;
   }
   .main-brand:hover{
-    color: $coYellow;
+    //color: $coYellow;
+    color:grey;
   }
   a {
     position: relative;
-    color: $coWhite;
+    //color: $coWhite;
+    color: grey;
     z-index: 2;
   }
   .navbar-nav {
     div{
       top:0;
-      background-color: $coYellow;
+      //background-color: $coYellow;
+      background-color: grey;
       position: absolute;
       height: 0px;
       display: block;
@@ -63,11 +66,13 @@
         height: 54px;
       }
       a{
-        color: $coBlue;
+        //color: $coBlue;
+        color:$coWhite;
       }
     }
     a.active {
-      color: $coYellow;
+      //color: $coYellow;
+      color: black;
     }
     margin-top: 2px;
     margin-bottom: 5px;
@@ -76,7 +81,8 @@
   .navbar-toggler{
     border: none;
     outline: 0;
-    color: $coYellow;
+    //color: $coYellow;
+    color: grey;
     position: relative;
     cursor: pointer;
   }
@@ -99,7 +105,7 @@
       }
       .nav-item:hover{
         a{
-          color:$coYellow;
+          color:black;
         }
       }
     }

@@ -5,6 +5,8 @@
   min-width: 100%;
   min-height: 1000px;
   .home-page-intro-text-container{
+    //font-family: Arial;
+    text-align: center;
     color: whitesmoke;
     margin-bottom: -10px;
     text-shadow: 1px 1px $dark;
@@ -15,6 +17,9 @@
       letter-spacing: 40px;
       @include breakpoint(small){
         padding-top:25%;
+      }
+      @include breakpoint(smaller){
+        letter-spacing: 10px;
       }
       @include breakpoint(extra-small){
         padding-top: 50%;
@@ -32,14 +37,16 @@
       font-weight: 300;
       letter-spacing: 10px;
     }
-    .learn-more-btn{
-      background-color: ghostwhite;
-      color: $dark;
+  }
+  .about-btn{
+    @include breakpoint(smaller){
+      margin-top: 10px;
     }
-    .contact-btn{
-      background-color: ghostwhite;
-      color: $dark;
-      margin-left: 20px;
+  }
+  .contact-btn{
+    margin-left: 5px;
+    @include breakpoint(smaller){
+      margin: 10px 0 0 0;
     }
   }
 }
@@ -97,7 +104,6 @@
     width: 100%;
     @include breakpoint(extra-small){
       font-size: 14px;
-      //width:100%;
       padding: 8px 10px;
     }
   }

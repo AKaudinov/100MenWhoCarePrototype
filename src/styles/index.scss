@@ -11,7 +11,10 @@
 
 html, body{
   height: 100%;
-  min-width: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 //links
@@ -44,6 +47,16 @@ button:focus{
   border:none;
 }
 
+.ghost-white-button{
+  background-color: ghostwhite;
+  color: $dark;
+  width: 100%;
+}
+
+.ghost-white-button:hover{
+  background-color: grey;
+  color: $coWhite;
+}
 
 .accept-dark-button {
   @include btn-transition(0.5s);

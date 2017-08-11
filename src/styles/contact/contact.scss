@@ -6,7 +6,7 @@
     @include breakpoint(extra-small){
       font-size: 18px;
     }
-    color: $coRed;
+    color: grey;
   }
 }
 
@@ -26,7 +26,7 @@
 
 .input-fields {
   label {
-    color: $coRed;
+    color: black;
     font-style: italic;
     font-weight: bold;
     font-size: 15px;
@@ -50,7 +50,7 @@
   }
 
   .news-letter-question, .receive-emails-question{
-    color: $coRed;
+    color: black;
     font: italic bold 15px arial, sans-serif;
   }
 
