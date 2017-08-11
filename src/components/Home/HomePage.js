@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player';
 class HomePage extends React.Component {
     render() {
         const introDivStyle = {
-            backgroundImage: `url(${require('../../assets/together.jpg')})`,
+            backgroundImage: `url(${require('../../assets/care.jpg')})`,
             backgroundSize: 'cover',
             textAlign: 'center',
             backgroundRepeat:'no-repeat',

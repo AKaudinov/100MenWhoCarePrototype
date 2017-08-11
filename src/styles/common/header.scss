@@ -21,15 +21,15 @@
   }
   a {
     position: relative;
-    //color: $coWhite;
-    color: grey;
+    color: $coWhite;
+    //color: darkslategrey;
     z-index: 2;
   }
   .navbar-nav {
     div{
       top:0;
       //background-color: $coYellow;
-      background-color: grey;
+      background-color: $dark;
       position: absolute;
       height: 0px;
       display: block;
@@ -82,7 +82,7 @@
     border: none;
     outline: 0;
     //color: $coYellow;
-    color: grey;
+    color: black;
     position: relative;
     cursor: pointer;
   }
