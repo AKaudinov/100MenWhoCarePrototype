@@ -67,42 +67,7 @@ const EventsPage = ({eventObj, errors, onChange, onSubmit, onCancel, fetchCallsI
                 <h2 className="display-4">Upcoming events</h2>
                 <hr className="events-horizontal-break-line"/>
                 <div className="events-view row">
-                    <h3 className="col-xs-12 create-event-header">Create an event</h3>
-                    <div className="event-name col-xs-12 col-sm-6">
-                        <TextInput
-                            name="name"
-                            label="Name"
-                            type="text"
-                            onChange={onChange}
-                            value={eventObj.name}
-                            error={errors.name}/>
-                    </div>
-                    <div className="event-date col-xs-12 col-sm-6">
-                        <TextInput
-                            name="date"
-                            label="Date"
-                            type="text"
-                            onChange={onChange}
-                            value={eventObj.date}
-                            error={errors.date}/>
-                    </div>
 
-                    <div className="event-description-text-area col-xs-12">
-                        <TextAreaInput name="description"
-                                       label="Description"
-                                       onChange={onChange}
-                                       value={eventObj.description}
-                                       error={errors.description}/>
-                    </div>
-
-                    <div className="submit-event col-xs-12 col-md-3">
-                        {fetchCallsInProgress > 0 ? eventSubmitButtonDisabled : eventSubmitButton}
-                    </div>
-                    <div className="cancel-event col-xs-12 col-md-3">
-                        <button className="btn btn-lg cancel-event-button btn-warning" onClick={onCancel}>
-                            Cancel
-                        </button>
-                    </div>
                     {displayEvents}
                 </div>
             </div>
@@ -122,3 +87,41 @@ EventsPage.propTypes = {
 
 
 export default EventsPage;
+
+
+/*<h3 className="col-xs-12 create-event-header">Create an event</h3>
+ <div className="event-name col-xs-12 col-sm-6">
+ <TextInput
+ name="name"
+ label="Name"
+ type="text"
+ onChange={onChange}
+ value={eventObj.name}
+ error={errors.name}/>
+ </div>
+ <div className="event-date col-xs-12 col-sm-6">
+ <TextInput
+ name="date"
+ label="Date"
+ type="text"
+ onChange={onChange}
+ value={eventObj.date}
+ error={errors.date}/>
+ </div>
+
+ <div className="event-description-text-area col-xs-12">
+ <TextAreaInput name="description"
+ label="Description"
+ onChange={onChange}
+ value={eventObj.description}
+ error={errors.description}/>
+ </div>
+
+ <div className="submit-event col-xs-12 col-md-3">
+ {fetchCallsInProgress > 0 ? eventSubmitButtonDisabled : eventSubmitButton}
+ </div>
+ <div className="cancel-event col-xs-12 col-md-3">
+ <button className="btn btn-lg cancel-event-button btn-warning" onClick={onCancel}>
+ Cancel
+ </button>
+ </div>*/

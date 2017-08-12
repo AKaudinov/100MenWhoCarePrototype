@@ -3,25 +3,27 @@
 //main intro image
 .home-page-main-intro{
   min-width: 100%;
-  min-height: 780px;
+  min-height: 1080px;
+  padding: 0;
+  margin: 0;
   .home-page-intro-text-container{
     //font-family: Arial;
     color: whitesmoke;
     margin-bottom: -10px;
     text-shadow: 1px 1px $dark;
     .home-page-main-text-hundred{
-      padding-top: 15%;
+      padding-top: 20%;
       font-weight: 300;
       font-size: 200px;
       letter-spacing: 40px;
       @include breakpoint(small){
-        padding-top:25%;
+        padding-top: 50%;
       }
       @include breakpoint(smaller){
         letter-spacing: 10px;
       }
       @include breakpoint(extra-small){
-        padding-top: 50%;
+        padding-top: 80%;
         font-size: 150px;
       }
     }

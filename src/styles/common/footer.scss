@@ -1,6 +1,10 @@
-@import '../mixins';
+@import '../mixins', '../baseColors';
 
 //footer styles
+//.site-footer{
+//  background-color: $dark;
+//}
+
 .horizontal-footer-break {
   margin-top: 50px;
   @include breakpoint(small){

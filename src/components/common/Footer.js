@@ -3,12 +3,12 @@ import '../../styles/common/footer.scss';
 
 const Footer = () => {
     return (
-        <div className="row">
+        <div className="row site-footer">
             <div className="horizontal-footer-break push-xs-1 col-xs-10">
                 <hr/>
             </div>
             <div className="watermark col-xs-12">
-                <p className="text-muted company-name">100 Who Care Colorado</p>
+                <p className="text-muted company-name">100 Men Who Care Colorado - Mile High Chapter</p>
                         <a className="btn facebook-link" href="https://www.facebook.com/100WhoCareAlliance/">
                             <i className="fa fa-facebook-official"/>
                         </a>

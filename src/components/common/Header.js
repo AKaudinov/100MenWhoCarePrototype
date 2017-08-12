@@ -23,7 +23,7 @@ class Header extends React.Component{
 
         return (
             <div className="header">
-                <nav className="navbar bg-warning">
+                <nav className="navbar navbar-fixed-top bg-warning">
 
                     <button className="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse"
                             data-target="#navContent" aria-controls="navContent" aria-expanded="false"
