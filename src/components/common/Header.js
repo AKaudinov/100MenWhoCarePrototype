@@ -35,7 +35,7 @@ class Header extends React.Component{
 
 
                     <div className="collapse navbar-toggleable-sm" id="navContent">
-                        <ul className="headerMenu nav navbar-nav float-xs-left float-md-right">
+                        <ul className="headerMenu nav navbar-nav">
                             <li className="nav-item">
                                 <div className="menu-home"/>
                                 <IndexLink to="/" activeClassName="active" className="nav-link">

@@ -6,8 +6,12 @@
   min-height: 1080px;
   padding: 0;
   margin: 0;
+  @include breakpoint(extra-small){
+    background-attachment: scroll !important;
+  }
   .home-page-intro-text-container{
     //font-family: Arial;
+    opacity: 0.8;
     color: whitesmoke;
     margin-bottom: -10px;
     text-shadow: 1px 1px $dark;

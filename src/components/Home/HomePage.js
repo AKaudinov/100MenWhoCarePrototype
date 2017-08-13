@@ -25,10 +25,10 @@ class HomePage extends React.Component {
                         <h3 className="home-page-main-subtext-difference col-sm-12">We will make a difference</h3>
                     </div>
                     <div className="col-xs-12">
-                        <div className="offset-sm-3 col-xs-12 col-sm-3">
+                        <div className="offset-sm-3 col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                             <Link to="about" className="ghost-white-button about-btn btn btn-lg">About</Link>
                         </div>
-                        <div className="col-xs-12 col-sm-3">
+                        <div className="col-xs-12 col-sm-3 col-md-3">
                             <Link to="contact" className="ghost-white-button contact-btn btn btn-lg">Contact</Link>
                         </div>
                     </div>
