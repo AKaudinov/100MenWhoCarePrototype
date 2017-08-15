@@ -6,7 +6,7 @@
   min-height: 1080px;
   padding: 0;
   margin: 0;
-  @include breakpoint(extra-small){
+  @include breakpoint(small){
     background-attachment: scroll !important;
   }
   .home-page-intro-text-container{
