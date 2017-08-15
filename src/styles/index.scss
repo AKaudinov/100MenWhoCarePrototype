@@ -1,7 +1,7 @@
 @import '_baseColors', '_mixins';
 
 html, body{
-  height: 100%; //trying to get the footer down
+  //height: 100%; //trying to get the footer down
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -13,8 +13,8 @@ html, body{
 #app {
   font: 15px 'Helvetica Neue', Helvetica, sans-serif;
   margin: 0 auto;
-  min-height: 100%; //trying to get footer down
-  position: relative; //trying to get footer down
+  //min-height: 100%; //trying to get footer down
+  //position: relative; //trying to get footer down
   .main{
     padding: 0;
     margin: 0;
@@ -23,7 +23,7 @@ html, body{
       margin: 0;
     }
     #main-container{
-      padding-bottom: 200px; //trying to get footer down
+      //padding-bottom: 200px; //trying to get footer down
     }
   }
 }
