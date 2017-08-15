@@ -1,21 +1,34 @@
 @import '_baseColors', '_mixins';
 
-#app {
-  font: 15px 'Helvetica Neue', Helvetica, sans-serif;
-  margin: 0 auto;
-  .main{
-    padding: 0;
-    margin: 0;
-  }
-}
-
 html, body{
-  //height: 100%;
+  //height: 100%; //trying to get the footer down
   width: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
 }
+
+
+
+#app {
+  font: 15px 'Helvetica Neue', Helvetica, sans-serif;
+  margin: 0 auto;
+  min-height: 100%; //trying to get footer down
+  position: relative; //trying to get footer down
+  .main{
+    padding: 0;
+    margin: 0;
+    .container-fluid{
+      padding: 0;
+      margin: 0;
+    }
+    #main-container{
+      padding-bottom: 200px; //trying to get footer down
+    }
+  }
+}
+
+
 
 //links
 a:hover{

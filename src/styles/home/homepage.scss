@@ -120,10 +120,12 @@
 }
 
 .member-statement {
+  color: ghostwhite;
   .member-statement-header {
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid $coWhite;
+    //margin-top: 5px;
+    //padding-top: 5px;
+    //border-top: 1px solid $coWhite;
+    margin-bottom: 20px;
     font-size: 18px;
     @include breakpoint(extra-small) {
       font-size: 16px;
@@ -131,8 +133,11 @@
   }
   .list-item{
     line-height: 20px;
-    @include breakpoint(small){
+    @include breakpoint(medium){
       margin-top: 15px;
+    }
+    @include breakpoint(small){
+      margin-top: 10px;
     }
     @include breakpoint(extra-small){
       font-size: 14px;

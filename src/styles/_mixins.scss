@@ -4,6 +4,11 @@
 }
 
 @mixin breakpoint($type){
+  @if $type == 'medium'{
+    @media screen and(max-width: 992px){
+      @content;
+    }
+  }
   @if $type == 'small'{
     @media screen and(max-width: 767px) {
       @content;

@@ -40,55 +40,32 @@ class HomePage extends React.Component {
                         <div className="container">
                             <div className="row">
                                 <div className="jumbo-1 col-xs-12">
-                                    <p className="lincoln-quote text-xs-center">"I have an irrepressible desire to live
-                                        so the world
-                                        is a little better for my having lived in it."</p>
-                                    <p className="lincoln text-xs-center">-Abraham Lincoln</p>
-                                    <div className="offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
-                                        <Link to="about" className="btn btn-lg accept-yellow-button" id="toAbout">About us</Link>
-                                    </div>
-                                    <div className="mission-statement text-xs-center col-xs-12">
-                                        <p className="mission-statement-main offset-md-3 col-md-6 col-xs-12 d-block">
-                                            100+ Men committed to contributing $100 four times a year to local
-                                            charities,
-                                            which will positively impact our communities by allowing us to give $40,000
-                                            + annually.
-                                            100% of our donations will be spent locally by the chosen charity</p>
-
-                                        <p className="mission-statement-footer col-xs-12 d-block">
-                                            <strong>Together</strong><br/>We will make a difference!</p>
-                                    </div>
-
                                     <div className="member-statement col-xs-12">
-                                        <p className="member-statement-header text-xs-center d-block">Why should you become a member?</p>
+                                        <h1 className="member-statement-header text-xs-center d-block">Why become a member?</h1>
 
-                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                        <div className="list-item text-xs-center col-md-6 col-lg-3 col-sm-12">
                                             You don’t have time in your busy life
                                             to volunteer but want to help those in need and can commit to
                                             90 minutes each quarter
                                         </div>
 
-                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                        <div className="list-item text-xs-center col-md-6 col-lg-3 col-sm-12">
                                             You are involved with other groups but
-                                            also
-                                            see the potential in this idea and are interested in adding it to your
-                                            charitable efforts
+                                            also see the potential in this idea and are interested
+                                            in adding it to your charitable efforts
                                         </div>
 
-                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                        <div className="list-item text-xs-center col-md-6 col-lg-3 col-sm-12">
                                             You want 100% of your donations to go
                                             directly to a local charity
                                         </div>
 
-                                        <div className="list-item text-xs-center col-md-3 col-sm-12">
+                                        <div className="list-item text-xs-center col-md-6 col-lg-3 col-sm-12">
                                             You want your $100 donation to
                                             become a part of a larger amount of money by joining together with other
                                             men,
                                             creating a powerful impact in our local area.
                                         </div>
-                                    </div>
-                                    <div className="contact-us-btn offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
-                                        <Link to="contact" className="btn btn-lg accept-yellow-button" id="toContactUs">Contact us</Link>
                                     </div>
                                 </div>
                             </div>
@@ -96,10 +73,12 @@ class HomePage extends React.Component {
                     </div>
                 </div>
 
-                <div className="homepage-card-section card-group">
+                <div className="row">
+                <div className="homepage-card-section card-group col-xs-12">
                     <div className="card">
-                        <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=NM2wtte1JRE" controls={true}
+                        <div className="video">
+                            <ReactPlayer url="https://www.youtube.com/watch?v=NM2wtte1JRE"
+                                         controls={true}
                                          width="100%"/>
                         </div>
                         <div className="card-block">
@@ -111,8 +90,9 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                     <div className="card">
-                        <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=89eaxsthTqc" controls={true}
+                        <div className="video">
+                            <ReactPlayer url="https://www.youtube.com/watch?v=89eaxsthTqc"
+                                         controls={true}
                                          width="100%"/>
                         </div>
                         <div className="card-block">
@@ -125,8 +105,9 @@ class HomePage extends React.Component {
                     </div>
 
                     <div className="card">
-                        <div className="yt-video">
-                            <ReactPlayer url="https://www.youtube.com/watch?v=I_PLLXgma9g" controls={true}
+                        <div className="video">
+                            <ReactPlayer url="https://www.youtube.com/watch?v=I_PLLXgma9g"
+                                         controls={true}
                                          width="100%"/>
                         </div>
                         <div className="card-block">
@@ -138,6 +119,7 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                 </div>
+                    </div>
             </div>
         );
     }
@@ -187,4 +169,31 @@ export default HomePage;
 //            <span className="sr-only">Next</span>
 //        </a>
 //    </div>
+//</div>
+
+//
+//
+//<p className="lincoln-quote text-xs-center">"I have an irrepressible desire to live
+//    so the world
+//    is a little better for my having lived in it."</p>
+//<p className="lincoln text-xs-center">-Abraham Lincoln</p>
+//<div className="offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
+//    <Link to="about" className="btn btn-lg accept-yellow-button" id="toAbout">About us</Link>
+//</div>
+//<div className="mission-statement text-xs-center col-xs-12">
+//    <p className="mission-statement-main offset-md-3 col-md-6 col-xs-12 d-block">
+//    100+ Men committed to contributing $100 four times a year to local
+//charities,
+//    which will positively impact our communities by allowing us to give $40,000
+//+ annually.
+//100% of our donations will be spent locally by the chosen charity</p>
+//
+//<p className="mission-statement-footer col-xs-12 d-block">
+//    <strong>Together</strong><br/>We will make a difference!</p>
+//</div>
+
+
+//
+//<div className="contact-us-btn offset-md-4 col-md-4 offset-sm-3 col-sm-6 offset-xs-2 col-xs-8">
+//    <Link to="contact" className="btn btn-lg accept-yellow-button" id="toContactUs">Contact us</Link>
 //</div>

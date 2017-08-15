@@ -3,7 +3,8 @@ import '../../styles/common/footer.scss';
 
 const Footer = () => {
     return (
-        <div className="row site-footer">
+        <div className="site-footer">
+            <div className="row">
             <div className="horizontal-footer-break push-xs-1 col-xs-10">
                 <hr/>
             </div>
@@ -13,6 +14,7 @@ const Footer = () => {
                             <i className="fa fa-facebook-official"/>
                         </a>
                 <p className="text-muted d-block"><i className="fa fa-copyright"/>2017</p>
+            </div>
             </div>
         </div>
     );
