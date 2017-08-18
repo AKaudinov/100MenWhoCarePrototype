@@ -5,9 +5,9 @@ import Footer from './common/Footer';
 class App extends React.Component {
     render(){
         return(
-          <div className="main">
+          <div className="main container-fluid">
               <Header />
-              <div id="main-container" className="container-fluid">
+              <div id="main-container">
                 {this.props.children}
               </div>
               <Footer />
