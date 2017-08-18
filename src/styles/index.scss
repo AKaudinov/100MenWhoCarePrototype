@@ -3,13 +3,13 @@
 html, body{
   height: 100%; //trying to get the footer down
   width: 100%;
-  margin: 0px;
-  padding: 0px;
-  //overflow-x: hidden;
-}
-body{
+  //margin: 0px;
+  //padding: 0px;
   overflow-x: hidden;
 }
+//body{
+//  overflow-x: hidden;
+//}
 
 
 
@@ -20,8 +20,8 @@ body{
   position: relative; //trying to get footer down
   padding-bottom: 200px;
   .main{
-    padding: 0;
-    margin: 0;
+    //padding: 0;
+    //margin: 0;
     //.container-fluid{
     //  padding: 0;
     //  margin: 0;

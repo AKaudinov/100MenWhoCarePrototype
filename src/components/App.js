@@ -6,11 +6,13 @@ class App extends React.Component {
     render(){
         return(
           <div className="main container-fluid">
+              <div className="row">
               <Header />
               <div id="main-container">
                 {this.props.children}
               </div>
               <Footer />
+                  </div>
           </div>
         );
     }
