@@ -1,5 +1,6 @@
 import React from 'react';
 import {IndexLink} from 'react-router';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/about/about.scss';
 
 class AboutPage extends React.Component {
@@ -10,7 +11,8 @@ class AboutPage extends React.Component {
                     <div className="container">
                         <h4 className="about-us-header display-4">About us</h4>
                         <hr className="about-us-horizontal-break"/>
-                        <div className="about-us-text">
+                        <div className="row">
+                        <div className="about-us-text col-xs-12 col-lg-6">
                             <p>We are not a charity.  We facilitate giving to local charities.
 
                                 Checks are made directly to the charity.  We hold quarterly events
@@ -56,6 +58,18 @@ class AboutPage extends React.Component {
 
                                     board and any members who want to show up.</li>
                             </ul>
+                        </div>
+                            <div className="col-xs-12 col-lg-6 about-img-container">
+                                <ReactCSSTransitionGroup
+                                transitionName="about-us-img-transition"
+                                transitionAppear={true}
+                                transitionAppearTimeout={1000}
+                                transitionEnter={false}
+                                transitionLeave={false}>
+                                <img key="about-us-image" className="who-care-image-about"
+                                     src={require('../../assets/100WhoCareColorado.png')}/>
+                                </ReactCSSTransitionGroup>
+                            </div>
                         </div>
                     </div>
                 </div>
