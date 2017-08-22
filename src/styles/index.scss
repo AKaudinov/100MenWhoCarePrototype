@@ -27,6 +27,7 @@ html, body{
     //  margin: 0;
     //}
     #main-container{
+      overflow-x: hidden; //overflows on home page, hide overflowing.
       //padding-bottom: 200px; //trying to get footer down
     }
   }

@@ -2,7 +2,7 @@
 
 //footer styles
 .site-footer{
-  overflow-x:hidden;
+  overflow-x:hidden; //hide the overflows because it creates white space on the right side of a site.
   background-color: $dark;
   position: absolute;
   bottom:0;
