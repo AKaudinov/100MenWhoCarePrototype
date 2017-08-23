@@ -128,3 +128,22 @@
   }
 }
 //navbar header responsiveness
+
+.header-new{
+  height: 40px;
+}
+
+.sidebar{
+  overflow-x: hidden;
+  z-index: 1000;
+  position: absolute;
+  left: -300px;
+  top: 40px;
+  bottom: 200px;
+  width: 200px;
+  transition: left 0.3s ease-out;
+  background-color: orange;
+  &.open{
+    left: 0;
+  }
+}

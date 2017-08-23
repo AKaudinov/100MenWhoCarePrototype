@@ -24,7 +24,7 @@ class Header extends React.Component{
         return (
             <div className="header">
                 <nav className="navbar navbar-fixed-top bg-warning">
-                    <button className="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse"
+                    <button className="navbar-toggler hidden-md-up float-xs-left" type="button" data-toggle="collapse"
                             data-target="#navContent" aria-controls="navContent" aria-expanded="false"
                             aria-label="Toggle navigation" onClick={this.onNavToggle}>
                         {this.state.navBarOpen
