@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
-import SideBar from './SideBar';
+//import SideBar from './SideBar';
 import '../../styles/common/header.scss';
 
 class HeaderNew extends React.Component{

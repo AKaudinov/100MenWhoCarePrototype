@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import Header from './common/Header';
-import HeaderNew from './common/HeaderNew';
+//import HeaderNew from './common/HeaderNew';
 import Footer from './common/Footer';
 //<Header />
 class App extends React.Component {
