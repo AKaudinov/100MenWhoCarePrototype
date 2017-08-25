@@ -25,3 +25,21 @@
     }
   }
 }
+
+@mixin minBreakPoint($type){
+  @if $type == 'small'{
+    @media screen and (min-width: 768px){
+      @content;
+    }
+  }
+  @if $type == 'smaller'{
+    @media screen and (min-width: 576px){
+      @content;
+    }
+  }
+  @if $type == 'extra-small'{
+    @media screen and (min-width: 481px){
+      @content;
+    }
+  }
+}
