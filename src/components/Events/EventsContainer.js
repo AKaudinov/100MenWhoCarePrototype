@@ -20,7 +20,8 @@ export class EventsContainer extends React.Component {
                 date: ''
             },
             errors: {},
-            events: []
+            events: [],
+            dataRetrieveError: ''
         };
 
         this.updateStateEventObj = this.updateStateEventObj.bind(this);
@@ -30,6 +31,16 @@ export class EventsContainer extends React.Component {
         this.isEventValid = this.isEventValid.bind(this);
         this.onSuccessfullEventSubmit = this.onSuccessfullEventSubmit.bind(this);
         this.onFailedEventSubmit = this.onFailedEventSubmit.bind(this);
+    }
+
+    componentWillMount(){
+        this.props.actions.getEvents()
+        .then(() => {
+            return this.setState({events: this.props.events.data});
+        })
+        .catch(() => {
+            return this.setState({dataRetrieveError: this.props.events.dataRetrieveError})
+        });
     }
 
     updateStateEventObj(event) {
@@ -142,6 +153,7 @@ export class EventsContainer extends React.Component {
                         onSubmit={this.onSubmit}
                         onCancel={this.onCancel}
                         fetchCallsInProgress = {this.props.fetchCallsInProgress}
+                        dataRetrieveError = {this.state.dataRetrieveError}
                         retrievedEvents={this.state.events}/>
         );
     }

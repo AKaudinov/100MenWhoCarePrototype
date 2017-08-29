@@ -105,7 +105,7 @@ button:focus{
 .standard-in-progress-button-icon{
   position: absolute;
   left: 30px;
-  @include breakpoint(tablet){
+  @include breakpoint(small){
     left: 20px;
   }
 }

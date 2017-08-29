@@ -8,6 +8,22 @@
   font-style: oblique;
 }
 
+.events-loading-container{
+  margin-bottom: 50px;
+  position: relative;
+  .events-loading{
+    position: absolute;
+    left: 50%;
+    @include breakpoint(extra-small){
+      left: 45%;
+    }
+  }
+}
+.event-retrieval-error{
+  text-align: center;
+  color: red;
+}
+
 .events-view{
   label{
     color:$coRed;

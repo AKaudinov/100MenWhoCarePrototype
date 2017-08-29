@@ -54,6 +54,11 @@ class api {
         //return s3.getObject(s3Params).promise()
         //.then(data => data.Body).catch(err => err);
     }
+
+    static GetEvents(){
+        let fetchRequest = request('get', 'events');
+        return fetch(fetchRequest).then(response => response.json());
+    }
 }
 
 export default api;
