@@ -39,7 +39,7 @@ export class EventsContainer extends React.Component {
             return this.setState({events: this.props.events.data});
         })
         .catch(() => {
-            return this.setState({dataRetrieveError: this.props.events.dataRetrieveError})
+            return this.setState({dataRetrieveError: this.props.events.dataRetrieveError});
         });
     }
 

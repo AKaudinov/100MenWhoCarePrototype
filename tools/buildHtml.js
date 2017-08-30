@@ -12,10 +12,11 @@ fs.readFile('src/index.html', 'utf8', (err, markup) =>{
 
     let vendorCss = '<link rel="stylesheet" href="vendorStyles.css">';
     let appCss = '<link rel="stylesheet" href="appStyles.css">';
+    let favicon = '<link rel="shortcut icon href="favicon.ico">';
 
     const $ = cheerio.load(markup); //pass in the read html file to cheerio, it will create an in memory dom
 
-    $('head').prepend(vendorCss, appCss);
+    $('head').prepend(vendorCss, appCss, favicon);
 
     fs.writeFile('dist/index.html', $.html(), 'utf8', err =>{
        if(err){

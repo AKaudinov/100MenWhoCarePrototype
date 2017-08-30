@@ -7,14 +7,14 @@ import '../../styles/contact/contact.scss';
 const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetchCallsInProgress, errors}) => {
 
     let sendButton = (
-        <button className="btn btn-lg accept-dark-button" onClick={onSend}>
+        <button className="btn btn-lg accept-orange-button" onClick={onSend}>
             Send
         </button>
     );
 
     let disabledSendButton = (
-        <button className="btn btn-lg accept-dark-button" disabled>
-            <ChasingDots color="white" size={25} className="standard-in-progress-button-icon"/> Sending
+        <button className="btn btn-lg accept-orange-button" disabled>
+            <ChasingDots color="black" size={25} className="standard-in-progress-button-icon"/> Sending
         </button>
     );
 
@@ -126,7 +126,7 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
                                         {fetchCallsInProgress > 0 ? disabledSendButton : sendButton}
                                     </div>
                                 <div className="cancel-contact col-xs-12 col-md-3">
-                                    <button className="btn btn-lg btn-warning cancel-contact-button" onClick={onCancel}>
+                                    <button className="btn btn-lg cancel-gray-button" onClick={onCancel}>
                                         Cancel
                                     </button>
                                 </div>

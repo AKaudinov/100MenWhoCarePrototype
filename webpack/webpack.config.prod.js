@@ -46,6 +46,10 @@ export default {
             {
                 test:/\.(png|jpe?g|gif)$/,
                 use: 'file-loader?name=assets/[name].[hash].[ext]?'
+            },
+            {
+                test:/\.ico$/,
+                use:'file-loader?name=[name].[ext]'
             }
         ]
     },

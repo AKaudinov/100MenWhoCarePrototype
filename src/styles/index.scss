@@ -76,36 +76,58 @@ button:focus{
   color: ghostwhite;
 }
 
-.accept-dark-button {
+.accept-orange-button{
+  @include  btn-transition(0.5s);
+  text-align: center;
+  background-color: $lightOrange;
+  color: $dark;
+  width:100%;
+  &:hover{
+    background-color: orange;
+  }
+}
+
+.cancel-gray-button{
   @include btn-transition(0.5s);
   text-align: center;
   background-color: $dark;
-  color: $coWhite;
+  color: ghostwhite;
   width: 100%;
+  &:hover{
+    background-color: darkslategrey;
+  }
 }
 
-.accept-dark-button:hover {
-  background-color: darkblue;
-  color: $coWhite;
-}
+//.accept-dark-button {
+//  @include btn-transition(0.5s);
+//  text-align: center;
+//  background-color: $dark;
+//  color: $coWhite;
+//  width: 100%;
+//}
+//
+//.accept-dark-button:hover {
+//  background-color: darkblue;
+//  color: $coWhite;
+//}
 
-.accept-yellow-button {
-  @include btn-transition(0.5s);
-  text-align: center;
-  background-color: $coYellow;
-  color: $dark;
-  width: 100%;
-}
-
-.accept-yellow-button:hover {
-  background-color: $broncosOrange;
-  color: $dark;
-}
+//.accept-yellow-button {
+//  @include btn-transition(0.5s);
+//  text-align: center;
+//  background-color: $coYellow;
+//  color: $dark;
+//  width: 100%;
+//}
+//
+//.accept-yellow-button:hover {
+//  background-color: $broncosOrange;
+//  color: $dark;
+//}
 
 .standard-in-progress-button-icon{
   position: absolute;
   left: 30px;
-  @include breakpoint(small){
+  @include breakpoint(smaller){
     left: 20px;
   }
 }

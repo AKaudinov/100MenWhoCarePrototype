@@ -32,23 +32,6 @@
     font-size: 15px;
   }
 
-  .submit-contact-button {
-    @include btn-transition(0.5s);
-    text-align: center;
-    background-color: $dark;
-    color: $coWhite;
-    width: 100%;
-  }
-
-  .submit-contact-button:hover {
-    background-color: darkblue;
-  }
-
-  .cancel-contact-button{
-    text-align: center;
-    width: 100%;
-  }
-
   .news-letter-question, .receive-emails-question{
     color: black;
     font: italic bold 15px arial, sans-serif;
@@ -70,7 +53,7 @@
     width: 25px;
     border-radius: 15%;
     color: white;
-    background-color: orange;
+    background-color: $lightOrange;
     cursor: pointer;
   }
 
@@ -80,7 +63,7 @@
 
 
   .contact-checkbox-unchecked{
-    box-shadow: inset 0 0 0 2px orange;
+    box-shadow: inset 0 0 0 2px $lightOrange;
     background-color: white;
     .fa{
       visibility: hidden;
