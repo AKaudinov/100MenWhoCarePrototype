@@ -31,10 +31,11 @@
 
 .facebook-link {
   color: darkgray;
+  &:hover{
+    color: white;
+  }
+  .facebook-logo-footer{
+    margin: 10px 0;
+  }
 }
-
-.facebook-link:hover {
-  color: white;
-}
-
 //footer styles end

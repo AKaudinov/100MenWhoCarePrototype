@@ -28,7 +28,7 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
                 <div className="container">
                     <h4 className="contact-us-header display-4">Contact us</h4>
                     <hr className="contact-us-horizontal-line-break"/>
-                    <form>
+                    <form className="contact-us-form">
                         <div className="row">
                             <div className="input-fields">
                                 <div className="contact-user-info">
@@ -40,8 +40,7 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
                                             onChange={onChange}
                                             placeHolder="ex: John"
                                             value={contact.firstName}
-                                            error={errors.firstName}
-                                        />
+                                            error={errors.firstName}/>
                                     </div>
 
                                     <div className="contact-lastName col-xs-12 col-md-6">

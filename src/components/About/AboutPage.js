@@ -1,5 +1,4 @@
 import React from 'react';
-import {IndexLink} from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../styles/about/about.scss';
 
@@ -66,8 +65,8 @@ class AboutPage extends React.Component {
                                 transitionAppearTimeout={1000}
                                 transitionEnter={false}
                                 transitionLeave={false}>
-                                <img key="about-us-image" className="who-care-image-about"
-                                     src={require('../../assets/100WhoCareColorado.png')}/>
+                                    <img key="about-us-image" className="who-care-image-about"
+                                         src={require('../../assets/100WhoCareColorado.png')}/>
                                 </ReactCSSTransitionGroup>
                             </div>
                         </div>

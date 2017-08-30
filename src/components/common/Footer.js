@@ -10,8 +10,8 @@ const Footer = () => {
             </div>
             <div className="copyright-info col-xs-12">
                 <p className="text-muted company-name">100 Men Who Care Colorado - Mile High Chapter</p>
-                        <a className="btn facebook-link" href="https://www.facebook.com/100MenDenverChapter/">
-                            <i className="fa fa-2x fa-facebook-official"/>
+                        <a className="facebook-link" href="https://www.facebook.com/100MenDenverChapter/">
+                            <i className="fa fa-2x fa-facebook-official facebook-logo-footer"/>
                         </a>
                 <p className="text-muted d-block"><i className="fa fa-copyright"/>2017</p>
             </div>

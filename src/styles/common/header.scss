@@ -136,11 +136,11 @@
   width: 100%;
   background-color: $lightOrange;
   text-align: left;
-  //position: fixed;
 }
 
 
 .sidebar-toggler{
+  box-shadow: 0 0 0 transparent;
   background-color: transparent;
   cursor: pointer;
   color: $dark;

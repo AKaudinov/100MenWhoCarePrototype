@@ -1,39 +1,22 @@
 @import '_baseColors', '_mixins';
 
 html, body{
-  height: 100%; //trying to get the footer down
+  height: 100%; //get the footer down
   width: 100%;
-  //margin: 0px;
-  //padding: 0px;
-  //overflow-x: hidden;
 }
-//body{
-//  overflow-x: hidden;
-//}
-
-
 
 #app {
   font: 15px 'Helvetica Neue', Helvetica, sans-serif;
   margin: 0 auto;
-  min-height: 100%; //trying to get footer down
-  position: relative; //trying to get footer down
+  min-height: 100%; //get footer down
+  position: relative; //get footer down
   padding-bottom: 200px;
   .main{
-    //padding: 0;
-    //margin: 0;
-    //.container-fluid{
-    //  padding: 0;
-    //  margin: 0;
-    //}
     #main-container{
       overflow-x: hidden; //overflows on home page, hide overflowing.
-      //padding-bottom: 200px; //trying to get footer down
     }
   }
 }
-
-
 
 //links
 a:hover{
@@ -47,10 +30,13 @@ a:hover{
   border: none;
   outline: none;
   @include btn-transition(0.5s);
-}
-
-.btn:focus{
-  outline:none;
+  @include btn-shadow();
+  &:focus{
+    outline:none;
+  }
+  &:hover{
+    @include btn-shadow-hover();
+  }
 }
 
 button{
@@ -58,22 +44,23 @@ button{
   border:none;
   outline: none;
   @include btn-transition(0.5s);
+  @include btn-shadow();
+  &:focus{
+    outline:none;
+    border:none;
+  }
+  &:hover{
+    @include btn-shadow-hover();
+  }
 }
-
-button:focus{
-  outline:none;
-  border:none;
-}
-
 .ghost-white-button{
   background-color: ghostwhite;
   color: $dark;
   width: 100%;
-}
-
-.ghost-white-button:hover{
-  background-color: $dark;
-  color: ghostwhite;
+  &:hover{
+    background-color: $dark;
+    color: ghostwhite;
+  }
 }
 
 .accept-orange-button{
@@ -98,32 +85,6 @@ button:focus{
   }
 }
 
-//.accept-dark-button {
-//  @include btn-transition(0.5s);
-//  text-align: center;
-//  background-color: $dark;
-//  color: $coWhite;
-//  width: 100%;
-//}
-//
-//.accept-dark-button:hover {
-//  background-color: darkblue;
-//  color: $coWhite;
-//}
-
-//.accept-yellow-button {
-//  @include btn-transition(0.5s);
-//  text-align: center;
-//  background-color: $coYellow;
-//  color: $dark;
-//  width: 100%;
-//}
-//
-//.accept-yellow-button:hover {
-//  background-color: $broncosOrange;
-//  color: $dark;
-//}
-
 .standard-in-progress-button-icon{
   position: absolute;
   left: 30px;
@@ -137,4 +98,5 @@ button:focus{
 .jumbotron{
   border-radius: 0px;
   margin: 0;
+  background-color: transparent;
 }

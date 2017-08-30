@@ -3,6 +3,14 @@
   transition: $seconds ease;
 }
 
+@mixin btn-shadow(){
+  box-shadow: 1px 2px black;
+}
+
+@mixin btn-shadow-hover(){
+  box-shadow: 0 0 0 transparent;
+}
+
 @mixin breakpoint($type){
   @if $type == 'medium'{
     @media screen and(max-width: 992px){
