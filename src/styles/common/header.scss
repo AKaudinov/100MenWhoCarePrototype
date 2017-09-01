@@ -1,94 +1,7 @@
 @import '../baseColors', '../mixins';
 
-//logo style
-.logo {
-  max-height: 30px;
-}
-//logo style end
-
-
-//navbar header styles
 .header {
   margin-bottom: 30px;
-  .navbar{
-    border-radius: 0px;
-  }
-  .navbar-brand{
-    position: relative;
-  }
-  .main-brand:hover{
-    //color: $coYellow;
-    color:grey;
-  }
-  .nav-item {
-    background-color: $lightOrange; //new
-    padding: 10px; //new
-    border-radius: 2px; //new
-    a {
-      position: relative;
-      color: ghostwhite;
-      //color: darkslategrey;
-      z-index: 2;
-    }
-  }
-  .navbar-nav {
-    display: inline-block; //new
-    vertical-align: top; //new
-
-    //div{
-    //  top:0;
-    //  //background-color: $coYellow;
-    //  background-color: $dark;
-    //  position: absolute;
-    //  height: 0px;
-    //  display: block;
-    //  transition: height 0.5s;
-    //  z-index: 1;
-    //}
-    //.menu-home{
-    //  @extend div;
-    //  width: 68px;
-    //  margin-left: -4px;
-    //}
-    //.menu-about{
-    //  @extend div;
-    //  width: 68px;
-    //  margin-left: -5px;
-    //}
-    //.menu-gallery{
-    //  @extend div;
-    //  width: 78px;
-    //  margin-left: -5px;
-    //}
-    //.menu-contact{
-    //  @extend div;
-    //  width: 82px;
-    //  margin-left: -5px;
-    //}
-    //.menu-events{
-    //  @extend div;
-    //  width: 74px;
-    //  margin-left: -5px;
-    //}
-    .nav-item:hover{
-      //div{
-      //  height: 54px;
-      //}
-      background-color: darkorange;
-      a{
-        //color: $coBlue;
-        //color:$coWhite;
-        //color: $dark;
-      }
-    }
-    a.active {
-      //color: $coYellow;
-      color: black;
-    }
-    margin-top: 2px;
-    margin-bottom: 5px;
-  }
-
   .navbar-toggler{
     border: none;
     outline: 0;
@@ -99,35 +12,6 @@
     font-size: 1.7em;
   }
 }
-//navbar header styles end
-
-//navbar header responsiveness
-@media(max-width: 767px) {
-
-  .navbar-nav .nav-item + .nav-item{
-    margin-left:0;
-  }
-  //.nav-item{
-  //  margin-left: 10px !important;
-  //}
-  #navContent {
-    clear: both;
-  }
-  .header{
-    .navbar-nav{
-      div{
-        display: none;
-      }
-      .nav-item:hover{
-        a{
-          color:black;
-        }
-      }
-    }
-
-  }
-}
-//navbar header responsiveness
 
 .header-new{
   padding-top: 8px;
