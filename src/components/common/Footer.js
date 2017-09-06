@@ -13,7 +13,7 @@ const Footer = () => {
                         <a className="facebook-link" href="https://www.facebook.com/100MenDenverChapter/">
                             <i className="fa fa-2x fa-facebook-official facebook-logo-footer"/>
                         </a>
-                <p className="text-muted d-block"><i className="fa fa-copyright"/>2017</p>
+                <p className="text-muted d-block"><i className="fa fa-copyright"/> {new Date().getFullYear()}</p>
             </div>
             </div>
         </div>

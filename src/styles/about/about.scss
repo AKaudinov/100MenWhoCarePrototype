@@ -64,6 +64,7 @@
 .about-us-img-transition-appear.about-us-img-transition-appear-active{
   animation-name: about-us-slide-in;
   animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @media screen and(max-width:1057px){
