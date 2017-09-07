@@ -19,6 +19,7 @@ class Header extends React.Component{
     /* <a className="navbar-brand" href="http://www.100whocarealliance.org/">
      <img className="logo" src={require('../../assets/100M_logo.png')}/>
      </a>*/
+
     render() {
 
         return (
