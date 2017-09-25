@@ -20,7 +20,6 @@ class HomePage extends React.Component {
                     <div className="home-page-intro-text-container">
                         <h1 className="home-page-main-text-hundred col-sm-12">100</h1>
                         <h3 className="home-page-main-subtext col-sm-12">Men who care</h3>
-                        <hr width="50%" size="2px" color="white"/>
                         <h3 className="home-page-main-subtext-together col-sm-12">Together</h3>
                         <h3 className="home-page-main-subtext-difference col-sm-12">We will make a difference</h3>
                     </div>

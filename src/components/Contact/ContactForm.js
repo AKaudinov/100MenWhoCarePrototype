@@ -4,7 +4,7 @@ import TextAreaInput from '../common/TextAreaInput';
 import {ChasingDots} from 'better-react-spinkit';
 import '../../styles/contact/contact.scss';
 
-const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetchCallsInProgress, errors}) => {
+const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, isSending, errors}) => {
 
     let sendButton = (
         <button className="btn btn-lg accept-orange-button" onClick={onSend}>
@@ -122,7 +122,7 @@ const ContactForm = ({contact, onChange, onPhoneKeyPress, onSend, onCancel, fetc
                                 </div>
 
                                     <div className="submit-contact col-xs-12 col-md-3">
-                                        {fetchCallsInProgress > 0 ? disabledSendButton : sendButton}
+                                        {isSending ? disabledSendButton : sendButton}
                                     </div>
                                 <div className="cancel-contact col-xs-12 col-md-3">
                                     <button className="btn btn-lg cancel-gray-button" onClick={onCancel}>
@@ -144,7 +144,7 @@ ContactForm.propTypes = {
     onPhoneKeyPress: PropTypes.func.isRequired,
     onSend: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
-    fetchCallsInProgress: PropTypes.number.isRequired,
+    isSending: PropTypes.bool.isRequired,
     errors: PropTypes.object
 };
 

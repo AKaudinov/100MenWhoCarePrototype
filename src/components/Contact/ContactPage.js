@@ -22,7 +22,8 @@ export class ContactPage extends React.Component {
                 message: '',
                 created: ''
             },
-            errors: {}
+            errors: {},
+            sending: false
         };
 
         this.updateContactInfoState = this.updateContactInfoState.bind(this);
@@ -120,11 +121,13 @@ export class ContactPage extends React.Component {
         event.preventDefault();
         let contactSetter = this.state.contact;
         if(this.isFormValid()) {
+            this.setState({sending: true});
             contactSetter.created = new Date();
             this.setState({contact: contactSetter});
             //this.props.dispatch(contactActions.submitContactForm(this.state.contact))
             this.props.actions.submitContactForm(this.state.contact)
             .then(() => {
+                this.setState({sending: false});
                if(this.props.contactUsResult.successfulMessage){
                    return this.onSuccessfulSubmit(this.props.contactUsResult.successfulMessage);
                }else{
@@ -193,7 +196,7 @@ export class ContactPage extends React.Component {
                 onPhoneKeyPress={this.onPhoneKeyPress}
                 onSend={this.submitContact}
                 onCancel={this.cancelContact}
-                fetchCallsInProgress={this.props.fetchCallsInProgress}
+                isSending={this.state.sending}
                 errors={this.state.errors}
             />
         );
@@ -203,7 +206,7 @@ export class ContactPage extends React.Component {
 ContactPage.propTypes = {
     actions: PropTypes.object.isRequired,
     contactUsResult: PropTypes.object.isRequired,
-    fetchCallsInProgress: PropTypes.number.isRequired
+    //fetchCallsInProgress: PropTypes.number.isRequired
 };
 
 ContactPage.contextTypes = {
@@ -212,8 +215,8 @@ ContactPage.contextTypes = {
 
 function mapStateToProps(state, ownprops){
 return{
-        contactUsResult: state.contactUsResult,
-        fetchCallsInProgress: state.fetchCallsInProgress
+        contactUsResult: state.contactUsResult
+        //fetchCallsInProgress: state.fetchCallsInProgress
     };
 }
 
