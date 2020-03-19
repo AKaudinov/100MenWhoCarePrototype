@@ -17,7 +17,8 @@ class HomePage extends React.Component {
             <div>
 
                 <div id="home-page-main" className="home-page-main-intro" style={introDivStyle}>
-                    <div className="home-page-intro-text-container">
+                    <div className="row">
+                    <div className="col-xs-12 home-page-intro-text-container">
                         <h1 className="home-page-main-text-hundred col-sm-12">100</h1>
                         <h3 className="home-page-main-subtext col-sm-12">Men who care</h3>
                         <h3 className="home-page-main-subtext-together col-sm-12">Together</h3>
@@ -30,6 +31,7 @@ class HomePage extends React.Component {
                         <div className="col-xs-12 col-sm-3 col-md-3">
                             <Link to="contact" className="ghost-white-button contact-btn btn btn-lg">Contact</Link>
                         </div>
+                    </div>
                     </div>
                 </div>
 
