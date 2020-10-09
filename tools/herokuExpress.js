@@ -1,11 +1,11 @@
-// import express from 'express';
-// import path from 'path';
-// import compression from 'compression';
+import express from 'express';
+import path from 'path';
+import compression from 'compression';
 // import colors from 'colors'; //eslint-disable-line no-unused-vars
 
-const compression = require('compression');
-const express = require('express');
-const path = require('path');
+// const compression = require('compression');
+// const express = require('express');
+// const path = require('path');
 
 
 /*eslint-disable no-unused-vars*/
