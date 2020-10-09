@@ -6,8 +6,8 @@ import colors from 'colors'; //eslint-disable-line no-unused-vars
 /*eslint-disable no-unused-vars*/
 /*eslint-disable no-console*/
 
-const port = process.env.PORT || 8000;
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(compression());
 app.use(express.static('dist'));
