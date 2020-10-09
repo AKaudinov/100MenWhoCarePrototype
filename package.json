@@ -19,7 +19,7 @@
     "postbuild": "babel-node tools/distExpress.js",
     "predeploy:heroku": "npm-run-all clean-dist build:html",
     "deploy": "npm run build:prodWebpack",
-    "postdeploy:heroku": "babel-node tools/herokuExpress.js",
+    "postdeploy:heroku": "node tools/herokuExpress.js",
     "heroku:deploy": "npm-run-all predeploy:heroku deploy postdeploy:heroku",
     "heroku-postbuild": "npm-run-all predeploy:heroku deploy postdeploy:heroku"
   },
@@ -109,5 +109,8 @@
     "webpack-dev-middleware": "^1.9.0",
     "webpack-dev-server": "2.2.0",
     "webpack-hot-middleware": "^2.14.0"
+  },
+  "engines":{
+    "node":"10.16.0"
   }
 }
