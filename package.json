@@ -20,7 +20,8 @@
     "predeploy:heroku": "npm-run-all clean-dist build:html",
     "deploy": "npm run build:prodWebpack",
     "postdeploy:heroku": "babel-node tools/herokuExpress.js",
-    "heroku:deploy": "npm-run-all predeploy:heroku deploy postdeploy:heroku"
+    "heroku:deploy": "npm-run-all predeploy:heroku deploy postdeploy:heroku",
+    "heroku-postbuild":"npm-run-all predeploy:heroku deploy postdeploy:heroku"
   },
   "author": "Amir Kaudinov",
   "license": "MIT",
