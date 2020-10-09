@@ -4,7 +4,7 @@
   "description": "100 who care web app",
   "scripts": {
     "prestart": "babel-node tools/devStartMessage.js",
-    "start": "npm-run-all --parallel open:srcExpress lint:watch test:watch",
+    "start": "babel-node tools/herokuExpress.js",
     "open:srcExpress": "babel-node tools/srcExpress.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
@@ -21,7 +21,7 @@
     "deploy": "npm run build:prodWebpack",
     "postdeploy:heroku": "babel-node tools/herokuExpress.js",
     "heroku:deploy": "npm-run-all predeploy:heroku deploy postdeploy:heroku",
-    "heroku-postbuild":"npm-run-all predeploy:heroku deploy postdeploy:heroku"
+    "heroku-postbuild":"npm-run-all predeploy:heroku deploy"
   },
   "author": "Amir Kaudinov",
   "license": "MIT",
