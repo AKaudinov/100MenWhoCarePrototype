@@ -26,6 +26,6 @@ app.listen(port, err => {
        console.log(err);
    }else{
        console.log(`listening on ${port}`);
-       require('heroku-self-ping')("https://denverco100menwhocare.herokuapp.com/");
+       // require('heroku-self-ping')("https://denverco100menwhocare.herokuapp.com/");
    }
 });
